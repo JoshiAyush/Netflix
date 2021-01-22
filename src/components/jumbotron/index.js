@@ -36,6 +36,7 @@ Jumbotron.Pane = function JumbotronPane({ children, ...restProps }) {
         </Pane>
     );
 }
+
 Jumbotron.Title = function JumbotronTitle({ children, ...restProps }) {
     return (
         <Title {...restProps}>
@@ -43,6 +44,7 @@ Jumbotron.Title = function JumbotronTitle({ children, ...restProps }) {
         </Title>
     );
 }
+
 Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...restProps }) {
     return (
         <SubTitle {...restProps}>
@@ -50,6 +52,7 @@ Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...restProps }) {
         </SubTitle>
     );
 }
+
 Jumbotron.Image = function JumbotronImage({ ...restProps }) {
     return (
         <Image {...restProps} />
