@@ -2,7 +2,7 @@ import faqsData from '../fixtures/faqs.json';
 
 import React from 'react';
 
-import { Accordion } from '../components/index';
+import { Accordion, OptForm } from '../components/index';
 
 export function FaqsContainer() {
     return (
@@ -16,9 +16,15 @@ export function FaqsContainer() {
                     </Accordion.Item>
                 ))
             }
-            <Accordion.Frame>
+            <Accordion.Item />
 
-            </Accordion.Frame>
+            <OptForm>
+                <OptForm.Input placeholder="Email address" />
+                <OptForm.Button>Try it now</OptForm.Button>
+                <OptForm.Text>
+                    Ready to watch? Enter your email to create or restart your membership
+                </OptForm.Text>
+            </OptForm>
         </Accordion>
     );
 }

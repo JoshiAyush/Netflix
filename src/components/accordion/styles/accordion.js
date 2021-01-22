@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 export const Item = styled.div`
-    width: 600px;
+    width: 75%;
 `;
 
 export const Header = styled.div`
@@ -66,6 +66,7 @@ export const Inner = styled.div`
     flex-direction: column;
     max-width: 815px;
     margin: auto;
+    align-items: center;
 `;
 
 export const Title = styled.div`
@@ -77,6 +78,6 @@ export const Title = styled.div`
     text-align: center;
 
     @media (max-width: 600px) {
-        font-size: 35px;
+        font-size: 30px;
     }
 `;
