@@ -1,6 +1,34 @@
 export function seedDatabase(firebase) {
+    /**
+     * @function seedDatabase() adds data entries to the firebase.
+     * @argument firebase is the firebase object for firebase authentication. 
+     */
+
     function getUUID() {
+        /**
+         * @function getUUID() generates a universal unique identifier.
+         * 
+         * A universally unique identifier (UUID) is a 128-bit number 
+         * used to identify information in computer systems. The term 
+         * globally unique identifier (GUID) is also used, typically in 
+         * software created by Microsoft. When generated according to the 
+         * standard methods, UUIDs are, for practical purposes, unique. 
+         */
+
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+            /**
+             * @function replace() is used to replace a part of the given 
+             * string with some another string or a regular expression.
+             * The original string will remain unchanged.
+             * 
+             * @syntax string.replace(regex, string);
+             * @parameter regex is a regular expression.
+             * @parameter string is the string which will replace the content
+             * of the given string. 
+             * 
+             * @return a new string with replaced value.
+             */
+
             const piece = (Math.random() * 16) | 0;
             const elem = c === 'x' ? piece : (piece & 0x3) | 0x8;
             return elem.toString(16);
@@ -50,8 +78,6 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'man-on-wire',
     });
-
-    // Comedies
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'The Office',
@@ -97,8 +123,6 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'south-park',
     });
-
-    // Children
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Peppa Pig',
@@ -144,8 +168,6 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'spongebob',
     });
-
-    // Crime
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Making a Murderer',
@@ -191,8 +213,6 @@ export function seedDatabase(firebase) {
         maturity: '18',
         slug: 'the-staircase',
     });
-
-    // Feel-good
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Good Will Hunting',
@@ -238,10 +258,6 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'school-of-rock',
     });
-
-    /* Films
-      ============================================ */
-    // Drama
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'The Prestige',
@@ -287,8 +303,6 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'the-social-network',
     });
-
-    // Suspense
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Shutter Island',
@@ -334,8 +348,6 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'zodiac',
     });
-
-    // Children
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Hotel Transylvania',
@@ -381,8 +393,6 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'up',
     });
-
-    // Thriller
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Joker',
@@ -428,8 +438,6 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'the-silence-of-the-lambs',
     });
-
-    // Romance
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'A Star Is Born',
