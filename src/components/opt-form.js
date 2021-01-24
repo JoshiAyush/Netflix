@@ -40,7 +40,7 @@ export const Button = styled.button`
     display: flex;
     align-items: center;
     height: 70px;
-    width: 40%;
+    width: ${({ width }) => width ? width : "40%"};
     background: #e50914;
     color: white;
     text-transform: uppercase;
