@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro';
 
+import React from 'react';
+
 export const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -23,6 +25,7 @@ export const Input = styled.input`
     border: 0;
     outline: none;
     padding: 10px;
+    padding-left: 20px;
     height: 70px;
     box-sizing: border-box;
     font-size: 20px;
@@ -45,6 +48,11 @@ export const Button = styled.button`
     border: 0;
     cursor: pointer;
     outline: none;
+    font-weight: bold;
+
+    &:hover {
+        background: #f40612;
+    }
 
     img {
         margin-left: 10px;
@@ -69,3 +77,34 @@ export const Text = styled.p`
         font-size: 10px;
     }
 `;
+
+
+export function OptForm({ children, ...restProps }) {
+    return (
+        <Container {...restProps}>
+            {children}
+        </Container>
+    );
+}
+
+OptForm.Input = function OptFormInput({ children, ...restProps }) {
+    return (
+        <Input {...restProps} />
+    );
+}
+
+OptForm.Button = function OptFormButton({ children, ...restProps }) {
+    return (
+        <Button {...restProps}>
+            {children} <img src="/images/icons/chevron-right.png" alt="Try Now" />
+        </Button>
+    );
+}
+
+OptForm.Text = function OptFormText({ children, ...restProps }) {
+    return (
+        <Text {...restProps}>
+            {children}
+        </Text>
+    );
+}

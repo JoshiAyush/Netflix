@@ -1,8 +1,9 @@
-import faqsData from '../fixtures/faqs.json';
+import faqsData from './fixtures/faqs.json';
 
 import React from 'react';
 
-import { Accordion, OptForm } from '../components/index';
+import { Accordion } from './accordion.js';
+import { OptForm } from './opt-form.js';
 
 export function FaqsContainer() {
     return (
