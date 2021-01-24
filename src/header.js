@@ -4,13 +4,15 @@ import styled from 'styled-components/macro';
 
 import { Link as ReactRouterLink } from 'react-router-dom';
 
-export const Background = styled.div``;
+const Background = styled.div``;
 
-export const Container = styled.div``;
+const Container = styled.div``;
 
-export const Logo = styled.img``;
+const Logo = styled.img``;
 
-export const Frame = styled.div``;
+const Frame = styled.div``;
+
+const Button = styled.button``;
 
 function Header({ bg = true, children, ...restProps }) {
     return (
@@ -30,7 +32,13 @@ Header.Logo = function HeaderLogo({ to, ...restProps }) {
     )
 }
 
-export function HeaderContainer({ children }) {
+Header.Button = function HeaderButton({ ...restProps }) {
+    return (
+        <Button {...restProps}></Button>
+    )
+}
+
+export function HeaderContainer() {
     return (
         <Header>
             <Header.Frame>

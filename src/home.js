@@ -8,7 +8,7 @@ import { JumbotronContainer } from './jumbotron';
 export default function Home() {
     return (
         <>
-            <HeaderContainer />
+            {/* <HeaderContainer /> */}
             <JumbotronContainer />
             <FaqsContainer />
             <FooterContainer />
