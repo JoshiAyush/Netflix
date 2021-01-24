@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import styled from 'styled-components/macro';
-import { HOME, SIGN_IN } from './constants';
+import { HOME, SIGN_IN } from '../constants';
 
 const Background = styled.div`
     display: flex;

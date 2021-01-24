@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import jumboData from './fixtures/jumbo.json';
+import jumboData from '../fixtures/jumbo.json';
 import React from 'react';
 
 export const Item = styled.div`

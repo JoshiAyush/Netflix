@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { FaqsContainer } from './faqs';
-import { FooterContainer } from './footer';
-import { HeaderContainer } from './header';
-import { JumbotronContainer } from './jumbotron';
-import { OptForm } from './opt-form';
+import { FaqsContainer } from '../containers/faqs';
+import { FooterContainer } from '../containers/footer';
+import { HeaderContainer } from '../containers/header';
+import { JumbotronContainer } from '../containers/jumbotron';
+import { OptForm } from '../components/opt-form';
 
-import Feature from './feature';
+import Feature from '../components/feature';
 
 export default function Home() {
     return (
