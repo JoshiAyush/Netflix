@@ -31,10 +31,26 @@ export function seedDatabase(firebase) {
 
             const piece = (Math.random() * 16) | 0;
             const elem = c === 'x' ? piece : (piece & 0x3) | 0x8;
+
             return elem.toString(16);
         });
     }
 
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Tiger King',
@@ -43,6 +59,22 @@ export function seedDatabase(firebase) {
         maturity: '18',
         slug: 'tiger-king',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Amanda Knox',
@@ -51,6 +83,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'amanda-knox',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Citizenfour',
@@ -60,6 +108,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'citizenfour',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Super Size Me',
@@ -69,6 +133,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'super-size-me',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Man on Wire',
@@ -78,6 +158,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'man-on-wire',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'The Office',
@@ -87,6 +183,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'the-office',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Arrested Development',
@@ -96,6 +208,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'arrested-development',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Curb Your Enthusiasm',
@@ -105,6 +233,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'curb-your-enthusiasm',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Family Guy',
@@ -114,6 +258,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'family-guy',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'South Park',
@@ -123,6 +283,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'south-park',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Peppa Pig',
@@ -132,6 +308,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'peppa-pig',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Dora The Explorer',
@@ -141,6 +333,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'dora-the-explorer',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'PAW Patrol',
@@ -150,6 +358,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'paw-patrol',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Arthur',
@@ -159,6 +383,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'arthur',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'SpongeBob',
@@ -168,6 +408,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'spongebob',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Making a Murderer',
@@ -177,6 +433,22 @@ export function seedDatabase(firebase) {
         maturity: '18',
         slug: 'making-a-murderer',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Long Shot',
@@ -186,6 +458,22 @@ export function seedDatabase(firebase) {
         maturity: '18',
         slug: 'long-shot',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'The Confession Killer',
@@ -195,6 +483,22 @@ export function seedDatabase(firebase) {
         maturity: '18',
         slug: 'the-confession-killer',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'The Innocent Man',
@@ -204,6 +508,22 @@ export function seedDatabase(firebase) {
         maturity: '18',
         slug: 'the-innocent-man',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'The Staircase',
@@ -213,6 +533,22 @@ export function seedDatabase(firebase) {
         maturity: '18',
         slug: 'the-staircase',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Good Will Hunting',
@@ -222,6 +558,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'good-will-hunting',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Forrest Gump',
@@ -231,6 +583,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'forrest-gump',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Juno',
@@ -240,6 +608,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'juno',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'Midnight In Paris',
@@ -249,6 +633,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'midnight-in-paris',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('series').add({
         id: getUUID(),
         title: 'School of Rock',
@@ -258,6 +658,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'school-of-rock',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'The Prestige',
@@ -267,6 +683,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'the-prestige',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Fight Club',
@@ -276,6 +708,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'fight-club',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Kings Speech',
@@ -285,6 +733,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'kings-speech',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'The Revenant',
@@ -294,6 +758,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'the-revenant',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'The Social Network',
@@ -303,6 +783,22 @@ export function seedDatabase(firebase) {
         maturity: '12',
         slug: 'the-social-network',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Shutter Island',
@@ -312,6 +808,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'shutter-island',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Gone Girl',
@@ -321,6 +833,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'gone-girl',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Prisoners',
@@ -330,6 +858,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'prisoners',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Seven',
@@ -339,6 +883,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'seven',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Zodiac',
@@ -348,6 +908,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'zodiac',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Hotel Transylvania',
@@ -357,6 +933,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'hotel-transylvania',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Despicable Me',
@@ -366,6 +958,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'despicable-me',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Frozen',
@@ -375,6 +983,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'frozen',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Spirited Away',
@@ -384,6 +1008,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'spirited-away',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Up',
@@ -393,6 +1033,22 @@ export function seedDatabase(firebase) {
         maturity: '0',
         slug: 'up',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Joker',
@@ -402,6 +1058,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'joker',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'A Quiet Place',
@@ -411,6 +1083,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'a-quiet-place',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Black Swan',
@@ -420,6 +1108,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'black-swan',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Nightcrawler',
@@ -429,6 +1133,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'nightcrawler',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'The Silence of The Lambs',
@@ -438,6 +1158,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'the-silence-of-the-lambs',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'A Star Is Born',
@@ -447,6 +1183,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'a-star-is-born',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Blue Valentine',
@@ -456,6 +1208,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'blue-valentine',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'La La Land',
@@ -465,6 +1233,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'la-la-land',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'The Notebook',
@@ -474,6 +1258,22 @@ export function seedDatabase(firebase) {
         maturity: '15',
         slug: 'the-notebook',
     });
+
+    /**
+     * @instance firebase is our admin object that provides access to the firestore
+     * 
+     * @function firestore() is the database itself it is a new feature of firebase 
+     * it provides following features,
+     * 
+     * -> Stores data in documents organized in collections.
+     * -> Simple data is easy to store in documents, which are very similar to JSON.
+     * -> Complex, hierarchical data is easier to organize at scale, using subcollections within documents.
+     * -> Requires less denormalization and data flattening. 
+     * 
+     * @function collection() is the collection in our database in our case it is `series`
+     * 
+     * @function add() adds the given data to the target collection in our database
+     */
     firebase.firestore().collection('films').add({
         id: getUUID(),
         title: 'Titanic',
