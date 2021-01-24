@@ -4,6 +4,7 @@ import React from 'react';
 
 export const Container = styled.div`
     display: flex;
+    flex-direction: ${({ flexDirection }) => flexDirection ? flexDirection : "row"};
     justify-content: center;
     flex-wrap: wrap;
     height: 100%;

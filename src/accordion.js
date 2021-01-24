@@ -55,6 +55,7 @@ const Body = styled.div`
     @media (max-width: 600px) {
         font-size: 16px;
         line-height: 22px;
+        padding: 0.8em 1.1em;
     }
 `;
 
