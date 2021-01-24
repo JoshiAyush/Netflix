@@ -8,6 +8,7 @@ const Background = styled.div`
     flex-direction: column;
     background: url(${({ src }) => (src ? `/images/misc/${src}.jpg` : `/images/misc/home-bg.jpg`)}) top left / cover no-repeat;
     color: white;
+    border-bottom: 8px solid #222;
 `;
 
 const Container = styled.div`
@@ -43,7 +44,7 @@ const Frame = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 60px 0;
+    margin: 60px auto;
 `;
 
 const Button = styled(ReactRouterLink)`

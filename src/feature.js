@@ -1,7 +1,13 @@
 import styled from 'styled-components/macro';
 import React from 'react';
 
-const Container = styled.div``;
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 45px;
+    align-items: center;
+`;
 
 const Title = styled.h1`
     color: white;
@@ -15,7 +21,16 @@ const Title = styled.h1`
     }
 `;
 
-const SubTitle = styled.h2``;
+const SubTitle = styled.h2`
+    color: white;
+    font-size: 26px;
+    font-weight: normal;
+    margin: auto;
+
+    @media (max-width: 600px) {
+        font-size: 18px;
+    }
+`;
 
 export default function Feature({ children, ...restProps }) {
     return <Container {...restProps}>{children}</Container>;

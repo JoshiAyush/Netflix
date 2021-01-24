@@ -2,6 +2,24 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![Design preview](./Design/NetflixHomePage.png)
+
+![Design preview](./Design/Jumbotron1.png)
+
+![Design preview](./Design/Jumbotron2.png)
+
+![Design preview](./Design/Jumbotron3.png)
+
+![Design preview](./Design/FAQS.png)
+
+![Design preview](./Design/FAQSAnswer1.png)
+
+![Design preview](./Design/FAQSAnswer2.png)
+
+![Design preview](./Design/FAQSAnswer3.png)
+
+![Design preview](./Design/NetflixFooter.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
