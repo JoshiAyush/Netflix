@@ -2,23 +2,27 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Design preview](./Design/NetflixHomePage.png)
+img[src*="#preview"] {
+    box-shadow: 0 0 8px 8px;
+}
 
-![Design preview](./Design/Jumbotron1.png)
+![Design preview](./Design/NetflixHomePage.png#preview)
 
-![Design preview](./Design/Jumbotron2.png)
+<!-- ![Design preview](./Design/Jumbotron1.png) -->
 
-![Design preview](./Design/Jumbotron3.png)
+<!-- ![Design preview](./Design/Jumbotron2.png) -->
 
-![Design preview](./Design/FAQS.png)
+<!-- ![Design preview](./Design/Jumbotron3.png) -->
 
-![Design preview](./Design/FAQSAnswer1.png)
+<!-- ![Design preview](./Design/FAQS.png) -->
 
-![Design preview](./Design/FAQSAnswer2.png)
+<!-- ![Design preview](./Design/FAQSAnswer1.png) -->
 
-![Design preview](./Design/FAQSAnswer3.png)
+<!-- ![Design preview](./Design/FAQSAnswer2.png) -->
 
-![Design preview](./Design/NetflixFooter.png)
+<!-- ![Design preview](./Design/FAQSAnswer3.png) -->
+
+<!-- ![Design preview](./Design/NetflixFooter.png) -->
 
 ## Available Scripts
 
