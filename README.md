@@ -2,7 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Design preview](./Design/NetflixHomePage.png#preview){: style="box-shadow: 0 0 8px 8px;"}
+<div style="box-shadow: 0 0 8px 8px;">
+![Design preview](./Design/NetflixHomePage.png)
+</div>
 
 <!-- ![Design preview](./Design/Jumbotron1.png) -->
 
