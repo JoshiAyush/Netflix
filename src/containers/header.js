@@ -6,7 +6,7 @@ import { HOME, SIGN_IN } from '../constants';
 const Background = styled.div`
     display: flex;
     flex-direction: column;
-    background: url(${({ src }) => (src ? `/images/misc/${src}.jpg` : `/images/misc/home-bg.jpg`)}) top left / cover no-repeat;
+    background: url(${({ src }) => (src ? `/images/misc/${src}.jpg` : `/images/misc/joker1.jpg`)}) top left / cover no-repeat;
     color: white;
     border-bottom: 8px solid #222;
 `;
