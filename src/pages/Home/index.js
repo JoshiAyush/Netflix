@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { FaqsContainer } from '../containers/faqs';
-import { FooterContainer } from '../containers/footer';
-import { HeaderContainer } from '../containers/header';
-import { JumbotronContainer } from '../containers/jumbotron';
-import { OptForm } from '../components/opt-form';
+import { OptForm } from "../../components/index.js";
+
+import { FaqsContainer } from "../../containers/index.js";
+import { FooterContainer } from "../../containers/index.js";
+import { HeaderContainer } from "../../containers/index.js";
+import { JumbotronContainer } from "../../containers/index.js";
 
 import Feature from '../components/feature';
 
-export default function Home() {
+function Home() {
     return (
         <>
             <HeaderContainer>
@@ -30,3 +31,5 @@ export default function Home() {
         </>
     );
 }
+
+export default Home;

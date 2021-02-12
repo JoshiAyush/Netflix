@@ -1,4 +1,4 @@
-export {default as Home} from './home';
-export {default as Browse} from './browse';
-export {default as SignIn} from './signin';
-export {default as SignUp} from './signup';
+export { default as Home } from "./Home/index.js";
+export { default as Browse } from "./Browse/index.js";
+export { default as SignIn } from "./SignIn/index.js";
+export { default as SignUp } from "./SignUp/index.js";

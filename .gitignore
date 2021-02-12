@@ -18,8 +18,10 @@
 .env.test.local
 .env.production.local
 .eslintcache
-.credentials
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Firebase authentication token
+/src/lib/credentials.js
