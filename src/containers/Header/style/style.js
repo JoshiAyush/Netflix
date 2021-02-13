@@ -48,7 +48,8 @@ export const Frame = styled.div`
 export const Button = styled(ReactRouterLink)`
     display: block;
     background-color: #e50914;
-    width: 84px;
+    width: fit-content;
+    text-align: center;
     height: fit-content;
     color: white;
     border: 0;
