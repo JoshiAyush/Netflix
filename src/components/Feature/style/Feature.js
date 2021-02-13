@@ -15,5 +15,5 @@ export function FeatureContainer({ children, ...restProps }) {
         <Container {...restProps}>
             {children}
         </Container>
-    )
+    );
 }

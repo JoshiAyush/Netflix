@@ -2,9 +2,9 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { Home } from "./constants.js";
-import { Browse } from "./constants.js";
-import { SignIn } from "./constants.js";
+import { Home } from "./pages/index.js";
+import { Browse } from "./pages/index.js";
+import { SignIn } from "./pages/index.js";
 import { SignUp } from "./pages/index.js";
 
 import { HOME } from "./constants.js"
@@ -12,8 +12,7 @@ import { BROWSE } from "./constants.js";
 import { SIGN_IN } from "./constants.js"
 import { SIGN_UP } from "./constants.js"
 
-
-export default function App() {
+function App() {
   return (
     <Router>
 
@@ -45,3 +44,4 @@ export default function App() {
   );
 }
 
+export default App;

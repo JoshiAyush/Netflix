@@ -1,10 +1,12 @@
-import React from "reacr";
+import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 
 import { Body } from "./style.js";
 import { Item } from "./style.js";
+import { Image } from "./style.js";
+import { Inner } from "./style.js";
 import { Title } from "./style.js";
 import { Frame } from "./style.js";
 import { Header } from "./style.js";
@@ -66,9 +68,13 @@ Accordion.Body = function AccordionBody({ children, ...restProps }) {
 function Accordion({ children, ...restProps }) {
     return (
         <Container {...restProps}>
+
             <Inner>
+
                 {children}
+
             </Inner>
+            
         </Container>
     );
 }

@@ -1,3 +1,4 @@
+import { Logo } from "./style.js";
 import { Frame } from "./style.js";
 import { Button } from "./style.js";
 import { Container } from "./style.js";
