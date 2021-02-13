@@ -1,19 +1,69 @@
 import React from "react";
 import { useState } from "react";
+import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
+import { BROWSE } from "../../constants.js";
 import { SIGN_UP } from "../../constants.js";
+import { FirebaseContext } from "../../context/firebase.js";
 
 import { FormContainer } from "./style/Form.js";
 
 function Form() {
-    const [userEmail, setEmail] = useState();
-    const [userPassword, setPassword] = useState();
+    const history = useHistory();
+
+    const { firebase } = useContext(FirebaseContext);
+
+    const [userEmail, setEmail] = useState("");
+    const [userPassword, setPassword] = useState("");
     const [error, setError] = useState("");
 
     const handleSignIn = (event) => {
         event.preventDefault();
 
-        /* Firebase stuff */
+        firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then(() => {
+            /**
+             * We redirect the user to the Netflix browse screen once the user is Signed In legally.
+             * 
+             * history.push(BROWSE);        // history.push("/browse"); 
+             */
+            history.push(BROWSE);
+        }).catch((error) => {
+            const parseErrorMessage = (errormessage) => {
+                /**
+                 * @function parseErrorMessage() parse the object given by firebase.
+                 * 
+                 * @argument {String} errormessage is the string that needs to be parsed.
+                 * 
+                 * We are parsing the error message given by Firebase because the firbase given object is
+                 * something like this,
+                 * 
+                 * {
+                 *   code: "auth/internal-error", 
+                 *   message: "{
+                 *      "error": {
+                 *          "code": 400,
+                 *          "message": "CONFIGURATION_NOT_…T_FOUND",    // Error Message
+                 *          "domain": "global",
+                 *          "reason": "invalid"
+                 *       }
+                 *   }",
+                 *   a: null
+                 * }
+                 *
+                 * you see the error message is actually a stringified object so we need to parse this object
+                 * first in order to get the actual error message on the screen.
+                 */
+                return JSON.parse(errormessage);
+            };
+
+            let ErrorMessage = parseErrorMessage(error.message);
+
+
+            setEmail("");
+            setPassword("");
+            setError(ErrorMessage.error.message);
+        });
     };
 
     const IsInvalid = userPassword === "" || userEmail === "";
@@ -38,7 +88,7 @@ function Form() {
                         placeHolder="Email Address"
                         value={userEmail}
                         onChange={({ target }) => setEmail(target.value)}
-                        autoComplete="off"
+                        autoComplete="on"
                     />
 
                     <FormContainer.Input
@@ -46,7 +96,7 @@ function Form() {
                         placeHolder="Password"
                         value={userPassword}
                         onChange={({ target }) => setPassword(target.value)}
-                        autoComplete="off"
+                        autoComplete="on"
                     />
 
                     <FormContainer.Submit disabled={IsInvalid} type="submit">
