@@ -26,7 +26,7 @@ function SignIn() {
 
                 <HeaderContainer.Container>
 
-                    <Form />
+                    <Form type="signin"/>
 
                 </HeaderContainer.Container>
 

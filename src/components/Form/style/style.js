@@ -3,8 +3,7 @@ import { Link as ReactRouterLink } from "react-router-dom";
 
 export const Container = styled.div`
     display: flex;
-    height: 580px;
-    max-height: 660px;
+    max-height: 700px;
     width: 450px;
     margin: auto;
     background-color: rgba(0, 0, 0, 0.75);
@@ -19,13 +18,13 @@ export const Inner = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 580px;
-    max-height: 660px;
+    max-height: 700px;
     margin: auto;
     border-radius: 5px;
     box-sizing: border-box;
     padding: 60 68px 40px;
     padding-top: 40px;
+    padding-bottom: 40px;
 `;
 
 export const Error = styled.div`
@@ -35,6 +34,19 @@ export const Error = styled.div`
     margin: 0 0 16px;
     color: white;
     padding: 15px 20px;
+    overflow: auto;
+    height: fit-content;
+`;
+
+export const SuggestPassword = styled.div`
+    background: #e87c03;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 0 0 16px;
+    color: white;
+    padding: 15px 20px;
+    overflow: auto;
+    height: fit-content;
 `;
 
 export const Base = styled.form`
@@ -42,6 +54,7 @@ export const Base = styled.form`
     flex-direction: column;
     max-width: 360px;
     width: 100%;
+    max-height: fit-content;
     margin: 0 auto;
 `;
 

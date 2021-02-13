@@ -8,6 +8,7 @@ import { Error } from "./style.js";
 import { Submit } from "./style.js";
 import { TextSmall } from "./style.js";
 import { Container } from "./style.js";
+import { SuggestPassword } from "./style.js";
 
 FormContainer.Error = function FormContainerError({ children, ...restProps }) {
     return (
@@ -60,6 +61,14 @@ FormContainer.Link = function FormContainerLink({ children, ...restProps }) {
 FormContainer.Input = function FormContainerInput({ ...restProps }) {
     return (
         <Input {...restProps} />
+    );
+}
+
+FormContainer.SuggestPassword = function FormContainerSuggestPassword({ children, ...restProps }) {
+    return (
+        <SuggestPassword {...restProps}>
+            {children}
+        </SuggestPassword>
     );
 }
 
