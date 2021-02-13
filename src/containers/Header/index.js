@@ -3,9 +3,11 @@ import React from "react";
 import { HOME } from "../../constants.js";
 import { SIGN_IN } from "../../constants.js";
 
+import { Feature } from "../../components/index.js";
+
 import { HeaderContainer } from "./style/Header.js";
 
-function Header({ children }) {
+function Header() {
     return (
         <HeaderContainer>
 
@@ -19,7 +21,7 @@ function Header({ children }) {
 
             <HeaderContainer.Container>
 
-                {children}
+                <Feature />
 
             </HeaderContainer.Container>
 

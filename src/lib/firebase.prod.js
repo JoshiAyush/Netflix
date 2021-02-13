@@ -1,9 +1,9 @@
-import Firebase from 'firebase/app';
-import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/firestore';
+import Firebase from 'firebase/app';
 
-import { firebaseConfig } from "./credentials.js";
 import { seedDatabase } from "../seed.js";
+import { firebaseConfig } from "./credentials.js";
 
 const firebase = Firebase.initializeApp(firebaseConfig);
 
