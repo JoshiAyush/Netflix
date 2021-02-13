@@ -28,6 +28,7 @@ function Form() {
              * history.push(BROWSE);        // history.push("/browse"); 
              */
             history.push(BROWSE);
+
         }).catch((error) => {
             const parseErrorMessage = (errormessage) => {
                 /**
@@ -53,16 +54,25 @@ function Form() {
                  *
                  * you see the error message is actually a stringified object so we need to parse this object
                  * first in order to get the actual error message on the screen.
+                 * 
+                 * We implement Exception handling because if the firbase authentication is not enabled then the
+                 * error message is something like we show you in the above example otherwise we will be having a
+                 * error message in the form of a plain text.
+                 * 
+                 * @return {String} parsed error message if firebase returned a valid JSON string.
                  */
-                return JSON.parse(errormessage);
+                try {
+                    return JSON.parse(errormessage);
+                } catch (error) {
+                    return false;
+                }
             };
 
-            let ErrorMessage = parseErrorMessage(error.message);
-
+            let ErrorMessage = parseErrorMessage(error.message) || error.message;
 
             setEmail("");
             setPassword("");
-            setError(ErrorMessage.error.message);
+            setError(ErrorMessage);
         });
     };
 
