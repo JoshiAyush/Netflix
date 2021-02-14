@@ -287,7 +287,7 @@ export function createPassword(length = 8) {
          * 
          * @return {Character} random character generated from the given option.
          */
-        return currentoption.charAt(Math.floor(Math.random() * currentoption.length));
+        return currentoption[Math.floor(Math.random() * currentoption.length)];
     };
 
     /* Placeholder for our password characters and symbols. */
@@ -352,7 +352,7 @@ export function createPassword(length = 8) {
              * we set the password to new password generated and then we again ensures that this time the password
              * is strong if true then return it otherwise repeat the process.  
              */
-            getCurrentOption(passwordArray) = getRandomChar(missingValueArray);
+            passwordArray[Math.floor(Math.random() * passwordArray.length)] = getRandomChar(missingValueArray);
 
             password = "";
             passwordArray.forEach((element, index, array) => {

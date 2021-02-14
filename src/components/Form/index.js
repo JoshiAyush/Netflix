@@ -10,6 +10,8 @@ import { FirebaseContext } from "../../context/firebase.js";
 
 import { FormContainer } from "./style/Form.js";
 
+import { createPassword } from "../../form.js";
+
 function Form({ ...restProps }) {
     const history = useHistory();
 
@@ -95,7 +97,7 @@ function Form({ ...restProps }) {
 
                     <FormContainer.Title>
 
-                        Sing In
+                        Sign In
 
                 </FormContainer.Title>
 
@@ -145,7 +147,21 @@ function Form({ ...restProps }) {
         );
     } else if (restProps?.type === "signup") {
         const handleSignUp = (event) => {
+            event.preventDefault();
 
+            firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then((result) => {
+                result.user.updateProfile({
+                    displayName: userName,
+                    photoURL: Math.floor(Math.random() * 5) + 1
+                }).then(() => {
+                    history.push(BROWSE);
+                }).catch((error) => {
+                    setUserName("");
+                    setEmail("");
+                    setPassword("");
+                    setError(error.message);
+                });
+            })
         };
 
         const IsInvalid = userName === "" || userEmail === "" || userPassword === "";
@@ -157,7 +173,7 @@ function Form({ ...restProps }) {
 
                     <FormContainer.Title>
 
-                        Sing Up
+                        Sign Up
 
                     </FormContainer.Title>
 
@@ -185,7 +201,10 @@ function Form({ ...restProps }) {
                             type="password"
                             placeholder="Password"
                             value={userPassword}
-                            onClick={() => setSuggestPassword(true)}
+                            onClick={() => {
+                                setUsePassword(createPassword());
+                                setSuggestPassword(true);
+                            }}
                             onChange={({ target }) => setPassword(target.value)}
                             autoComplete="on"
                         />

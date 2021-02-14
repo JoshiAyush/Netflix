@@ -7,38 +7,63 @@ import { Browse } from "./pages/index.js";
 import { SignIn } from "./pages/index.js";
 import { SignUp } from "./pages/index.js";
 
-import { HOME } from "./constants.js"
+import { HOME } from "./constants.js";
 import { BROWSE } from "./constants.js";
-import { SIGN_IN } from "./constants.js"
-import { SIGN_UP } from "./constants.js"
+import { SIGN_IN } from "./constants.js";
+import { SIGN_UP } from "./constants.js";
+
+import { IsUserRedirect } from "./helpers/routes.js";
+import { ProtectedRoute } from "./helpers/routes.js";
 
 function App() {
+  const user = null;
+
   return (
     <Router>
 
-      <Route exact path={HOME}>
+      <IsUserRedirect
+        exact
+        user={user}
+        path={HOME}
+        loggedInPath={BROWSE}
+      >
 
         <Home />
 
-      </Route>
+      </IsUserRedirect>
 
-      <Route exact path={SIGN_UP}>
+      <IsUserRedirect
+        exact
+        user={user}
+        path={SIGN_UP}
+        loggedInPath={BROWSE}
+      >
 
         <SignUp />
 
-      </Route>
+      </IsUserRedirect>
 
-      <Route exact path={SIGN_IN}>
+      <IsUserRedirect
+        exact
+        user={user}
+        path={SIGN_IN}
+        loggedInPath={BROWSE}
+      >
 
         <SignIn />
 
-      </Route>
+      </IsUserRedirect>
 
-      <Route exact path={BROWSE}>
+      <ProtectedRoute
+        exact
+        user={user}
+        path={BROWSE}
+        signedInPath={SIGN_IN}
+      >
 
         <Browse />
 
-      </Route>
+      </ProtectedRoute>
 
     </Router>
   );
