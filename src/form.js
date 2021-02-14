@@ -316,9 +316,9 @@ export function createPassword(length = 8) {
          */
 
         /* Array that will hold the missing values that makes a password strong to use. */
-        var missingValueArray = [];
+        let missingValueArray = [];
         /* Setting the flag containsAll to true initially. */
-        var containsAll = true;
+        let containsAll = true;
 
         options.forEach((element, index, array) => {
             /**
@@ -326,7 +326,7 @@ export function createPassword(length = 8) {
              * available if not then the hasValue flag will remain false and using that we can later regenerate the
              * password for user.  
              */
-            var hasValue = false;
+            let hasValue = false;
 
             passwordArray.forEach((_element, _index, _array) => {
                 /* If any element found to be a element from options then set the flag hasValue to true. */
@@ -363,7 +363,7 @@ export function createPassword(length = 8) {
         }
     }
 
-    checkPassword();
+    // checkPassword();
 
     return password;
 }
