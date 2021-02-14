@@ -1,5 +1,4 @@
 import React from "react";
-import { Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { Home } from "./pages/index.js";
@@ -15,8 +14,11 @@ import { SIGN_UP } from "./constants.js";
 import { IsUserRedirect } from "./helpers/routes.js";
 import { ProtectedRoute } from "./helpers/routes.js";
 
+import { UseAuthListener } from "./hooks/index.js";
+
 function App() {
-  const user = null;
+  const { user } = UseAuthListener();
+  console.log(user);
 
   return (
     <Router>
