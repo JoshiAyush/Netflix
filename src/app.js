@@ -17,7 +17,8 @@ import { ProtectedRoute } from "./helpers/routes.js";
 import { UseAuthListener } from "./hooks/index.js";
 
 function App() {
-  const { user } = UseAuthListener();
+  // const { user } = UseAuthListener();
+  const user = null;
 
   return (
     <Router>

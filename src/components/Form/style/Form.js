@@ -10,83 +10,63 @@ import { TextSmall } from "./style.js";
 import { Container } from "./style.js";
 import { SuggestPassword } from "./style.js";
 
-FormContainer.Error = function FormContainerError({ children, ...restProps }) {
-    return (
-        <Error {...restProps}>
-            {children}
-        </Error>
-    );
-}
+FormContainer.Error = ({ children, ...restProps }) => (
+    <Error {...restProps}>
+        {children}
+    </Error>
+);
 
-FormContainer.Base = function FormContainerBase({ children, ...restProps }) {
-    return (
-        <Base {...restProps}>
-            {children}
-        </Base>
-    );
-}
+FormContainer.Base = ({ children, ...restProps }) => (
+    <Base {...restProps}>
+        {children}
+    </Base>
+);
 
-FormContainer.Title = function FormContainerTitle({ children, ...restProps }) {
-    return (
-        <Title {...restProps}>
-            {children}
-        </Title>
-    );
-}
+FormContainer.Title = ({ children, ...restProps }) => (
+    <Title {...restProps}>
+        {children}
+    </Title>
+);
 
-FormContainer.Text = function FormContainerText({ children, ...restProps }) {
-    return (
-        <Text {...restProps}>
-            {children}
-        </Text>
-    );
-}
+FormContainer.Text = ({ children, ...restProps }) => (
+    <Text {...restProps}>
+        {children}
+    </Text>
+);
 
-FormContainer.TextSmall = function FormContainerTextSmall({ children, ...restProps }) {
-    return (
-        <TextSmall {...restProps}>
-            {children}
-        </TextSmall>
-    );
-}
+FormContainer.TextSmall = ({ children, ...restProps }) => (
+    <TextSmall {...restProps}>
+        {children}
+    </TextSmall>
+);
 
-FormContainer.Link = function FormContainerLink({ children, ...restProps }) {
-    return (
-        <Link {...restProps}>
-            {children}
-        </Link>
-    );
-}
+FormContainer.Link = ({ children, ...restProps }) => (
+    <Link {...restProps}>
+        {children}
+    </Link>
+);
 
-FormContainer.Input = function FormContainerInput({ ...restProps }) {
-    return (
-        <Input {...restProps} />
-    );
-}
+FormContainer.Input = ({ ...restProps }) => (
+    <Input {...restProps} />
+);
 
-FormContainer.SuggestPassword = function FormContainerSuggestPassword({ children, ...restProps }) {
-    return (
-        <SuggestPassword {...restProps}>
-            {children}
-        </SuggestPassword>
-    );
-}
+FormContainer.SuggestPassword = ({ children, ...restProps }) => (
+    <SuggestPassword {...restProps}>
+        {children}
+    </SuggestPassword>
+);
 
-FormContainer.Submit = function FormContainerSubmit({ children, ...restProps }) {
-    return (
-        <Submit {...restProps}>
-            {children}
-        </Submit>
-    );
-}
+FormContainer.Submit = ({ children, ...restProps }) => (
+    <Submit {...restProps}>
+        {children}
+    </Submit>
+);
 
-FormContainer.Inner = function FormContainerInner({ children, ...restProps }) {
-    return (
-        <Inner {...restProps}>
-            {children}
-        </Inner>
-    );
-}
+FormContainer.Inner = ({ children, ...restProps }) => (
+    <Inner {...restProps}>
+        {children}
+    </Inner>
+);
 
 export function FormContainer({ children, ...restProps }) {
     return (

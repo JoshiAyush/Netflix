@@ -14,23 +14,21 @@ import { Container } from "./style.js";
 
 const ToggleContext = createContext();
 
-Accordion.Title = function AccordionTitle({ children, ...restProps }) {
-    return (
-        <Title {...restProps}>
-            {children}
-        </Title>
-    );
-}
+AccordionContainer.Title = ({ children, ...restProps }) => (
+    <Title {...restProps}>
+        {children}
+    </Title>
+);
 
-Accordion.Frame = function AccordionFrame({ children, ...restProps }) {
-    return (
-        <Frame {...restProps}>
-            {children}
-        </Frame>
-    );
-}
 
-Accordion.Item = function AccordionItem({ children, ...restProps }) {
+AccordionContainer.Frame = ({ children, ...restProps }) => (
+    <Frame {...restProps}>
+        {children}
+    </Frame>
+);
+
+
+AccordionContainer.Item = function AccordionContainerItem({ children, ...restProps }) {
     const [toggleShow, setToggleShow] = useState(false);
 
     return (
@@ -42,7 +40,7 @@ Accordion.Item = function AccordionItem({ children, ...restProps }) {
     );
 }
 
-Accordion.Header = function AccordionHeader({ children, ...restProps }) {
+AccordionContainer.Header = function AccordionContainerHeader({ children, ...restProps }) {
     const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
     return (
@@ -59,13 +57,13 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
     );
 }
 
-Accordion.Body = function AccordionBody({ children, ...restProps }) {
+AccordionContainer.Body = function AccordionContainerBody({ children, ...restProps }) {
     const { toggleShow } = useContext(ToggleContext);
 
     return (toggleShow) ? (<Body {...restProps}>{children}</Body>) : (null);
 }
 
-function Accordion({ children, ...restProps }) {
+export function AccordionContainer({ children, ...restProps }) {
     return (
         <Container {...restProps}>
 
@@ -74,9 +72,7 @@ function Accordion({ children, ...restProps }) {
                 {children}
 
             </Inner>
-            
+
         </Container>
     );
 }
-
-export default Accordion;

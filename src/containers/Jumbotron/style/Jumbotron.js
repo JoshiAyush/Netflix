@@ -6,44 +6,33 @@ import { Title } from "./style.js";
 import { SubTitle } from "./style.js";
 import { Container } from "./style.js";
 
-JumbotronContainer.Container = function JumbotronContainerContainer({ children, ...restProps }) {
-    return (
-        <Container {...restProps}>
-            {children}
-        </Container>
-    );
-}
+JumbotronContainer.Container = ({ children, ...restProps }) => (
+    <Container {...restProps}>
+        {children}
+    </Container>
+);
 
+JumbotronContainer.Pane = ({ children, ...restProps }) => (
+    <Pane {...restProps}>
+        {children}
+    </Pane>
+);
 
-JumbotronContainer.Pane = function JumbotronContainerPane({ children, ...restProps }) {
-    return (
-        <Pane {...restProps}>
-            {children}
-        </Pane>
-    );
-}
+JumbotronContainer.Title = ({ children, ...restProps }) => (
+    <Title {...restProps}>
+        {children}
+    </Title>
+);
 
-JumbotronContainer.Title = function JumbotronContainerTitle({ children, ...restProps }) {
-    return (
-        <Title {...restProps}>
-            {children}
-        </Title>
-    );
-}
+JumbotronContainer.SubTitle = ({ children, ...restProps }) => (
+    <SubTitle {...restProps}>
+        {children}
+    </SubTitle>
+);
 
-JumbotronContainer.SubTitle = function JumbotronContainerSubTitle({ children, ...restProps }) {
-    return (
-        <SubTitle {...restProps}>
-            {children}
-        </SubTitle>
-    );
-}
-
-JumbotronContainer.Image = function JumbotronContainerImage({ ...restProps }) {
-    return (
-        <Image {...restProps} />
-    );
-}
+JumbotronContainer.Image = ({ ...restProps }) => (
+    <Image {...restProps} />
+);
 
 export function JumbotronContainer({ children, direction = "row", ...restProps }) {
     return (

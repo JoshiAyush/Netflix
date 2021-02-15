@@ -1,29 +1,24 @@
-import {Text} from "./style.js";
-import {Input} from "./style.js";
-import {Button} from "./style.js";
-import {Container} from "./style.js";
+import { Text } from "./style.js";
+import { Input } from "./style.js";
+import { Button } from "./style.js";
+import { Container } from "./style.js";
 
-OptFormContainer.Input = function OptFormInput({ children, ...restProps }) {
-    return (
-        <Input {...restProps} />
-        );
-}
+OptFormContainer.Input = ({ children, ...restProps }) => (
+    <Input {...restProps} />
+);
 
-OptFormContainer.Button = function OptFormButton({ children, ...restProps }) {
-    return (
-        <Button {...restProps}>
-            {children} <img src="/images/icons/chevron-right.png" alt="Try Now" />
-        </Button>
-    );
-}
 
-OptFormContainer.Text = function OptFormText({ children, ...restProps }) {
-    return (
-        <Text {...restProps}>
-            {children}
-        </Text>
-    );
-}
+OptFormContainer.Button = ({ children, ...restProps }) => (
+    <Button {...restProps}>
+        {children} <img src="/images/icons/chevron-right.png" alt="Try Now" />
+    </Button>
+);
+
+OptFormContainer.Text = ({ children, ...restProps }) => (
+    <Text {...restProps}>
+        {children}
+    </Text>
+);
 
 export function OptFormContainer({ children, ...restProps }) {
     return (
