@@ -209,7 +209,12 @@ function Form({ ...restProps }) {
                             autoComplete="on"
                         />
 
-                        {suggestPassword && <FormContainer.SuggestPassword>{usePassword}</FormContainer.SuggestPassword>}
+                        {
+                            suggestPassword &&
+                            <FormContainer.SuggestPassword onClick={() => setPassword(usePassword)}>
+                                {usePassword}
+                            </FormContainer.SuggestPassword>
+                        }
 
                         <FormContainer.Submit disabled={IsInvalid} type="submit">
 
