@@ -1,7 +1,13 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
 
 import { UseContent } from "../../hooks/index.js";
+import { FirebaseContext } from "../../context/firebase.js";
 import selectionFilter from "../../utils/selection-filter.js";
+
+import { Loading } from "../../components/index.js";
 
 import { SelectProfile } from "../../containers/index.js";
 
@@ -12,15 +18,30 @@ function Browse() {
     const { series } = UseContent("series");
     const { films } = UseContent("films");
 
+    const [profile, setProfile] = useState({});
+    const [loading, setLoading] = useState(true);
+
+    const { firebase } = useContext(FirebaseContext);
+
+    const user = firebase.auth().currentUser || {};
+
     const slides = selectionFilter({ series, films });
 
-    return (
-        <BrowseContainer>
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+    }, [profile.displayName]);
 
-            <SelectProfile />
+    return loading ? (
+        <Loading src={user.photoUrl} />
+    ) : (
+            <BrowseContainer>
 
-        </BrowseContainer>
-    );
+                <SelectProfile user={user} setProfile={setProfile} />
+
+            </BrowseContainer>
+        );
 }
 
 export default Browse;

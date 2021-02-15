@@ -26,11 +26,19 @@ function SelectProfile({ user, setProfile }) {
 
                 <SelectProfileContainer.List>
 
-                    <SelectProfileContainer.User>
+                    <SelectProfileContainer.User
+                        onClick={() => setProfile({
+                            displayName: user.displayName,
+                            photoURL: user.photoURL
+                        })}
+                    >
 
-                        <SelectProfileContainer.Picture src={user.photoURL} alt="user" />
+                        <SelectProfileContainer.Picture
+                            src={user?.photoURL ? `/images/users/${user?.photoURL}.png` : undefined}
+                            alt="user"
+                        />
 
-                        <SelectProfileContainer.Name>{user.displayName}</SelectProfileContainer.Name>
+                        <SelectProfileContainer.Name>{user?.displayName}</SelectProfileContainer.Name>
 
                     </SelectProfileContainer.User>
 
