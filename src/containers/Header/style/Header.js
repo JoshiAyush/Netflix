@@ -12,9 +12,7 @@ HeaderContainer.Frame = ({ children, ...restProps }) => (
 
 HeaderContainer.Logo = ({ to, ...restProps }) => (
     <ReactRouterLink to={to}>
-
         <Logo {...restProps} />
-
     </ReactRouterLink>
 );
 
@@ -25,7 +23,6 @@ HeaderContainer.Button = ({ ...restProps }) => (
 HeaderContainer.Container = ({ children, ...restProps }) => (
     <Frame {...restProps}>{children}</Frame>
 );
-
 
 export function HeaderContainer({ bg = true, children, ...restProps }) {
     return (

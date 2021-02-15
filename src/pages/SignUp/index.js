@@ -7,8 +7,8 @@ import { HomeContainer } from "../Home/style/Home.js";
 import { HeaderContainer } from "../../containers/Header/style/Header.js";
 
 import { HOME } from "../../constants.js";
-import { SIGN_IN } from "../../constants.js";
 import { BROWSE } from "../../constants.js";
+import { SIGN_IN } from "../../constants.js";
 import { createPassword } from "../../form.js";
 import { FirebaseContext } from "../../context/firebase.js";
 
