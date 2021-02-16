@@ -1,16 +1,18 @@
 import React from "react";
 
-function Loading({ src, ...restProps }) {
+import { LoadingContainer } from "./style/Loading.js";
+
+function Loading({ ...restProps }) {
     return (
         <LoadingContainer>
 
-            <Spinner>
+            <LoadingContainer.Spinner>
 
-                <LockBody />
+                <LoadingContainer.LockBody />
 
-                <Picture src={`/images/users/${src}.png`} />
+                <LoadingContainer.Picture src={restProps?.src} />
 
-            </Spinner>
+            </LoadingContainer.Spinner>
 
         </LoadingContainer>
     );

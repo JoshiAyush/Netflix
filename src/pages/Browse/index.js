@@ -12,6 +12,7 @@ import { Loading } from "../../components/index.js";
 import { SelectProfile } from "../../containers/index.js";
 
 import { BrowseContainer } from "./style/Browse.js";
+import { LoadingContainer } from "../../components/Loading/style/Loading.js";
 
 
 function Browse() {
@@ -33,8 +34,16 @@ function Browse() {
         }, 3000);
     }, [profile.displayName]);
 
-    return loading ? (
-        <Loading src={user.photoUrl} />
+    return profile.displayName ? (
+        loading ? (
+            <BrowseContainer>
+
+                <Loading src="/images/misc/loading.gif" />
+
+            </BrowseContainer>
+        ) : (
+                <LoadingContainer.ReleaseBody />
+            )
     ) : (
             <BrowseContainer>
 

@@ -41,6 +41,9 @@ export const Picture = styled.img`
     height: auto;
     border: 3px solid black;
     cursor: pointer;
+    transition-property: border;
+    transition-timing-function: ease-in;
+    transition-duration: 0.1s;
 `;
 
 export const Item = styled.li`
