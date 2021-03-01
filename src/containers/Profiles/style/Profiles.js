@@ -6,16 +6,14 @@ import { Title } from "./style.js";
 import { Picture } from "./style.js";
 import { Container } from "./style.js";
 
-SelectProfileContainer.Inner = ({ children, ...restProps }) => (
-    <Inner {...restProps}>
-        {children}
-    </Inner>
+SelectProfileContainer.Picture = ({ ...restProps }) => (
+    <Picture src={restProps?.src ? restProps?.src : `/images/misc/loading.gif`} {...restProps} />
 );
 
-SelectProfileContainer.Title = ({ children, ...restProps }) => (
-    <Title {...restProps}>
+SelectProfileContainer.Name = ({ children, ...restProps }) => (
+    <Name {...restProps}>
         {children}
-    </Title>
+    </Name>
 );
 
 SelectProfileContainer.User = ({ children, ...restProps }) => (
@@ -30,14 +28,16 @@ SelectProfileContainer.List = ({ children, ...restProps }) => (
     </List>
 );
 
-SelectProfileContainer.Picture = ({ ...restProps }) => (
-    <Picture src={restProps?.src ? restProps?.src : `/images/misc/loading.gif`} {...restProps} />
+SelectProfileContainer.Inner = ({ children, ...restProps }) => (
+    <Inner {...restProps}>
+        {children}
+    </Inner>
 );
 
-SelectProfileContainer.Name = ({ children, ...restProps }) => (
-    <Name {...restProps}>
+SelectProfileContainer.Title = ({ children, ...restProps }) => (
+    <Title {...restProps}>
         {children}
-    </Name>
+    </Title>
 );
 
 export function SelectProfileContainer({ children, ...restProps }) {

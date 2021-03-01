@@ -83,12 +83,20 @@ export const Dropdown = styled.div`
     background-color: black;
     position: absolute;
     padding: 10px;
-    width: 100px;
+    width: fit-content;
+    height: fit-content;
     top: 35px;
-    right: -45px;
+    right: -35px;
+    box-shadow: 0 0 8px 0.6px rgba(255, 255, 255, 0.288);
+
+    &:hover {
+        box-shadow: 0 0 8px 0.6px rgba(255, 255, 255, 0.493);    
+    }
 
     ${Group}:last-of-type ${Link} {
+        margin-top: 10px;
         cursor: pointer;
+        font-size: 15px;
     }
 
     ${Group} {
@@ -100,6 +108,10 @@ export const Dropdown = styled.div`
 
         ${Link}, ${Picture} {
             cursor: default;
+        }
+
+        ${Picture} {
+            border-radius: 50%;
         }
     }
 
@@ -208,15 +220,29 @@ export const SearchIcon = styled.button`
     border: 0;
     width: 22px;
     height: 22px;
+    outline: none;
     filter: invert(100%);
+    margin-right: 8px;
 `;
 
 export const SearchInput = styled.input`
     background-color: #44444459;
-    color: white;
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.02rem;
+    padding-left: 8px;
+    background-color: white;
     border: 1px solid white;
+    border-radius: 3px;
+    outline: none;
     transition: width 0.5s;
     height: 30px;
     font-size: 14px;
-    margin-left: ${({ active }) => active === true ? '10px' : '0'};
+    transition: margin-left padding opacity width 0.3s;
+    transition-timing-function: ease-out;
+    margin-left: ${({ active }) => active === true ? '3px' : '0'};
+    padding: ${({ active }) => active === true ? '0 10px' : '0'};
+    opacity: ${({ active }) => active === true ? '1' : '0'};
+    width: ${({ active }) => active === true ? '200px' : '0'};
 `;

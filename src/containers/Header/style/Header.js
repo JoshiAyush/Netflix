@@ -18,12 +18,8 @@ import { FeatureCallOut } from "./style.js";
 import { useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 
-HeaderContainer.Frame = ({ children, ...restProps }) => (
-    <Container {...restProps}>{children}</Container>
-);
-
-HeaderContainer.Group = ({ children, ...restProps }) => (
-    <Group {...restProps}>{children}</Group>
+HeaderContainer.Button = ({ ...restProps }) => (
+    <Button {...restProps}></Button>
 );
 
 HeaderContainer.Logo = ({ to, ...restProps }) => (
@@ -32,33 +28,36 @@ HeaderContainer.Logo = ({ to, ...restProps }) => (
     </ReactRouterLink>
 );
 
-HeaderContainer.Profile = ({ children, ...restProps }) => (
-    <Profile {...restProps}>{children}</Profile>
-);
-
 HeaderContainer.Picture = ({ src, ...restProps }) => (
     <Picture src={`/images/users/${src}.png`} {...restProps} />
 );
 
-HeaderContainer.Button = ({ ...restProps }) => (
-    <Button {...restProps}></Button>
+HeaderContainer.Text = ({ children, ...restProps }) => (
+    <Text {...restProps}>{children}</Text>
+);
+
+HeaderContainer.Frame = ({ children, ...restProps }) => (
+    <Container {...restProps}>{children}</Container>
+);
+
+HeaderContainer.Group = ({ children, ...restProps }) => (
+    <Group {...restProps}>{children}</Group>
+);
+
+
+HeaderContainer.Profile = ({ children, ...restProps }) => (
+    <Profile {...restProps}>{children}</Profile>
 );
 
 HeaderContainer.Feature = ({ children, ...restProps }) => (
     <Feature {...restProps}>{children}</Feature>
 );
 
-HeaderContainer.FeatureCallOut = ({ children, ...restProps }) => (
-    <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
-);
 
 HeaderContainer.Dropdown = ({ children, ...restProps }) => (
     <Dropdown {...restProps}>{children}</Dropdown>
 );
 
-HeaderContainer.Text = ({ children, ...restProps }) => (
-    <Text {...restProps}>{children}</Text>
-);
 
 HeaderContainer.TextLink = ({ children, ...restProps }) => (
     <Link {...restProps}>{children}</Link>
@@ -66,6 +65,10 @@ HeaderContainer.TextLink = ({ children, ...restProps }) => (
 
 HeaderContainer.Container = ({ children, ...restProps }) => (
     <Frame {...restProps}>{children}</Frame>
+);
+
+HeaderContainer.FeatureCallOut = ({ children, ...restProps }) => (
+    <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
 );
 
 HeaderContainer.Search = function HeaderContainerSearch({ searchTerm, setSearchTerm, ...restProps }) {

@@ -69,11 +69,11 @@ function Browse() {
 
                     <HeaderContainer.Group>
 
-                        <HeaderContainer.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                        <HeaderContainer.Group>
 
-                    </HeaderContainer.Group>
+                            <HeaderContainer.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-                    <HeaderContainer.Group>
+                        </HeaderContainer.Group>
 
                         <HeaderContainer.Profile>
 
