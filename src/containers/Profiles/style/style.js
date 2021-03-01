@@ -11,6 +11,10 @@ export const Title = styled.h1`
     font-size: 48px;
     text-align: center;
     font-weight: 500;
+
+    @media screen and (max-width: 450px) {
+        font-size: 38px;
+    }
 `;
 
 export const List = styled.ul`

@@ -12,7 +12,7 @@ import { Loading } from "../../components/index.js";
 import { SelectProfile } from "../../containers/index.js";
 
 import { BrowseContainer } from "./style/Browse.js";
-import { LoadingContainer } from "../../components/Loading/style/Loading.js";
+import { LoadingContainer } from "../../components/index.js";
 
 
 function Browse() {
@@ -32,18 +32,25 @@ function Browse() {
         setTimeout(() => {
             setLoading(false);
         }, 3000);
-    }, [profile.displayName]);
+    }, [profile?.displayName]);
 
     return profile.displayName ? (
-        loading ? (
-            <BrowseContainer>
+        <BrowseContainer>
 
-                <Loading src="/images/misc/loading.gif" />
+            {
+                loading ? (
 
-            </BrowseContainer>
-        ) : (
-                <LoadingContainer.ReleaseBody />
-            )
+                    <Loading
+                        src={user?.photoURL ? `/images/users/${user?.photoURL}.png` : '/images/misc/loading.gif'}
+                        alt="user"
+                    />
+
+                ) : (
+                        <LoadingContainer.ReleaseBody />
+                    )
+            }
+            
+        </BrowseContainer>
     ) : (
             <BrowseContainer>
 

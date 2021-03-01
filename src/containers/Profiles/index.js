@@ -34,7 +34,7 @@ function SelectProfile({ user, setProfile }) {
                     >
 
                         <SelectProfileContainer.Picture
-                            src={user?.photoURL ? `/images/users/${user?.photoURL}.png` : undefined}
+                            src={user?.photoURL ? `/images/users/${user?.photoURL}.png` : '/images/misc/loading.gif'}
                             alt="user"
                         />
 

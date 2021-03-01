@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Item } from "./style.js";
 import { List } from "./style.js";
 import { Name } from "./style.js";
