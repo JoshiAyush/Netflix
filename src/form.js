@@ -1,7 +1,6 @@
 /**
- * @file src/validate.js helps us to validate the user's email, first name, last name
- * and mobile number during the time of Signing up as well as Signing in both the times
- * this validating functionality is useful. 
+ * @file src/validate.js helps us to validate the user's email, first name, last name and mobile number during the time of Signing 
+ * up as well as Signing in both the times this validating functionality is useful. 
  */
 
 function isEmpty(value) {
@@ -10,8 +9,8 @@ function isEmpty(value) {
      * 
      * @argument {String} value user's entered field.
      * 
-     * This function checks if the field given is a emtpy field or not if it founds the
-     * field to be an empty field it returns true otherwise it returns false.
+     * This function checks if the field given is a emtpy field or not if it founds the field to be an empty field it returns true 
+     * otherwise it returns false.
      * 
      * @return {Bool} false if the field given to it is a non-empty field. 
      */
@@ -29,10 +28,9 @@ function checkIfEmpty(field) {
      * 
      * @argument {String} field user's entered field.
      * 
-     * This function checks if the given field is empty or not because no field in the
-     * form is allowed to be a empty field, user needs to enter some value in the form
-     * if the field is found to be an empty field then this function informs the user 
-     * that this is not allowed and returns true, otherwise it returns false.
+     * This function checks if the given field is empty or not because no field in the form is allowed to be a empty field, user 
+     * needs to enter some value in the form if the field is found to be an empty field then this function informs the user that 
+     * this is not allowed and returns true, otherwise it returns false.
      * 
      * @return {Bool} false if found the field to be a non-empty field otherwise true.
      */
@@ -50,9 +48,8 @@ function checkIfOnlyLetters(field) {
      * 
      * @argument {String} field user's entered field.
      * 
-     * This function applies a regex (regular expression) pattern to the given string in
-     * order to find out if this string only contains letters or not if not then it informs
-     * the user that this is not allowed otherwise it returns true.
+     * This function applies a regex (regular expression) pattern to the given string in order to find out if this string only 
+     * contains letters or not if not then it informs the user that this is not allowed otherwise it returns true.
      * 
      * @return {Bool} true if found the string to be a valid field.  
      */
@@ -70,9 +67,8 @@ function checkIfOnlyNumbers(mobile) {
      * 
      * @argument {String} field user's entered field.
      * 
-     * This function applies a regex (regular expression) pattern to the given string in
-     * order to find out if this string only contains numbers or not if not then it informs
-     * the user that this is not allowed otherwise it returns true.
+     * This function applies a regex (regular expression) pattern to the given string in order to find out if this string only 
+     * contains numbers or not if not then it informs the user that this is not allowed otherwise it returns true.
      * 
      * @return {Bool} true if found the string to be a valid field.  
      */
@@ -92,10 +88,9 @@ function matchWithRegEx(regEx, field) {
      * 
      * @argument {String} field is the user's entered field.
      * 
-     * This function applies the regex (regular expression) pattern given to it to the field given and
-     * finds if the field matches with the regex (regular expression) pattern if found true then it returns
-     * true otherwise it returns false. This function is useful in validating email address or custom email
-     * address.
+     * This function applies the regex (regular expression) pattern given to it to the field given and finds if the field matches 
+     * with the regex (regular expression) pattern if found true then it returns true otherwise it returns false. This function is 
+     * useful in validating email address or custom email address.
      * 
      * @return true if the field matches with the regex (regular expression) pattern.
      */
@@ -112,8 +107,8 @@ function containsCharacters(email) {
      * 
      * @argument {String} email user's email.
      * 
-     * This function checks if the email is a valid email or custom email address or not if found
-     * true then this function returns true if not it returns false.
+     * This function checks if the email is a valid email or custom email address or not if found true then this function returns 
+     * true if not it returns false.
      * 
      * @return true if the email is a valid email or custom email address. 
      */
@@ -130,12 +125,10 @@ function validateFirstName(firstName) {
      * 
      * @argument {String} firstName user's entered first name.
      * 
-     * This function first checks if the given string contains characters or not if
-     * not it returns false value and inform the user that this is not allowed if the 
-     * string is not empty then it again checks the string if that string contains only 
-     * letters because no digits or symbols are allowed for First Name if the function
-     * found any kind of digit or symbol in the first name if returns false and also 
-     * informs the user that this is not allowed.  
+     * This function first checks if the given string contains characters or not if not it returns false value and inform the user 
+     * that this is not allowed if the string is not empty then it again checks the string if that string contains only letters 
+     * because no digits or symbols are allowed for First Name if the function found any kind of digit or symbol in the first name 
+     * if returns false and also informs the user that this is not allowed.  
      * 
      * @return {Bool} true if found a validate first name.
      */
@@ -158,12 +151,10 @@ function validateLastName(lastName) {
      * 
      * @argument {String} LastName user's entered last name.
      * 
-     * This function first checks if the given string contains characters or not if
-     * not it returns false value and inform the user that this is not allowed if the 
-     * string is not empty then it again checks the string if that string contains only 
-     * letters because no digits or symbols are allowed for Last Name if the function
-     * found any kind of digit or symbol in the last name if returns false and also 
-     * informs the user that this is not allowed.  
+     * This function first checks if the given string contains characters or not if not it returns false value and inform the user 
+     * that this is not allowed if the string is not empty then it again checks the string if that string contains only letters 
+     * because no digits or symbols are allowed for Last Name if the function found any kind of digit or symbol in the last name if 
+     * returns false and also informs the user that this is not allowed.  
      * 
      * @return {Bool} true if found a validate last name.
      */
@@ -186,9 +177,8 @@ function validateMobile(mobile) {
      * 
      * @argument {String} mobile user's entered mobile number.
      * 
-     * This function simply checks if the given value has only digits in it if true then
-     * it checks the number of digits this mobile number has if it founds the number to be
-     * equal to 10 then it just returns true otherwise false.
+     * This function simply checks if the given value has only digits in it if true then it checks the number of digits this mobile 
+     * number has if it founds the number to be equal to 10 then it just returns true otherwise false.
      * 
      * @return {Bool} true if the given mobile number is a valid mobile number. 
      */
@@ -205,10 +195,9 @@ export function validateEmail(email) {
      * 
      * @argument {String} email user's entered email address.
      * 
-     * This function first checks if the given string contains characters or not if
-     * not it returns false value and inform the user that this is not allowed if the 
-     * string is not empty then it again checks the string if that string contains valid
-     * email address characters if found false returns false otherwise it returns true.  
+     * This function first checks if the given string contains characters or not if not it returns false value and inform the user 
+     * that this is not allowed if the string is not empty then it again checks the string if that string contains valid email 
+     * address characters if found false returns false otherwise it returns true.  
      * 
      * @return {Bool} true if found a valid email address.
      */
@@ -230,15 +219,12 @@ export function validateForm(fname, lname, mobile, email) {
      * @function validateForm() validates the form that the user just filled.
      * 
      * @argument {String} fname first name of the user.
-     * 
      * @argument {String} lname last name of the user.
-     * 
      * @argument {String} mobile mobile number of the user.
-     * 
      * @argument {String} email email address of the user.
      * 
-     * This function checks if all the field are valid or not if it founds the field to be
-     * valid then this function returns true if not then this function returns false.
+     * This function checks if all the field are valid or not if it founds the field to be valid then this function returns true if 
+     * not then this function returns false.
      */
     if (validateFirstName(fname) && validateLastName(lname) && validateMobile(mobile) && validateEmail(email)) {
         return true;
@@ -253,10 +239,9 @@ export function createPassword(length = 8) {
      * 
      * @argument {Integer} length is the given length of the password (default 8).
      * 
-     * This function generates a strong password for user to register as a netflix user this function
-     * ensures that the user get a strong unbreakable password, it checks if all the characters and
-     * symbols are present in the password if yes then it returns the generated password otherwise it
-     * replaces some characters with required characters in the password and then returns it.
+     * This function generates a strong password for user to register as a netflix user this function ensures that the user get a 
+     * strong unbreakable password, it checks if all the characters and symbols are present in the password if yes then it returns 
+     * the generated password otherwise it replaces some characters with required characters in the password and then returns it.
      * 
      * @return {String} password
      */
@@ -295,9 +280,9 @@ export function createPassword(length = 8) {
 
     for (let i = 0; i < length; i++) {
         /**
-         * This is where we generate a password for user using the options available, we also push the elements
-         * generated to the passwordArray so that in future in case we need to replace the generated password's
-         * element with absent characters then this will help us. 
+         * This is where we generate a password for user using the options available, we also push the elements generated to the 
+         * passwordArray so that in future in case we need to replace the generated password's element with absent characters then 
+         * this will help us. 
          */
         randomChar = getRandomChar(getCurrentOption(options));
         password += randomChar;
@@ -306,13 +291,12 @@ export function createPassword(length = 8) {
 
     const checkPassword = () => {
         /**
-         * @function checkPassword() checks the password for all the characters and symbols needed to make a 
-         * password strong.
+         * @function checkPassword() checks the password for all the characters and symbols needed to make a password strong.
          * 
-         * This function ensures that the password contains right characters and symbols so that the user will 
-         * get a strong password, if it found that the password generated does not meet the requirement of a
-         * strong password then instead of generating the password again it just replaces some characters and
-         * symbols from the generated password so to make the password more strong to use. 
+         * This function ensures that the password contains right characters and symbols so that the user will get a strong 
+         * password, if it found that the password generated does not meet the requirement of a strong password then instead of 
+         * generating the password again it just replaces some characters and symbols from the generated password so to make the 
+         * password more strong to use. 
          */
 
         /* Array that will hold the missing values that makes a password strong to use. */
@@ -322,9 +306,8 @@ export function createPassword(length = 8) {
 
         options.forEach((element, index, array) => {
             /**
-             * This is where we check if the password generated has all the characters and symbols from the options
-             * available if not then the hasValue flag will remain false and using that we can later regenerate the
-             * password for user.  
+             * This is where we check if the password generated has all the characters and symbols from the options available if 
+             * not then the hasValue flag will remain false and using that we can later regenerate the password for user.  
              */
             let hasValue = false;
 
@@ -337,8 +320,7 @@ export function createPassword(length = 8) {
 
             if (!hasValue) {
                 /**
-                 * If the flag hasValue is false then set the missingValueArray to the array that the element
-                 * belongs to. 
+                 * If the flag hasValue is false then set the missingValueArray to the array that the element belongs to. 
                  */
                 containsAll = false;
                 missingValueArray = array;
@@ -347,10 +329,10 @@ export function createPassword(length = 8) {
 
         if (!containsAll) {
             /**
-             * This is where we replaces the characters of the password generated with required characters and
-             * symbols to make the password strong, we replaces the elements with the missing values and then
-             * we set the password to new password generated and then we again ensures that this time the password
-             * is strong if true then return it otherwise repeat the process.  
+             * This is where we replaces the characters of the password generated with required characters and symbols to make the 
+             * password strong, we replaces the elements with the missing values and then we set the password to new password 
+             * generated and then we again ensures that this time the password is strong if true then return it otherwise repeat 
+             * the process.  
              */
             passwordArray[Math.floor(Math.random() * passwordArray.length)] = getRandomChar(missingValueArray);
 
