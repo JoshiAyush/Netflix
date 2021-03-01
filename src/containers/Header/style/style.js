@@ -239,10 +239,37 @@ export const SearchInput = styled.input`
     transition: width 0.5s;
     height: 30px;
     font-size: 14px;
-    transition: margin-left padding opacity width 0.3s;
+    transition-property: margin-left, padding, opacity, width;
+    transition-duration: 0.3s;
     transition-timing-function: ease-out;
     margin-left: ${({ active }) => active === true ? '3px' : '0'};
     padding: ${({ active }) => active === true ? '0 10px' : '0'};
     opacity: ${({ active }) => active === true ? '1' : '0'};
     width: ${({ active }) => active === true ? '200px' : '0'};
+`;
+
+export const PlayButton = styled.button`
+    box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+    background-color: #e6e6e6;
+    color: #000;
+    border-width: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    max-width: 130px;
+    font-size: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition-property: color, background-color;
+    transition-duration: 0.2s;
+    outline: none;
+    transition-timing-function: ease-in;
+
+    &:hover {
+        background-color: #ff1e1e;
+        color: white;
+    }
+
+    &:active {
+        border: 2px solid white;
+    }
 `;

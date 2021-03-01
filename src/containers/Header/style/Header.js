@@ -10,6 +10,7 @@ import { Profile } from "./style.js";
 import { Feature } from "./style.js";
 import { Dropdown } from "./style.js";
 import { Container } from "./style.js";
+import { PlayButton } from "./style.js";
 import { Background } from "./style.js";
 import { SearchIcon } from "./style.js";
 import { SearchInput } from "./style.js";
@@ -58,13 +59,16 @@ HeaderContainer.Dropdown = ({ children, ...restProps }) => (
     <Dropdown {...restProps}>{children}</Dropdown>
 );
 
-
 HeaderContainer.TextLink = ({ children, ...restProps }) => (
     <Link {...restProps}>{children}</Link>
 );
 
 HeaderContainer.Container = ({ children, ...restProps }) => (
     <Frame {...restProps}>{children}</Frame>
+);
+
+HeaderContainer.PlayButton = ({ children, ...restProps }) => (
+    <PlayButton {...restProps}>{children}</PlayButton>
 );
 
 HeaderContainer.FeatureCallOut = ({ children, ...restProps }) => (

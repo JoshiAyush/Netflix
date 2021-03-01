@@ -119,6 +119,8 @@ function Browse() {
 
                     </HeaderContainer.Text>
 
+                    <HeaderContainer.PlayButton>Play</HeaderContainer.PlayButton>
+
                 </HeaderContainer.Feature>
 
             </HeaderContainer>
