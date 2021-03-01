@@ -125,6 +125,8 @@ function Browse() {
 
             </HeaderContainer>
 
+            <Card slides={slides} />
+
         </BrowseContainer>
     ) : (
             <BrowseContainer>
