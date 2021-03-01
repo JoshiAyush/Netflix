@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Design preview](./Design/NetflixHomePage.png)
+![Design preview](./public/images/snapshots/NetflixHomePage.png)
 
 ## Available Scripts
 

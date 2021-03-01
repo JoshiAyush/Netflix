@@ -13,6 +13,7 @@ import { SelectProfile } from "../../containers/index.js";
 
 import { BrowseContainer } from "./style/Browse.js";
 import { LoadingContainer } from "../../components/index.js";
+import { HeaderContainer } from "../../containers/index.js";
 
 
 function Browse() {
@@ -49,7 +50,13 @@ function Browse() {
                         <LoadingContainer.ReleaseBody />
                     )
             }
-            
+
+            <HeaderContainer src="joker1">
+
+                
+
+            </HeaderContainer>
+
         </BrowseContainer>
     ) : (
             <BrowseContainer>

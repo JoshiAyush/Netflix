@@ -45,6 +45,19 @@ export const Frame = styled.div`
     margin: 60px auto;
 `;
 
+export const Text = styled.h2``;
+
+export const Feature = styled(Container)`
+    padding: 150px 0 500px 0;
+    flex-direction: column;
+    align-items: normal;
+    width: 50%;
+
+    @media (max-width: 1100px) {
+        display: none;
+    }
+`;
+
 export const Button = styled(ReactRouterLink)`
     display: block;
     background-color: #e50914;

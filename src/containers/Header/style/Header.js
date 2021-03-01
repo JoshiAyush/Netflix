@@ -1,6 +1,8 @@
 import { Logo } from "./style.js";
+import { Text } from "./style.js";
 import { Frame } from "./style.js";
 import { Button } from "./style.js";
+import { Feature } from "./style.js";
 import { Container } from "./style.js";
 import { Background } from "./style.js";
 
@@ -18,6 +20,14 @@ HeaderContainer.Logo = ({ to, ...restProps }) => (
 
 HeaderContainer.Button = ({ ...restProps }) => (
     <Button {...restProps}></Button>
+);
+
+HeaderContainer.Feature = ({ children, ...restProps }) => (
+    <Feature {...restProps}>{children}</Feature>
+);
+
+HeaderContainer.Text = ({ children, ...restProps }) => (
+    <Text {...restProps}>{children}</Text>
 );
 
 HeaderContainer.Container = ({ children, ...restProps }) => (
