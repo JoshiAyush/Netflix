@@ -1,6 +1,7 @@
 export function seedDatabase(firebase) {
     /**
-     * @function seedDatabase() adds data entries to the firebase.
+     * @function seedDatabase() adds data entries to the firebase. We store all of our data in the firestore as it provides lots of
+     * features as a database we later pull this data to put in our browse page.
      * @argument firebase is the firebase object for firebase authentication. 
      */
 
@@ -8,23 +9,19 @@ export function seedDatabase(firebase) {
         /**
          * @function getUUID() generates a universal unique identifier.
          * 
-         * A universally unique identifier (UUID) is a 128-bit number 
-         * used to identify information in computer systems. The term 
-         * globally unique identifier (GUID) is also used, typically in 
-         * software created by Microsoft. When generated according to the 
-         * standard methods, UUIDs are, for practical purposes, unique. 
+         * A universally unique identifier (UUID) is a 128-bit number used to identify information in computer systems. The term 
+         * globally unique identifier (GUID) is also used, typically in software created by Microsoft. When generated according to
+         * the standard methods, UUIDs are, for practical purposes, unique. 
          */
 
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
             /**
-             * @function replace() is used to replace a part of the given 
-             * string with some another string or a regular expression.
+             * @function replace() is used to replace a part of the given string with some another string or a regular expression.
              * The original string will remain unchanged.
              * 
              * @syntax string.replace(regex, string);
              * @parameter regex is a regular expression.
-             * @parameter string is the string which will replace the content
-             * of the given string. 
+             * @parameter string is the string which will replace the content of the given string. 
              * 
              * @return a new string with replaced value.
              */
@@ -39,8 +36,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -63,8 +59,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -87,8 +82,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -112,8 +106,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -137,8 +130,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -162,8 +154,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -187,8 +178,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -212,8 +202,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -237,8 +226,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -262,8 +250,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -287,8 +274,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -312,8 +298,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -337,8 +322,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -362,8 +346,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -387,8 +370,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -412,8 +394,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -437,8 +418,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -462,8 +442,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -487,8 +466,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -512,8 +490,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -537,8 +514,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -562,8 +538,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -587,8 +562,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -612,8 +586,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -637,8 +610,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -662,8 +634,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -687,8 +658,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -712,8 +682,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -737,8 +706,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -762,8 +730,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -787,8 +754,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -812,8 +778,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -837,8 +802,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -862,8 +826,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -887,8 +850,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -912,8 +874,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -937,8 +898,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -962,8 +922,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -987,8 +946,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1012,8 +970,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1037,8 +994,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1062,8 +1018,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1087,8 +1042,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1112,8 +1066,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1137,8 +1090,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1162,8 +1114,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1187,8 +1138,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1212,8 +1162,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1237,8 +1186,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
@@ -1262,8 +1210,7 @@ export function seedDatabase(firebase) {
     /**
      * @instance firebase is our admin object that provides access to the firestore
      * 
-     * @function firestore() is the database itself it is a new feature of firebase 
-     * it provides following features,
+     * @function firestore() is the database itself it is a new feature of firebase it provides following features,
      * 
      * -> Stores data in documents organized in collections.
      * -> Simple data is easy to store in documents, which are very similar to JSON.
