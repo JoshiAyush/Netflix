@@ -2,11 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<kbd style="box-shadow: 0 0 8px 8px rgb(0 0 0 / 35%); border-radius: 3px;">
-    <img src="./public/images/snapshots/netflixBrowse.png" alt="NetfixBrowsePage" />
-</kbd>
+<!-- <kbd style="box-shadow: 0 0 8px 8px rgb(0 0 0 / 35%); border-radius: 3px;"> -->
+    <!-- <img src="./public/images/snapshots/netflixBrowse.png" alt="NetfixBrowsePage" /> -->
+<!-- </kbd> -->
 
-<!-- ![Design preview](./public/images/snapshots/netflixBrowse.png) -->
+<style>
+    .img img {
+        box-shadow: 0 0 8px 8px rgb(0 0 0 / 35%); 
+        border-radius: 3px;
+    }
+</style>
+
+<span class="img">
+    ![Design preview](./public/images/snapshots/netflixBrowse.png)
+</span>
 
 ## Available Scripts
 
