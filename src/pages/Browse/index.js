@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
+import { createContext } from "react";
 
 import * as ROUTES from "../../constants.js";
 import { UseContent } from "../../hooks/index.js";
@@ -14,9 +15,10 @@ import { Loading } from "../../components/index.js";
 import { SelectProfile } from "../../containers/index.js";
 
 import { BrowseContainer } from "./style/Browse.js";
-import { LoadingContainer } from "../../components/index.js";
 import { HeaderContainer } from "../../containers/index.js";
+import { LoadingContainer } from "../../components/index.js";
 
+export const BrowseContext = createContext();
 
 function Browse() {
     const { series } = UseContent("series");
@@ -25,6 +27,7 @@ function Browse() {
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [category, setCategory] = useState("series");
 
     const { firebase } = useContext(FirebaseContext);
 
@@ -39,96 +42,110 @@ function Browse() {
     }, [profile?.displayName]);
 
     return profile.displayName ? (
-        <BrowseContainer>
+        <BrowseContext.Provider value={{ category, setCategory }}>
 
-            {
-                loading ? (
+            <BrowseContainer>
 
-                    <Loading
-                        src={user?.photoURL ? `/images/users/${user?.photoURL}.png` : '/images/misc/loading.gif'}
-                        alt="user"
-                    />
+                {
+                    loading ? (
 
-                ) : (
-                        <LoadingContainer.ReleaseBody />
-                    )
-            }
+                        <Loading
+                            src={user?.photoURL ? `/images/users/${user?.photoURL}.png` : '/images/misc/loading.gif'}
+                            alt="user"
+                        />
 
-            <HeaderContainer src="joker1" dontShowOnSmallViewPort>
+                    ) : (
+                            <LoadingContainer.ReleaseBody />
+                        )
+                }
 
-                <HeaderContainer.Frame>
+                <HeaderContainer src="joker1" dontShowOnSmallViewPort>
 
-                    <HeaderContainer.Group>
-
-                        <HeaderContainer.Logo to={ROUTES.HOME} src="/images/logo.svg" alt="Netflix"></HeaderContainer.Logo>
-
-                        <HeaderContainer.TextLink>Films</HeaderContainer.TextLink>
-
-                        <HeaderContainer.TextLink>Series</HeaderContainer.TextLink>
-
-                    </HeaderContainer.Group>
-
-                    <HeaderContainer.Group>
+                    <HeaderContainer.Frame>
 
                         <HeaderContainer.Group>
 
-                            <HeaderContainer.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                            <HeaderContainer.Logo to={ROUTES.HOME} src="/images/logo.svg" alt="Netflix"></HeaderContainer.Logo>
+
+                            <HeaderContainer.TextLink
+                                active={category === "films" ? true : false}
+                                onClick={() => setCategory("films")}
+                            >
+                                Films
+                            </HeaderContainer.TextLink>
+
+                            <HeaderContainer.TextLink
+                                active={category === "series" ? true : false}
+                                onClick={() => setCategory("series")}
+                            >
+                                Series
+                            </HeaderContainer.TextLink>
 
                         </HeaderContainer.Group>
 
-                        <HeaderContainer.Profile>
+                        <HeaderContainer.Group>
 
-                            <HeaderContainer.Picture src={user?.photoURL} />
+                            <HeaderContainer.Group>
 
-                            <HeaderContainer.Dropdown>
+                                <HeaderContainer.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-                                <HeaderContainer.Group>
+                            </HeaderContainer.Group>
 
-                                    <HeaderContainer.Picture src={user?.photoURL} />
+                            <HeaderContainer.Profile>
 
-                                    <HeaderContainer.TextLink>{user.displayName.split(" ")[0]}</HeaderContainer.TextLink>
+                                <HeaderContainer.Picture src={user?.photoURL} />
 
-                                </HeaderContainer.Group>
+                                <HeaderContainer.Dropdown>
 
-                                <HeaderContainer.Group>
+                                    <HeaderContainer.Group>
 
-                                    <HeaderContainer.TextLink
-                                        onCLick={() => firebase.auth().signOut()}
-                                    >
-                                        Sign Out
+                                        <HeaderContainer.Picture src={user?.photoURL} />
+
+                                        <HeaderContainer.TextLink>{user.displayName.split(" ")[0]}</HeaderContainer.TextLink>
+
+                                    </HeaderContainer.Group>
+
+                                    <HeaderContainer.Group>
+
+                                        <HeaderContainer.TextLink
+                                            onClick={() => firebase.auth().signOut()}
+                                        >
+                                            Sign Out
                                     </HeaderContainer.TextLink>
 
-                                </HeaderContainer.Group>
+                                    </HeaderContainer.Group>
 
-                            </HeaderContainer.Dropdown>
+                                </HeaderContainer.Dropdown>
 
-                        </HeaderContainer.Profile>
+                            </HeaderContainer.Profile>
 
-                    </HeaderContainer.Group>
+                        </HeaderContainer.Group>
 
-                </HeaderContainer.Frame>
+                    </HeaderContainer.Frame>
 
-                <HeaderContainer.Feature>
+                    <HeaderContainer.Feature>
 
-                    <HeaderContainer.FeatureCallOut>Watch Joker Now</HeaderContainer.FeatureCallOut>
+                        <HeaderContainer.FeatureCallOut>Watch Joker Now</HeaderContainer.FeatureCallOut>
 
-                    <HeaderContainer.Text>
+                        <HeaderContainer.Text>
 
-                        Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
-                        City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
-                        futile attempt to feel like he's part of the world around him.
+                            Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
+                            City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
+                            futile attempt to feel like he's part of the world around him.
 
                     </HeaderContainer.Text>
 
-                    <HeaderContainer.PlayButton>Play</HeaderContainer.PlayButton>
+                        <HeaderContainer.PlayButton>Play</HeaderContainer.PlayButton>
 
-                </HeaderContainer.Feature>
+                    </HeaderContainer.Feature>
 
-            </HeaderContainer>
+                </HeaderContainer>
 
-            <Card slides={slides} />
+                <Card slides={slides} />
 
-        </BrowseContainer>
+            </BrowseContainer>
+
+        </BrowseContext.Provider >
     ) : (
             <BrowseContainer>
 

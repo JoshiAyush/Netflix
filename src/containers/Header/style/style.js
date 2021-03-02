@@ -51,6 +51,7 @@ export const Picture = styled.button`
     transition-property: border;
     transition-timing-function: ease-in;
     transition-duration: 0.1s;
+    outline: none;
 
     &:hover {
         border: 3px solid white;
@@ -66,7 +67,7 @@ export const Link = styled.p`
     color: white;
     text-decoration: none;
     margin-right: 30px;
-    font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+    font-weight: ${({ active }) => (active === true ? 'bold' : 'normal')};
     cursor: pointer;
 
     &:hover {
@@ -131,6 +132,7 @@ export const Profile = styled.div`
     align-items: center;
     margin-left: 20px;
     position: relative;
+    outline: none;
 
     button {
         cursor: pointer;
@@ -265,11 +267,11 @@ export const PlayButton = styled.button`
     transition-timing-function: ease-in;
 
     &:hover {
-        background-color: #ff1e1e;
+        background-color: #E50914;
         color: white;
     }
 
     &:active {
-        border: 2px solid white;
+        border: 3px solid white;
     }
 `;
