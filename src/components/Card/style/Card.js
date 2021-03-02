@@ -46,14 +46,14 @@ CardContainer.Subtitle = ({ children, ...restProps }) => (
     <Subtitle {...restProps}>{children}</Subtitle>
 );
 
-CardContainer.Item = function CardContainerItem({ children, ...restProps }) {
+CardContainer.Item = function CardContainerItem({ children, item, ...restProps }) {
     const { setShowFeature, setItemFeature } = useContext(FeatureContext);
 
     return (
         <Item
             onClick={
                 () => {
-                    setItemFeature();
+                    setItemFeature(item);
                     setShowFeature(true);
                 }
             }
