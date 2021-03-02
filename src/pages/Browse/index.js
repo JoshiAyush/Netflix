@@ -8,6 +8,7 @@ import { UseContent } from "../../hooks/index.js";
 import { FirebaseContext } from "../../context/firebase.js";
 import selectionFilter from "../../utils/selection-filter.js";
 
+import { Card } from "../../components/index.js";
 import { Loading } from "../../components/index.js";
 
 import { SelectProfile } from "../../containers/index.js";

@@ -53,7 +53,7 @@ CardContainer.Item = function CardContainerItem({ children, ...restProps }) {
         <Item
             onClick={
                 () => {
-                    setItemFeature(item);
+                    setItemFeature();
                     setShowFeature(true);
                 }
             }
