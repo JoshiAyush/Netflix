@@ -1,14 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useContext } from "react";
-import { createContext } from "react";
+
+import { useBrowseContext } from "../../context/StateProvider.js";
+import { FeatureStateProvider } from "../../context/StateProvider.js";
 
 import { CardContainer } from "./style/Card.js";
 
-import { BrowseContext } from "../../pages/Browse/index.js";
-
-export const FeatureContext = createContext();
 
 function Card({ slides }) {
     const [slideRows, setSlideRows] = useState([]);
@@ -16,14 +14,14 @@ function Card({ slides }) {
     const [showFeature, setShowFeature] = useState(false);
     const [itemFeature, setItemFeature] = useState({});
 
-    const { category, setCategory } = useContext(BrowseContext);
+    const { category, setCategory } = useBrowseContext();
 
     useEffect(() => {
         setSlideRows(slides[category]);
     }, [slides, category]);
 
     return (
-        <FeatureContext.Provider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
+        <FeatureStateProvider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
 
             <CardContainer>
 
@@ -68,7 +66,7 @@ function Card({ slides }) {
 
             </CardContainer>
 
-        </FeatureContext.Provider>
+        </FeatureStateProvider>
     )
 }
 

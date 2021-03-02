@@ -246,11 +246,11 @@ export function createPassword(length = 8) {
      * @return {String} password
      */
 
-    /* These are the options that we have to generate a strong and robust password */
+    /** These are the options that we have to generate a strong and robust password */
     var options = "abcdefghijklmnopqrstuvwxyz&&ABCDEFGHIJKLMNOPQRSTUVWXYZ&&0123456789&&!$^&*-=+_?".split("&&");
-    /* Setting the password to empty as a initial value */
+    /** Setting the password to empty as a initial value */
     var password = "";
-    /* Creating an array of password length, this helps in replacing characters with required one later. */
+    /** Creating an array of password length, this helps in replacing characters with required one later. */
     var passwordArray = Array(length);
 
     const getCurrentOption = (option) => {

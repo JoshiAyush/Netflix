@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
-import { createContext } from "react";
 
 import * as ROUTES from "../../constants.js";
 import { UseContent } from "../../hooks/index.js";
 import { FirebaseContext } from "../../context/firebase.js";
 import selectionFilter from "../../utils/selection-filter.js";
+import { BrowseStateProvider } from "../../context/StateProvider.js";
 
 import { Card } from "../../components/index.js";
 import { Loading } from "../../components/index.js";
@@ -17,8 +17,6 @@ import { SelectProfile } from "../../containers/index.js";
 import { BrowseContainer } from "./style/Browse.js";
 import { HeaderContainer } from "../../containers/index.js";
 import { LoadingContainer } from "../../components/index.js";
-
-export const BrowseContext = createContext();
 
 function Browse() {
     const { series } = UseContent("series");
@@ -42,7 +40,7 @@ function Browse() {
     }, [profile?.displayName]);
 
     return profile.displayName ? (
-        <BrowseContext.Provider value={{ category, setCategory }}>
+        <BrowseStateProvider value={{ category, setCategory }}>
 
             <BrowseContainer>
 
@@ -133,7 +131,7 @@ function Browse() {
                             City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
                             futile attempt to feel like he's part of the world around him.
 
-                    </HeaderContainer.Text>
+                        </HeaderContainer.Text>
 
                         <HeaderContainer.PlayButton>Play</HeaderContainer.PlayButton>
 
@@ -145,7 +143,7 @@ function Browse() {
 
             </BrowseContainer>
 
-        </BrowseContext.Provider >
+        </BrowseStateProvider >
     ) : (
             <BrowseContainer>
 

@@ -1,20 +1,17 @@
 /**
- * * This optional code is used to register a service worker. register() is not called by default.
+ * This optional code is used to register a service worker. register() is not called by default.
  * 
- * * A service worker is a script that your browser runs in the background, separate from a web page, 
- * * opening the door to features that don't need a web page or user interaction. Today, they already 
- * * include features like push notifications and background sync.
+ * A service worker is a script that your browser runs in the background, separate from a web page, opening the door to features 
+ * that don't need a web page or user interaction. Today, they already include features like push notifications and background sync.
  * 
- * * This lets the app load faster on subsequent visits in production, and gives it offline capabilities. 
- * * However, it also means that developers (and users) will only see deployed updates on subsequent visits 
- * * to a page, after all the existing tabs open on the page have been closed, since previously cached
- * * resources are updated in the background.
+ * This lets the app load faster on subsequent visits in production, and gives it offline capabilities. However, it also means that 
+ * developers (and users) will only see deployed updates on subsequent visits to a page, after all the existing tabs open on the 
+ * page have been closed, since previously cached resources are updated in the background.
  * 
- * * To learn more about the benefits of this model and instructions on how to opt-in, 
- * * @see https://bit.ly/CRA-PWA
+ * To learn more about the benefits of this model and instructions on how to opt-in, @see https://bit.ly/CRA-PWA
  * 
- * * By the way if you want to know more about service workers go check out developers.google.com, 
- * * @see https://developers.google.com/web/fundamentals/primers/service-workers
+ * By the way if you want to know more about service workers go check out developers.google.com, 
+ * @see https://developers.google.com/web/fundamentals/primers/service-workers
  */
 
 function isLocalhost() {
@@ -39,9 +36,8 @@ function checkIfHosted() {
     /**
      * @function checkIfHosted() checks if the web app hosted location is in a web server.
      * 
-     * This function also does the same job as the function isHosted() do but here it matches
-     * the client hostname with a regex (regular expression) to find if it is a valid hostaname
-     * and returns true if found a valid one otherwise returns false.
+     * This function also does the same job as the function isHosted() do but here it matches the client hostname with a regex
+     * (regular expression) to find if it is a valid hostaname and returns true if found a valid one otherwise returns false.
      * 
      * @return {Bool} true if found a valid hostname.
      */

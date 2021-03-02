@@ -14,9 +14,7 @@ import { FeatureText } from "./style.js";
 import { FeatureClose } from "./style.js";
 import { FeatureTitle } from "./style.js";
 
-import { useContext } from "react";
-
-import { FeatureContext } from "../index.js";
+import { useFeatureContext } from "../../../context/StateProvider.js";
 
 CardContainer.Image = ({ ...restProps }) => (
     <Image {...restProps} />
@@ -47,7 +45,7 @@ CardContainer.Subtitle = ({ children, ...restProps }) => (
 );
 
 CardContainer.Item = function CardContainerItem({ children, item, ...restProps }) {
-    const { setShowFeature, setItemFeature } = useContext(FeatureContext);
+    const { setShowFeature, setItemFeature } = useFeatureContext();
 
     return (
         <Item
