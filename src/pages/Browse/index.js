@@ -1,11 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useContext } from "react";
 
 import * as ROUTES from "../../constants.js";
-import { UseContent } from "../../hooks/index.js";
-import { FirebaseContext } from "../../context/firebase.js";
+import { useContent } from "../../hooks/index.js";
+import { useFirebaseContext } from "../../context/StateProvider.js";
 import selectionFilter from "../../utils/selection-filter.js";
 import { BrowseStateProvider } from "../../context/StateProvider.js";
 
@@ -19,15 +18,15 @@ import { HeaderContainer } from "../../containers/index.js";
 import { LoadingContainer } from "../../components/index.js";
 
 function Browse() {
-    const { series } = UseContent("series");
-    const { films } = UseContent("films");
+    const { series } = useContent("series");
+    const { films } = useContent("films");
 
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [category, setCategory] = useState("series");
 
-    const { firebase } = useContext(FirebaseContext);
+    const { firebase } = useFirebaseContext();
 
     const user = firebase.auth().currentUser || {};
 

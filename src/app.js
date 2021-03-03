@@ -14,10 +14,10 @@ import { SIGN_UP } from "./constants.js";
 import { IsUserRedirect } from "./helpers/routes.js";
 import { ProtectedRoute } from "./helpers/routes.js";
 
-import { UseAuthListener } from "./hooks/index.js";
+import { useAuthListener } from "./hooks/index.js";
 
 function App() {
-  const { user } = UseAuthListener();
+  const { user } = useAuthListener();
 
   return (
     <Router>

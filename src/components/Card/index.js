@@ -34,12 +34,7 @@ function Card({ slides }) {
 
                                 <CardContainer.Entities>
                                     {
-                                        slideItem.data.map(item => {
-                                            console.log("I am your item", item);
-                                        })
-                                    }
-                                    {
-                                        slideItem.data.map(item => (
+                                        slideItem.data.map((item) => (
                                             <CardContainer.Item key={item.docId} item={item}>
 
                                                 <CardContainer.Image
@@ -58,6 +53,18 @@ function Card({ slides }) {
                                         ))
                                     }
                                 </CardContainer.Entities>
+
+                                <CardContainer.Feature category={category}>
+
+                                    <CardContainer.Player>
+
+                                        <CardContainer.PlayerButton />
+
+                                        <CardContainer.PlayerVideo src="/videos/bunny.mp4" />
+
+                                    </CardContainer.Player>
+
+                                </CardContainer.Feature>
                             </>
                         ))
                     }

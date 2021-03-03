@@ -1,2 +1,2 @@
-export { default as UseContent } from "./use-content.js";
-export { default as UseAuthListener } from "./use-auth-listener.js";
+export { default as useContent } from "./useContent.js";
+export { default as useAuthListener } from "./useAuthListener.js";

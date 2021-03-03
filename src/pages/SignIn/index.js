@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import { HomeContainer } from "../Home/style/Home.js";
@@ -9,7 +8,7 @@ import { HeaderContainer } from "../../containers/Header/style/Header.js";
 import { HOME } from "../../constants.js";
 import { BROWSE } from "../../constants.js";
 import { SIGN_UP } from "../../constants.js";
-import { FirebaseContext } from "../../context/firebase.js";
+import { useFirebaseContext } from "../../context/StateProvider.js";
 
 import Footer from "../../containers/Footer/index.js";
 
@@ -18,7 +17,7 @@ import { FormContainer } from "../../components/index.js";
 function SignIn() {
     const history = useHistory();
 
-    const { firebase } = useContext(FirebaseContext);
+    const { firebase } = useFirebaseContext();
 
     const [userEmail, setEmail] = useState("");
 

@@ -7,19 +7,19 @@ import App from './app';
 import { GlobalStyles } from './global-styles';
 import { firebase } from './lib/firebase.prod';
 
-import { FirebaseContext } from "./context/firebase.js";
+import { FirebaseStateProvider } from "./context/StateProvider.js";
 
 render(
 
     <React.Fragment>
 
-        <FirebaseContext.Provider value={{ firebase }}>
+        <FirebaseStateProvider value={{ firebase }}>
 
             <GlobalStyles />
 
             <App />
 
-        </FirebaseContext.Provider>
+        </FirebaseStateProvider>
 
     </React.Fragment>,
 
