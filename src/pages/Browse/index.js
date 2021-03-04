@@ -13,6 +13,7 @@ import { Loading } from "../../components/index.js";
 
 import { SelectProfile } from "../../containers/index.js";
 
+import { Footer } from "../../containers/index.js";
 import { BrowseContainer } from "./style/Browse.js";
 import { HeaderContainer } from "../../containers/index.js";
 import { LoadingContainer } from "../../components/index.js";
@@ -139,6 +140,8 @@ function Browse() {
                 </HeaderContainer>
 
                 <Card slides={slides} />
+
+                <Footer />
 
             </BrowseContainer>
 

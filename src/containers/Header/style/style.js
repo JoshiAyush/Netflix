@@ -272,6 +272,6 @@ export const PlayButton = styled.button`
     }
 
     &:active {
-        border: 3px solid white;
+        background-color: rgba(255, 0, 0, 1);
     }
 `;
