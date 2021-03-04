@@ -21,16 +21,13 @@ function SignIn() {
     const { firebase } = useFirebaseContext();
 
     const [userName, setUserName] = useState("");
-
     const [userEmail, setEmail] = useState("");
-
     const [userPassword, setPassword] = useState("");
-
     const [suggestPassword, setSuggestPassword] = useState(false);
-
     const [usePassword, setUsePassword] = useState("");
-
     const [error, setError] = useState("");
+
+    const [passwordSuggested, setPasswordSuggested] = useState(false);
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -102,8 +99,11 @@ function SignIn() {
                                     placeholder="Password"
                                     value={userPassword}
                                     onClick={() => {
-                                        setUsePassword(createPassword());
-                                        setSuggestPassword(true);
+                                        if (passwordSuggested === false) {
+                                            setUsePassword(createPassword());
+                                            setSuggestPassword(true);
+                                            setPasswordSuggested(true);
+                                        }
                                     }}
                                     onChange={({ target }) => setPassword(target.value)}
                                     autoComplete="on"
@@ -111,15 +111,20 @@ function SignIn() {
 
                                 {
                                     suggestPassword &&
-                                    <FormContainer.SuggestPassword onClick={() => setPassword(usePassword)}>
+                                    <FormContainer.SuggestPassword
+                                        onClick={() => {
+                                            setPassword(usePassword);
+                                            setSuggestPassword(false);
+                                        }}
+                                    >
                                         Use suggested password
 
                                         <FormContainer.Span>{usePassword}</FormContainer.Span>
-                                        
+
                                         <FormContainer.P>
                                             Don't worry Google will save this password for you, you don't have to remember this.
                                         </FormContainer.P>
-                                        
+
                                     </FormContainer.SuggestPassword>
                                 }
 

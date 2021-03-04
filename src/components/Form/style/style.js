@@ -58,6 +58,7 @@ export const SuggestPassword = styled(Error)`
     padding: 0px 20px;
     padding-top: 15px;
     padding-bottom: 0px;
+    cursor: pointer;
 
     span {
         position: absolute;
