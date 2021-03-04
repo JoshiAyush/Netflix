@@ -112,7 +112,14 @@ function SignIn() {
                                 {
                                     suggestPassword &&
                                     <FormContainer.SuggestPassword onClick={() => setPassword(usePassword)}>
-                                        {usePassword}
+                                        Use suggested password
+
+                                        <FormContainer.Span>{usePassword}</FormContainer.Span>
+                                        
+                                        <FormContainer.P>
+                                            Don't worry Google will save this password for you, you don't have to remember this.
+                                        </FormContainer.P>
+                                        
                                     </FormContainer.SuggestPassword>
                                 }
 

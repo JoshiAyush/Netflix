@@ -1,3 +1,5 @@
+import { P } from "./style.js";
+import { Span } from "./style.js";
 import { Link } from "./style.js";
 import { Base } from "./style.js";
 import { Text } from "./style.js";
@@ -9,6 +11,18 @@ import { Submit } from "./style.js";
 import { TextSmall } from "./style.js";
 import { Container } from "./style.js";
 import { SuggestPassword } from "./style.js";
+
+FormContainer.P = ({ children, ...restProps }) => (
+    <P {...restProps}>
+        {children}
+    </P>
+);
+
+FormContainer.Span = ({ children, ...restProps }) => (
+    <Span {...restProps}>
+        {children}
+    </Span>
+);
 
 FormContainer.Error = ({ children, ...restProps }) => (
     <Error {...restProps}>

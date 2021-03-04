@@ -38,15 +38,32 @@ export const Error = styled.div`
     height: fit-content;
 `;
 
-export const SuggestPassword = styled.div`
-    background: #e87c03;
-    border-radius: 4px;
-    font-size: 14px;
-    margin: 0 0 16px;
-    color: white;
-    padding: 15px 20px;
-    overflow: auto;
-    height: fit-content;
+export const Span = styled.span`
+
+`;
+
+export const P = styled.p`
+
+`;
+
+export const SuggestPassword = styled(Error)`
+    background-color: white;
+    color: rgba(0, 0, 0, 0.69);
+    position: absolute;
+    top: 220px;
+    width: 100%;
+    max-width: 320px;
+    font-size: 16px;
+    z-index: 99;
+    padding: 0px 20px;
+    padding-top: 15px;
+    padding-bottom: 0px;
+
+    span {
+        position: absolute;
+        right: 0;
+        margin-right: 18px;
+    }
 `;
 
 export const Base = styled.form`
@@ -56,6 +73,7 @@ export const Base = styled.form`
     width: 100%;
     max-height: fit-content;
     margin: 0 auto;
+    position: relative;
 `;
 
 export const Text = styled.p`
