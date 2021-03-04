@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useReducer } from "react";
 import { createContext } from "react";
 
 /** @context FirebaseContext provides state context for firebase items like firebase auth configuration instance. */
@@ -33,3 +34,13 @@ export const FeatureStateProvider = ({ children, value }) => (
 );
 
 export const useFeatureContext = () => useContext(FeatureContext);
+
+export const SignUpContext = createContext(null);
+
+export const SignUpStateProvider = ({ children, initialState, reducer }) => (
+    <SignUpContext.Provider value={useReducer(reducer, initialState)}>
+        {children}
+    </SignUpContext.Provider>
+);
+
+export const useSignUpContext = () => useContext(SignUpContext);

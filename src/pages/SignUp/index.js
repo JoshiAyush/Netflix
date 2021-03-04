@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { HomeContainer } from "../Home/style/Home.js";
@@ -8,26 +7,37 @@ import { HeaderContainer } from "../../containers/Header/style/Header.js";
 import { HOME } from "../../constants.js";
 import { BROWSE } from "../../constants.js";
 import { SIGN_IN } from "../../constants.js";
+
+import { ERROR } from "../../constants.js";
+import { USE_PASSWORD } from "../../constants.js";
+import { SET_USER_NAME } from "../../constants.js";
+import { SET_USER_EMAIL } from "../../constants.js";
+import { SUGGEST_PASSWORD } from "../../constants.js";
+import { SET_USER_PASSWORD } from "../../constants.js";
+import { PASSWORD_SUGGESTED } from "../../constants.js";
+
 import { createPassword } from "../../form.js";
+import { useSignUpContext } from "../../context/StateProvider.js";
 import { useFirebaseContext } from "../../context/StateProvider.js";
 
 import Footer from "../../containers/Footer/index.js";
 
 import { FormContainer } from "../../components/index.js";
 
-function SignIn() {
+function SignUp() {
     const history = useHistory();
 
     const { firebase } = useFirebaseContext();
 
-    const [userName, setUserName] = useState("");
-    const [userEmail, setEmail] = useState("");
-    const [userPassword, setPassword] = useState("");
-    const [suggestPassword, setSuggestPassword] = useState(false);
-    const [usePassword, setUsePassword] = useState("");
-    const [error, setError] = useState("");
-
-    const [passwordSuggested, setPasswordSuggested] = useState(false);
+    const [{
+        error,
+        userName,
+        userEmail,
+        usePassword,
+        userPassword,
+        suggestPassword,
+        passwordSuggested
+    }, dispatch] = useSignUpContext();
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -39,10 +49,10 @@ function SignIn() {
             }).then(() => {
                 history.push(BROWSE);
             }).catch((error) => {
-                setUserName("");
-                setEmail("");
-                setPassword("");
-                setError(error.message);
+                dispatch({ type: SET_USER_NAME, userName: "" });
+                dispatch({ type: SET_USER_EMAIL, userEmail: "" });
+                dispatch({ type: SET_USER_PASSWORD, userPassword: "" });
+                dispatch({ type: ERROR, error: error.message });
             });
         })
     };
@@ -82,7 +92,7 @@ function SignIn() {
                                     type="text"
                                     placeholder="Full Name"
                                     value={userName}
-                                    onChange={({ target }) => setUserName(target.value)}
+                                    onChange={({ target }) => dispatch({ type: SET_USER_NAME, userName: target.value })}
                                     autoComplete="on"
                                 />
 
@@ -90,7 +100,7 @@ function SignIn() {
                                     type="email"
                                     placeholder="Email Address"
                                     value={userEmail}
-                                    onChange={({ target }) => setEmail(target.value)}
+                                    onChange={({ target }) => dispatch({ type: SET_USER_EMAIL, userEmail: target.value })}
                                     autoComplete="on"
                                 />
 
@@ -100,12 +110,12 @@ function SignIn() {
                                     value={userPassword}
                                     onClick={() => {
                                         if (passwordSuggested === false) {
-                                            setUsePassword(createPassword());
-                                            setSuggestPassword(true);
-                                            setPasswordSuggested(true);
+                                            dispatch({ type: USE_PASSWORD, usePassword: createPassword() });
+                                            dispatch({ type: SUGGEST_PASSWORD, suggestPassword: true });
+                                            dispatch({ type: PASSWORD_SUGGESTED, passwordSuggested: true });
                                         }
                                     }}
-                                    onChange={({ target }) => setPassword(target.value)}
+                                    onChange={({ target }) => dispatch({ type: SET_USER_PASSWORD, userPassword: target.value })}
                                     autoComplete="on"
                                 />
 
@@ -113,8 +123,8 @@ function SignIn() {
                                     suggestPassword &&
                                     <FormContainer.SuggestPassword
                                         onClick={() => {
-                                            setPassword(usePassword);
-                                            setSuggestPassword(false);
+                                            dispatch({ type: SET_USER_PASSWORD, userPassword: usePassword });
+                                            dispatch({ type: SUGGEST_PASSWORD, suggestPassword: false });
                                         }}
                                     >
                                         Use suggested password
@@ -162,4 +172,4 @@ function SignIn() {
     );
 }
 
-export default SignIn;
+export default SignUp;
