@@ -233,7 +233,7 @@ export function validateForm(fname, lname, mobile, email) {
     }
 }
 
-export function createPassword(length = 8) {
+export function createPassword(length = 10) {
     /**
      * @function createPassword() creates a strong password with the given length.
      * 
@@ -323,7 +323,7 @@ export function createPassword(length = 8) {
                  * If the flag hasValue is false then set the missingValueArray to the array that the element belongs to. 
                  */
                 containsAll = false;
-                missingValueArray = array;
+                missingValueArray = element;
             }
         });
 
@@ -345,7 +345,7 @@ export function createPassword(length = 8) {
         }
     }
 
-    // checkPassword();
+    checkPassword();
 
     return password;
 }

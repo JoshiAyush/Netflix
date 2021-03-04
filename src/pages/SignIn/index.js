@@ -20,9 +20,7 @@ function SignIn() {
     const { firebase } = useFirebaseContext();
 
     const [userEmail, setEmail] = useState("");
-
     const [userPassword, setPassword] = useState("");
-
     const [error, setError] = useState("");
 
     const handleSignIn = (event) => {
