@@ -40,7 +40,7 @@ function Browse() {
     }, [profile?.displayName]);
 
     return profile.displayName ? (
-        <BrowseStateProvider value={{ category, setCategory }}>
+        <BrowseStateProvider value={{ category, setCategory, searchTerm, setSearchTerm }}>
 
             <BrowseContainer>
 
