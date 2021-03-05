@@ -6,7 +6,7 @@ export const Title = styled.p`
     font-weight: bold;
     margin-left: 56px;
     margin-right: 56px;
-    margin-top: 0;
+    margin-top: 30px;
 `;
 
 export const Container = styled.div`
@@ -80,6 +80,8 @@ export const Feature = styled.div`
     background-position-x: right;
     background-repeat: no-repeat;
     background-color: black;
+    margin-right: 56px;
+    margin-top: 10px;
 
     @media (max-width: 1000px) {
         height: auto;

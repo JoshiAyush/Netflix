@@ -56,13 +56,13 @@ function Card({ slides }) {
 
                                 <CardContainer.Feature category={category}>
 
-                                    <CardContainer.Player>
+                                    {/* <CardContainer.Player>
 
                                         <CardContainer.PlayerButton />
 
                                         <CardContainer.PlayerVideo src="/videos/bunny.mp4" />
 
-                                    </CardContainer.Player>
+                                    </CardContainer.Player> */}
 
                                 </CardContainer.Feature>
                             </>

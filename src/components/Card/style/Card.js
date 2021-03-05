@@ -82,7 +82,7 @@ CardContainer.Feature = function CardContainerFeature({ children, category, ...r
             </Content>
 
         </Feature >
-    ) : null;
+    ) : <></>;
 }
 
 CardContainer.Item = function CardContainerItem({ children, item, ...restProps }) {
