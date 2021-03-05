@@ -1,6 +1,9 @@
 import React from "react";
+import Fuse from "fuse.js";
 import { useState } from "react";
 import { useEffect } from "react";
+
+import { Player } from "../index.js";
 
 import { useBrowseContext } from "../../context/StateProvider.js";
 import { FeatureStateProvider } from "../../context/StateProvider.js";
@@ -14,11 +17,25 @@ function Card({ slides }) {
     const [showFeature, setShowFeature] = useState(false);
     const [itemFeature, setItemFeature] = useState({});
 
-    const { category, setCategory } = useBrowseContext();
+    const { category, setCategory, searchTerm, setSearchTerm } = useBrowseContext();
 
     useEffect(() => {
         setSlideRows(slides[category]);
     }, [slides, category]);
+
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, {
+            keys: ['data.description', 'data.title', 'data.genre'],
+        });
+
+        const results = fuse.search(searchTerm).map(({ item }) => item);
+
+        if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+            setSlideRows(results);
+        } else {
+            setSlideRows(slides[category]);
+        }
+    }, [searchTerm]);
 
     return (
         <FeatureStateProvider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
@@ -56,13 +73,7 @@ function Card({ slides }) {
 
                                 <CardContainer.Feature category={category}>
 
-                                    {/* <CardContainer.Player>
-
-                                        <CardContainer.PlayerButton />
-
-                                        <CardContainer.PlayerVideo src="/videos/bunny.mp4" />
-
-                                    </CardContainer.Player> */}
+                                    <Player src="/videos/bunny.mp4" />
 
                                 </CardContainer.Feature>
                             </>
