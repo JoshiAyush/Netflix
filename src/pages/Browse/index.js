@@ -3,10 +3,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 import * as ROUTES from "../../constants.js";
+import { SET_CATEGORY } from "../../constants.js";
 import { useContent } from "../../hooks/index.js";
-import { useFirebaseContext } from "../../context/StateProvider.js";
+import { useBrowseContext, useFirebaseContext } from "../../context/StateProvider.js";
 import selectionFilter from "../../utils/selection-filter.js";
-import { BrowseStateProvider } from "../../context/StateProvider.js";
 
 import { Card } from "../../components/index.js";
 import { Loading } from "../../components/index.js";
@@ -24,14 +24,14 @@ function Browse() {
 
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [category, setCategory] = useState("series");
 
     const { firebase } = useFirebaseContext();
 
     const user = firebase.auth().currentUser || {};
 
     const slides = selectionFilter({ series, films });
+
+    const [{ category }, dispatch] = useBrowseContext();
 
     useEffect(() => {
         setTimeout(() => {
@@ -40,112 +40,109 @@ function Browse() {
     }, [profile?.displayName]);
 
     return profile.displayName ? (
-        <BrowseStateProvider value={{ category, setCategory, searchTerm, setSearchTerm }}>
+        <BrowseContainer>
 
-            <BrowseContainer>
+            {
+                loading ? (
 
-                {
-                    loading ? (
+                    <Loading
+                        src={user?.photoURL ? `/images/users/${user?.photoURL}.png` : '/images/misc/loading.gif'}
+                        alt="user"
+                    />
 
-                        <Loading
-                            src={user?.photoURL ? `/images/users/${user?.photoURL}.png` : '/images/misc/loading.gif'}
-                            alt="user"
-                        />
+                ) : (
+                        <LoadingContainer.ReleaseBody />
+                    )
+            }
 
-                    ) : (
-                            <LoadingContainer.ReleaseBody />
-                        )
-                }
+            <HeaderContainer src="joker1" dontShowOnSmallViewPort>
 
-                <HeaderContainer src="joker1" dontShowOnSmallViewPort>
+                <HeaderContainer.Frame>
 
-                    <HeaderContainer.Frame>
+                    <HeaderContainer.Group>
+
+                        <HeaderContainer.Logo to={ROUTES.HOME} src="/images/logo.svg" alt="Netflix"></HeaderContainer.Logo>
+
+                        <HeaderContainer.TextLink
+                            active={category === "films" ? true : false}
+                            onClick={() => dispatch({ type: SET_CATEGORY, category: "films" })}
+                        >
+                            Films
+                            </HeaderContainer.TextLink>
+
+                        <HeaderContainer.TextLink
+                            active={category === "series" ? true : false}
+                            onClick={() => dispatch({ type: SET_CATEGORY, category: "series" })}
+                        >
+                            Series
+                            </HeaderContainer.TextLink>
+
+                    </HeaderContainer.Group>
+
+                    <HeaderContainer.Group>
 
                         <HeaderContainer.Group>
 
-                            <HeaderContainer.Logo to={ROUTES.HOME} src="/images/logo.svg" alt="Netflix"></HeaderContainer.Logo>
-
-                            <HeaderContainer.TextLink
-                                active={category === "films" ? true : false}
-                                onClick={() => setCategory("films")}
-                            >
-                                Films
-                            </HeaderContainer.TextLink>
-
-                            <HeaderContainer.TextLink
-                                active={category === "series" ? true : false}
-                                onClick={() => setCategory("series")}
-                            >
-                                Series
-                            </HeaderContainer.TextLink>
+                            <HeaderContainer.Search />
 
                         </HeaderContainer.Group>
 
-                        <HeaderContainer.Group>
+                        <HeaderContainer.Profile>
 
-                            <HeaderContainer.Group>
+                            <HeaderContainer.Picture src={user?.photoURL} />
 
-                                <HeaderContainer.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+                            <HeaderContainer.Dropdown>
 
-                            </HeaderContainer.Group>
+                                <HeaderContainer.Group>
 
-                            <HeaderContainer.Profile>
+                                    <HeaderContainer.Picture src={user?.photoURL} />
 
-                                <HeaderContainer.Picture src={user?.photoURL} />
+                                    <HeaderContainer.TextLink>{user.displayName.split(" ")[0]}</HeaderContainer.TextLink>
 
-                                <HeaderContainer.Dropdown>
+                                </HeaderContainer.Group>
 
-                                    <HeaderContainer.Group>
+                                <HeaderContainer.Group>
 
-                                        <HeaderContainer.Picture src={user?.photoURL} />
-
-                                        <HeaderContainer.TextLink>{user.displayName.split(" ")[0]}</HeaderContainer.TextLink>
-
-                                    </HeaderContainer.Group>
-
-                                    <HeaderContainer.Group>
-
-                                        <HeaderContainer.TextLink
-                                            onClick={() => firebase.auth().signOut()}
-                                        >
-                                            Sign Out
+                                    <HeaderContainer.TextLink
+                                        onClick={() => firebase.auth().signOut()}
+                                    >
+                                        Sign Out
                                     </HeaderContainer.TextLink>
 
-                                    </HeaderContainer.Group>
+                                </HeaderContainer.Group>
 
-                                </HeaderContainer.Dropdown>
+                            </HeaderContainer.Dropdown>
 
-                            </HeaderContainer.Profile>
+                        </HeaderContainer.Profile>
 
-                        </HeaderContainer.Group>
+                    </HeaderContainer.Group>
 
-                    </HeaderContainer.Frame>
+                </HeaderContainer.Frame>
 
-                    <HeaderContainer.Feature>
+                <HeaderContainer.Feature>
 
-                        <HeaderContainer.FeatureCallOut>Watch Joker Now</HeaderContainer.FeatureCallOut>
+                    <HeaderContainer.FeatureCallOut>Watch Joker Now</HeaderContainer.FeatureCallOut>
 
-                        <HeaderContainer.Text>
+                    <HeaderContainer.Text>
 
-                            Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
-                            City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
-                            futile attempt to feel like he's part of the world around him.
+                        Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
+                        City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
+                        futile attempt to feel like he's part of the world around him.
 
                         </HeaderContainer.Text>
 
-                        <HeaderContainer.PlayButton>Play</HeaderContainer.PlayButton>
+                    <HeaderContainer.PlayButton>Play</HeaderContainer.PlayButton>
 
-                    </HeaderContainer.Feature>
+                </HeaderContainer.Feature>
 
-                </HeaderContainer>
+            </HeaderContainer>
 
-                <Card slides={slides} />
+            <Card slides={slides} />
 
-                <Footer />
+            <Footer />
 
-            </BrowseContainer>
+        </BrowseContainer>
 
-        </BrowseStateProvider >
     ) : (
             <BrowseContainer>
 

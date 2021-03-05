@@ -19,6 +19,10 @@ import { FeatureCallOut } from "./style.js";
 import { useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 
+import { useBrowseContext } from "../../../context/StateProvider.js";
+
+import { SET_SEARCH_TERM } from "../../../constants.js";
+
 HeaderContainer.Button = ({ ...restProps }) => (
     <Button {...restProps}></Button>
 );
@@ -75,8 +79,10 @@ HeaderContainer.FeatureCallOut = ({ children, ...restProps }) => (
     <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
 );
 
-HeaderContainer.Search = function HeaderContainerSearch({ searchTerm, setSearchTerm, ...restProps }) {
+HeaderContainer.Search = function HeaderContainerSearch({ ...restProps }) {
     const [searchActive, setSearchActive] = useState(false);
+
+    const [{ searchTerm }, dispatch] = useBrowseContext();
 
     return (
         <Search {...restProps}>
@@ -85,7 +91,7 @@ HeaderContainer.Search = function HeaderContainerSearch({ searchTerm, setSearchT
                 onClick={() => setSearchActive(searchActive => !searchActive)}
             />
             <SearchInput
-                onChange={({ target }) => setSearchTerm(target.value)}
+                onChange={({ target }) => dispatch({ type: SET_SEARCH_TERM, searchTerm: target.value })}
                 value={searchTerm}
                 placeholder="Search films and series"
                 active={searchActive}

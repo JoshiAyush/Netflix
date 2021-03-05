@@ -17,7 +17,7 @@ function Card({ slides }) {
     const [showFeature, setShowFeature] = useState(false);
     const [itemFeature, setItemFeature] = useState({});
 
-    const { category, setCategory, searchTerm, setSearchTerm } = useBrowseContext();
+    const [{ category, searchTerm }, dispatch] = useBrowseContext();
 
     useEffect(() => {
         setSlideRows(slides[category]);

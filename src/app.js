@@ -12,9 +12,11 @@ import { SIGN_IN } from "./constants.js";
 import { SIGN_UP } from "./constants.js";
 
 import { reducer } from "./reducer.js";
+import { BrowseState } from "./reducer.js";
 import { SignUpState } from "./reducer.js";
 
 import { SignUpStateProvider } from "./context/StateProvider.js";
+import { BrowseStateProvider } from "./context/StateProvider.js";
 
 import { IsUserRedirect } from "./helpers/routes.js";
 import { ProtectedRoute } from "./helpers/routes.js";
@@ -71,7 +73,11 @@ function App() {
         signedInPath={SIGN_IN}
       >
 
-        <Browse />
+        <BrowseStateProvider initialState={BrowseState} reducer={reducer}>
+
+          <Browse />
+
+        </BrowseStateProvider>
 
       </ProtectedRoute>
 

@@ -20,8 +20,8 @@ export const useFirebaseContext = () => useContext(FirebaseContext);
  */
 export const BrowseContext = createContext(null);
 
-export const BrowseStateProvider = ({ children, value }) => (
-    <BrowseContext.Provider value={value}>
+export const BrowseStateProvider = ({ children, initialState, reducer }) => (
+    <BrowseContext.Provider value={useReducer(reducer, initialState)}>
         {children}
     </BrowseContext.Provider>
 );
