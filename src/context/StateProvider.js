@@ -2,7 +2,9 @@ import { useContext } from "react";
 import { useReducer } from "react";
 import { createContext } from "react";
 
-/** @context FirebaseContext provides state context for firebase items like firebase auth configuration instance. */
+/** 
+ * @context FirebaseContext provides state context for firebase items like firebase auth configuration instance. 
+ */
 export const FirebaseContext = createContext(null);
 
 export const FirebaseStateProvider = ({ children, value }) => (
@@ -13,7 +15,9 @@ export const FirebaseStateProvider = ({ children, value }) => (
 
 export const useFirebaseContext = () => useContext(FirebaseContext);
 
-/** @context BrowseContext provides state for browse screen, whether the user is switched to series or films. */
+/** 
+ * @context BrowseContext provides state for browse screen, whether the user is switched to series or films. 
+ */
 export const BrowseContext = createContext(null);
 
 export const BrowseStateProvider = ({ children, value }) => (
@@ -24,7 +28,9 @@ export const BrowseStateProvider = ({ children, value }) => (
 
 export const useBrowseContext = () => useContext(BrowseContext);
 
-/** @context FeatureContext provides state for features it basically keeps some hooks in it to provide them later anywhere. */
+/** 
+ * @context FeatureContext provides state for features it basically keeps some hooks in it to provide them later anywhere. 
+ */
 export const FeatureContext = createContext(null);
 
 export const FeatureStateProvider = ({ children, value }) => (
@@ -35,6 +41,9 @@ export const FeatureStateProvider = ({ children, value }) => (
 
 export const useFeatureContext = () => useContext(FeatureContext);
 
+/** 
+ * @context SignUpContext provides state for SignUp component it basically keeps the fields require during sign up. 
+ */
 export const SignUpContext = createContext(null);
 
 export const SignUpStateProvider = ({ children, initialState, reducer }) => (
@@ -44,3 +53,16 @@ export const SignUpStateProvider = ({ children, initialState, reducer }) => (
 );
 
 export const useSignUpContext = () => useContext(SignUpContext);
+
+/** 
+ * @context PlayerContext provides state to our Player component. 
+ */
+export const PlayerContext = createContext(null);
+
+export const PlayerStateProvider = ({ children, value }) => (
+    <PlayerContext.Provider value={value}>
+        {children}
+    </PlayerContext.Provider>
+);
+
+export const usePlayerContext = () => useContext(PlayerContext);
