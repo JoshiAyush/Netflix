@@ -13,7 +13,7 @@ PlayerContainer.Button = function PlayerContainerButton({ ...restProps }) {
     const { showPlayer, setShowPlayer } = usePlayerContext();
 
     return (
-        <Button onClick={() => setShowPlayer((showPlayer) => !showPlayer)} {...restProps}>
+        <Button onClick={() => setShowPlayer(!showPlayer)} {...restProps}>
             Play
         </Button>
     );

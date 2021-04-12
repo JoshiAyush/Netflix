@@ -9,7 +9,7 @@ function useContent(target) {
      * 
      * @argument {String} target is the collection that we need to use.
      * 
-     * @returns 
+     * @returns a hook containing target content in it eg. series or films. 
      */
     const [content, setContent] = useState([]);
 

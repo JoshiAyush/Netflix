@@ -54,7 +54,7 @@ function SignUp() {
                 dispatch({ type: SET_USER_PASSWORD, userPassword: "" });
                 dispatch({ type: ERROR, error: error.message });
             });
-        })
+        });
     };
 
     const IsInvalid = userName === "" || userEmail === "" || userPassword === "";

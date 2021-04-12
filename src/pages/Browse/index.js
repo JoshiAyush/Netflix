@@ -4,23 +4,25 @@ import { useEffect } from "react";
 
 import * as ROUTES from "../../constants.js";
 import { SET_CATEGORY } from "../../constants.js";
+
 import { useContent } from "../../hooks/index.js";
-import { useBrowseContext, useFirebaseContext } from "../../context/StateProvider.js";
 import selectionFilter from "../../utils/selection-filter.js";
+
+import { useBrowseContext } from "../../context/StateProvider.js";
+import { useFirebaseContext } from "../../context/StateProvider.js";
 
 import { Card } from "../../components/index.js";
 import { Loading } from "../../components/index.js";
 
-import { SelectProfile } from "../../containers/index.js";
-
 import { Footer } from "../../containers/index.js";
+import { SelectProfile } from "../../containers/index.js";
 import { BrowseContainer } from "./style/Browse.js";
 import { HeaderContainer } from "../../containers/index.js";
 import { LoadingContainer } from "../../components/index.js";
 
 function Browse() {
-    const { series } = useContent("series");
     const { films } = useContent("films");
+    const { series } = useContent("series");
 
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
@@ -51,8 +53,8 @@ function Browse() {
                     />
 
                 ) : (
-                        <LoadingContainer.ReleaseBody />
-                    )
+                    <LoadingContainer.ReleaseBody />
+                )
             }
 
             <HeaderContainer src="joker1" dontShowOnSmallViewPort>
@@ -144,12 +146,12 @@ function Browse() {
         </BrowseContainer>
 
     ) : (
-            <BrowseContainer>
+        <BrowseContainer>
 
-                <SelectProfile user={user} setProfile={setProfile} />
+            <SelectProfile user={user} setProfile={setProfile} />
 
-            </BrowseContainer>
-        );
+        </BrowseContainer>
+    );
 }
 
 export default Browse;
