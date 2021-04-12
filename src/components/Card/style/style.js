@@ -115,6 +115,7 @@ export const FeatureClose = styled.button`
     border: 0;
     filter: brightness(0) invert(1);
     width: 24px;
+    height: 24px;
 `;
 
 export const Maturity = styled.div`
