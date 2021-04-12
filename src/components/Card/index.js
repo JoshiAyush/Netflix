@@ -37,7 +37,7 @@ function Card({ slides }) {
         }
     }, [searchTerm]);
 
-    return (
+    return slides ? (
         <FeatureStateProvider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
 
             <CardContainer>
@@ -47,7 +47,7 @@ function Card({ slides }) {
                     {
                         slideRows.map(slideItem => (
                             <>
-                                <CardContainer.Title>{slideItem.title}</CardContainer.Title>
+                                {slideItem.data.length > 0 && <CardContainer.Title>{slideItem.title}</CardContainer.Title>}
 
                                 <CardContainer.Entities>
                                     {
@@ -85,7 +85,7 @@ function Card({ slides }) {
             </CardContainer>
 
         </FeatureStateProvider>
-    )
+    ) : <></>;
 }
 
 export default Card;
