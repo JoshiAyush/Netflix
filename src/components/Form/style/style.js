@@ -135,6 +135,10 @@ export const Submit = styled.button`
     cursor: pointer;
     outline: none;
 
+    &:active {
+        background-color: #FF140D;
+    }
+
     &:disabled {
         opacity: 0.5;
     }
