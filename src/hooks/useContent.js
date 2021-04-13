@@ -14,7 +14,7 @@ function useContent(target) {
      * firebase built-in functionality inform the user about the problem or the promise just return a exception that we catch and 
      * use it to inform the user about the problem.
      * 
-     * @returns a hook containing target content in it eg. series or films. 
+     * @returns {Object} containing target content in it eg. series or films. 
      */
     const [content, setContent] = useState([]);
 
