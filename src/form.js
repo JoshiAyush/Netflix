@@ -246,9 +246,9 @@ export function createPassword(length = 10) {
      * @return {String} password
      */
 
-    /** These are the options that we have to generate a strong and robust password */
+    /** These are the options that we have to generate a strong and robust password from. */
     var options = "abcdefghijklmnopqrstuvwxyz&&ABCDEFGHIJKLMNOPQRSTUVWXYZ&&0123456789&&!$^&*-=+_?".split("&&");
-    /** Setting the password to empty as a initial value */
+    /** Setting the password to empty as a initial value. */
     var password = "";
     /** Creating an array of password length, this helps in replacing characters with required one later. */
     var passwordArray = Array(length);
@@ -275,7 +275,7 @@ export function createPassword(length = 10) {
         return currentoption[Math.floor(Math.random() * currentoption.length)];
     };
 
-    /* Placeholder for our password characters and symbols. */
+    /** Placeholder for our password characters and symbols. */
     let randomChar = "";
 
     for (let i = 0; i < length; i++) {
@@ -299,9 +299,9 @@ export function createPassword(length = 10) {
          * password more strong to use. 
          */
 
-        /* Array that will hold the missing values that makes a password strong to use. */
+        /** Array that will hold the missing values that makes a password strong to use. */
         let missingValueArray = [];
-        /* Setting the flag containsAll to true initially. */
+        /** Setting the flag containsAll to true initially. */
         let containsAll = true;
 
         options.forEach((element, index, array) => {
