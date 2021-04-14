@@ -14,8 +14,11 @@ function isEmpty(value) {
      * 
      * @return {Bool} false if the field given to it is a non-empty field. 
      */
+    if (typeof value !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
     if (value === "") {
-        /* Inform the user that this is not allowed. */
+        /** Inform the user that this is not allowed. */
         return true;
     }
 
@@ -34,9 +37,19 @@ function checkIfEmpty(field) {
      * 
      * @return {Bool} false if found the field to be a non-empty field otherwise true.
      */
-    if (isEmpty(field.trim())) {
-        /* Inform user that this is not allowed */
-        return true;
+    if (typeof field !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
+    try {
+        if (isEmpty(field.trim())) {
+            /** Inform user that this is not allowed */
+            return true;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
+        return false;
     }
 
     return false;
@@ -53,8 +66,11 @@ function checkIfOnlyLetters(field) {
      * 
      * @return {Bool} true if found the string to be a valid field.  
      */
+    if (typeof field !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
     if (!(/^[a-zA-Z ]+$/.test(field))) {
-        /* Inform user that this is not allowed */
+        /** Inform user that this is not allowed */
         return false;
     }
 
@@ -72,6 +88,9 @@ function checkIfOnlyNumbers(mobile) {
      * 
      * @return {Bool} true if found the string to be a valid field.  
      */
+    if (typeof mobile !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
     if (!(/^\d+$/.test(mobile))) {
         /* Inform the user that this is not allowed. */
         return false;
@@ -94,6 +113,12 @@ function matchWithRegEx(regEx, field) {
      * 
      * @return true if the field matches with the regex (regular expression) pattern.
      */
+    if (typeof field !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
+    if (typeof regEx !== "object" || regEx === null)
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
     if (field.match(regEx)) {
         return true;
     }
@@ -112,8 +137,18 @@ function containsCharacters(email) {
      * 
      * @return true if the email is a valid email or custom email address. 
      */
-    if (matchWithRegEx(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, email)) {
-        return true;
+    if (typeof email !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
+    try {
+        if (matchWithRegEx(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, email)) {
+            return true;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
+        return false;
     }
 
     return false;
@@ -132,13 +167,30 @@ function validateFirstName(firstName) {
      * 
      * @return {Bool} true if found a validate first name.
      */
-    if (checkIfEmpty(firstName)) {
-        /* Inform user that this is not allowed */
+    if (typeof firstName !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
+    try {
+        if (checkIfEmpty(firstName)) {
+            /** Inform user that this is not allowed */
+            return false;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
         return false;
     }
 
-    if (!checkIfOnlyLetters(firstName)) {
-        /* Inform user that this is not allowed */
+    try {
+        if (!checkIfOnlyLetters(firstName)) {
+            /** Inform user that this is not allowed */
+            return false;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
         return false;
     }
 
@@ -158,13 +210,30 @@ function validateLastName(lastName) {
      * 
      * @return {Bool} true if found a validate last name.
      */
-    if (checkIfEmpty(lastName)) {
-        /* Inform the user that this is not allowed. */
+    if (typeof lastName !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
+    try {
+        if (checkIfEmpty(firstName)) {
+            /** Inform user that this is not allowed */
+            return false;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
         return false;
     }
 
-    if (!checkIfOnlyLetters(lastName)) {
-        /* Inform the user that this is not allowed. */
+    try {
+        if (!checkIfOnlyLetters(firstName)) {
+            /** Inform user that this is not allowed */
+            return false;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
         return false;
     }
 
@@ -182,8 +251,18 @@ function validateMobile(mobile) {
      * 
      * @return {Bool} true if the given mobile number is a valid mobile number. 
      */
-    if (checkIfOnlyNumbers(mobile) && mobile.length === 10) {
-        return true;
+    if (typeof mobile !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
+    try {
+        if (checkIfOnlyNumbers(mobile) && mobile.length === 10) {
+            return true;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
+        return false;
     }
 
     return false;
@@ -201,13 +280,30 @@ export function validateEmail(email) {
      * 
      * @return {Bool} true if found a valid email address.
      */
-    if (checkIfEmpty(email)) {
-        /* Inform the user that this is not allowed. */
-        return false;
+    if (typeof email !== "string")
+        throw new Error("INVALID_ARGUMENT_TYPE");
+
+    try {
+        if (checkIfEmpty(email)) {
+            /** Inform the user that this is not allowed. */
+            return false;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
+        return false
     }
 
-    if (!containsCharacters(email, 5)) {
-        /* Inform the user that this is not allowed. */
+    try {
+        if (!containsCharacters(email, 5)) {
+            /** Inform the user that this is not allowed. */
+            return false;
+        }
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
         return false;
     }
 
@@ -226,11 +322,21 @@ export function validateForm(fname, lname, mobile, email) {
      * This function checks if all the field are valid or not if it founds the field to be valid then this function returns true if 
      * not then this function returns false.
      */
-    if (validateFirstName(fname) && validateLastName(lname) && validateMobile(mobile) && validateEmail(email)) {
-        return true;
-    } else {
+    try {
+        return validateFirstName(fname) && validateLastName(lname) && validateMobile(mobile) && validateEmail(email) && true;
+    } catch (err) {
+        if (err.message === "INVALID_ARGUMENT_TYPE") {
+            window.alert("There is a invalid value in the fields! Can't proceed!");
+        }
         return false;
     }
+}
+
+function isNumeric(str) {
+    if (typeof str != "string")
+        return false;
+
+    return !isNaN(str) && !isNaN(parseFloat(str));
 }
 
 export function createPassword(length = 10) {
@@ -245,6 +351,12 @@ export function createPassword(length = 10) {
      * 
      * @return {String} password
      */
+    if (typeof length !== "number") {
+        if (!isNumeric(length))
+            throw new Error("INVALID_ARGUMENT_TYPE");
+
+        length = Number(length);
+    }
 
     /** These are the options that we have to generate a strong and robust password from. */
     var options = "abcdefghijklmnopqrstuvwxyz&&ABCDEFGHIJKLMNOPQRSTUVWXYZ&&0123456789&&!$^&*-=+_?".split("&&");
