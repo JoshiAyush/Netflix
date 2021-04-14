@@ -7,6 +7,11 @@ export const Title = styled.p`
     margin-left: 56px;
     margin-right: 56px;
     margin-top: 30px;
+
+    @media (max-width: 1000px) {
+        margin-left: 30px;
+        font-size: 20px;
+    }
 `;
 
 export const Container = styled.div`
@@ -76,7 +81,8 @@ export const Feature = styled.div`
     background: url(${({ src }) => src});
     background-size: contain;
     position: relative;
-    height: 360px;
+    height: fit-content;
+    max-height: 360px;
     background-position-x: right;
     background-repeat: no-repeat;
     background-color: black;
@@ -84,8 +90,9 @@ export const Feature = styled.div`
     margin-top: 10px;
 
     @media (max-width: 1000px) {
-        height: auto;
+        height: fit-content;
         background-size: auto;
+        margin: 10px 29px;
 
         ${Title} {
             font-size: 20px;
@@ -153,6 +160,10 @@ export const Meta = styled.div`
 export const Entities = styled.div`
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 500px) {
+        overflow-x: auto;
+    }
 `;
 
 export const Item = styled.div`

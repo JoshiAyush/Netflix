@@ -29,15 +29,15 @@ function SignUp() {
 
     const { firebase } = useFirebaseContext();
 
-    const [{
-        error,
-        userName,
-        userEmail,
-        usePassword,
-        userPassword,
-        suggestPassword,
-        passwordSuggested
-    }, dispatch] = useSignUpContext();
+    const [{ error }] = useSignUpContext();
+    const [{ userName }] = useSignUpContext();
+    const [{ userEmail }] = useSignUpContext();
+    const [{ usePassword }] = useSignUpContext();
+    const [{ userPassword }] = useSignUpContext();
+    const [{ suggestPassword }] = useSignUpContext();
+    const [{ passwordSuggested }] = useSignUpContext();
+
+    const [{ }, dispatch] = useSignUpContext();
 
     const handleSignUp = (event) => {
         event.preventDefault();

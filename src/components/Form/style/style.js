@@ -4,7 +4,9 @@ import { Link as ReactRouterLink } from "react-router-dom";
 export const Container = styled.div`
     display: flex;
     max-height: 700px;
-    width: 450px;
+    width: 100%;
+    padding: 0 40px;
+    max-width: 450px;
     margin: auto;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 5px;

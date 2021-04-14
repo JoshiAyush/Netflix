@@ -58,11 +58,6 @@ export const Picture = styled.button`
     }
 `;
 
-export const Group = styled.div`
-    display: flex;
-    align-items: center;
-`;
-
 export const Link = styled.p`
     color: white;
     text-decoration: none;
@@ -76,6 +71,17 @@ export const Link = styled.p`
 
     &:last-of-type {
         margin-right: 0;
+    }
+`;
+
+export const Group = styled.div`
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 500px) {
+        ${Link} {
+            display: none;
+        }
     }
 `;
 

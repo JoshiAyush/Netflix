@@ -70,14 +70,14 @@ function Browse() {
                             onClick={() => dispatch({ type: SET_CATEGORY, category: "films" })}
                         >
                             Films
-                            </HeaderContainer.TextLink>
+                        </HeaderContainer.TextLink>
 
                         <HeaderContainer.TextLink
                             active={category === "series" ? true : false}
                             onClick={() => dispatch({ type: SET_CATEGORY, category: "series" })}
                         >
                             Series
-                            </HeaderContainer.TextLink>
+                        </HeaderContainer.TextLink>
 
                     </HeaderContainer.Group>
 

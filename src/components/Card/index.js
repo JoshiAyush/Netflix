@@ -37,7 +37,7 @@ function Card({ slides }) {
         }
     }, [searchTerm]);
 
-    return slides ? (
+    return slideRows[0]?.data.length > 0 ? (
         <FeatureStateProvider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
 
             <CardContainer>
