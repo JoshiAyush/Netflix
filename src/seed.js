@@ -53,8 +53,8 @@ export function seedDatabase(firebase) {
              * @function add() adds the given data to the target collection in our database
              */
             firebase.firestore().collection(target).add({
-                id: getUUID(),
-                ...element
+                ...element,
+                id: getUUID()
             });
         }
     }
