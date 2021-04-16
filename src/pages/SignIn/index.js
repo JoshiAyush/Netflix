@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { HomeContainer } from "../Home/style/Home.js";
@@ -81,6 +82,10 @@ function SignIn() {
     };
 
     const IsInvalid = userPassword === "" || userEmail === "";
+
+    useEffect(() => {
+        document.getElementById("chrome-title-tab").innerText = "Sign In to netflix";
+    }, []);
 
     return (
         <HomeContainer>

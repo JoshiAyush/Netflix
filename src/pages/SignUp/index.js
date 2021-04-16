@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { HomeContainer } from "../Home/style/Home.js";
@@ -58,6 +59,10 @@ function SignUp() {
     };
 
     const IsInvalid = userName === "" || userEmail === "" || userPassword === "";
+
+    useEffect(() => {
+        document.getElementById("chrome-title-tab").innerText = "Sign Up to netflix to enjoy 11+ million films and series";
+    }, []);
 
     return (
         <HomeContainer>

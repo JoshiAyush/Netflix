@@ -41,6 +41,10 @@ function Browse() {
         }, 3000);
     }, [profile?.displayName]);
 
+    useEffect(() => {
+        document.getElementById("chrome-title-tab").innerText = "Browse 11+ million movies and series";
+    }, []);
+
     return profile.displayName ? (
         <BrowseContainer>
 
