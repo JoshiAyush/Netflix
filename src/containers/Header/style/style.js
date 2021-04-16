@@ -52,10 +52,6 @@ export const Picture = styled.button`
     transition-timing-function: ease-in;
     transition-duration: 0.1s;
     outline: none;
-
-    &:hover {
-        border: 3px solid white;
-    }
 `;
 
 export const Link = styled.p`
@@ -113,8 +109,17 @@ export const Dropdown = styled.div`
             margin-bottom: 0;
         }
 
-        ${Link}, ${Picture} {
-            cursor: default;
+        &:first-of-type {
+            cursor: pointer;
+
+            &:hover {
+                ${Picture} {
+                    border: 3px solid white;
+                } 
+                ${Link} {
+                    font-weight: bold;
+                }
+            }
         }
 
         ${Picture} {

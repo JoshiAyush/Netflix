@@ -214,7 +214,7 @@ function validateLastName(lastName) {
         throw new Error("INVALID_ARGUMENT_TYPE");
 
     try {
-        if (checkIfEmpty(firstName)) {
+        if (checkIfEmpty(lastName)) {
             /** Inform user that this is not allowed */
             return false;
         }
@@ -226,7 +226,7 @@ function validateLastName(lastName) {
     }
 
     try {
-        if (!checkIfOnlyLetters(firstName)) {
+        if (!checkIfOnlyLetters(lastName)) {
             /** Inform user that this is not allowed */
             return false;
         }
