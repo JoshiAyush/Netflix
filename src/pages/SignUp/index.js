@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { HomeContainer } from "../Home/style/Home.js";
+import { FormContainer } from "../../components/index.js";
 import { HeaderContainer } from "../../containers/Header/style/Header.js";
 
 import { HOME } from "../../constants.js";
@@ -17,13 +18,14 @@ import { SUGGEST_PASSWORD } from "../../constants.js";
 import { SET_USER_PASSWORD } from "../../constants.js";
 import { PASSWORD_SUGGESTED } from "../../constants.js";
 
-import { createPassword } from "../../form.js";
+import { createPassword } from "../../password";
 import { useSignUpContext } from "../../context/StateProvider.js";
 import { useFirebaseContext } from "../../context/StateProvider.js";
 
 import Footer from "../../containers/Footer/index.js";
 
-import { FormContainer } from "../../components/index.js";
+import { handleSignUp } from "../../lib/handle-signup.js";
+
 
 function SignUp() {
     const history = useHistory();
@@ -40,23 +42,20 @@ function SignUp() {
 
     const [{ }, dispatch] = useSignUpContext();
 
-    const handleSignUp = (event) => {
+    const _handleSignUp = (event) => {
         event.preventDefault();
 
-        firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then((result) => {
-            result.user.updateProfile({
-                displayName: userName,
-                photoURL: Math.floor(Math.random() * 5) + 1
-            }).then(() => {
-                history.push(BROWSE);
-            }).catch((error) => {
-                dispatch({ type: SET_USER_NAME, userName: "" });
-                dispatch({ type: SET_USER_EMAIL, userEmail: "" });
-                dispatch({ type: SET_USER_PASSWORD, userPassword: "" });
-                dispatch({ type: ERROR, error: error.message });
-            });
-        });
-    };
+        let _status = handleSignUp(firebase, { userName, userEmail, userPassword });
+
+        if (_status === "SIGNED_UP") {
+            history.push(BROWSE);
+        } else if (_status != null) {
+            dispatch({ type: SET_USER_NAME, userName: "" });
+            dispatch({ type: SET_USER_EMAIL, userEmail: "" });
+            dispatch({ type: SET_USER_PASSWORD, userPassword: "" });
+            dispatch({ type: ERROR, error: _status });
+        }
+    }
 
     const IsInvalid = userName === "" || userEmail === "" || userPassword === "";
 
@@ -91,7 +90,7 @@ function SignUp() {
 
                             {error && <FormContainer.Error>{error}</FormContainer.Error>}
 
-                            <FormContainer.Base onSubmit={handleSignUp} method="POST">
+                            <FormContainer.Base onSubmit={_handleSignUp} method="POST">
 
                                 <FormContainer.Input
                                     type="text"
