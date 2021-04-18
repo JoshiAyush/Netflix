@@ -13,40 +13,42 @@ import { SIGN_UP } from "../../constants.js";
 
 import { handleSignIn } from "../../lib/handle-signin.js";
 
-import { useFirebaseContext } from "../../context/StateProvider.js";
-
 import Footer from "../../containers/Footer/index.js";
 
 
 function SignIn() {
     const history = useHistory();
 
-    const { firebase } = useFirebaseContext();
-
     const [userEmail, setEmail] = useState("");
     const [userPassword, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const _handleSignIn = (event) => {
+    async function signIn(event) {
         event.preventDefault();
 
-        let _status = handleSignIn(firebase, { userEmail, userPassword });
+        let _status = undefined;
 
-        if (_status === "SIGNED_IN") {
+        try {
+            _status = await handleSignIn({ userEmail, userPassword }, setError);
+        } catch (err) {
+            setError(err.message);
+            return;
+        }
+
+        if (_status === true) {
             /**
              * We redirect the user to the Netflix browse screen once the user is Signed In legally.
              * 
              * history.push(BROWSE);        // history.push("/browse"); 
              */
             history.push(BROWSE);
-
-            return;
-        } else if (_status != null) {
+        } else if (_status === false) {
             setEmail("");
             setPassword("");
             setError(_status);
         }
     };
+
     const IsInvalid = userPassword === "" || userEmail === "";
 
     useEffect(() => {
@@ -80,7 +82,7 @@ function SignIn() {
 
                             {error && <FormContainer.Error>{error}</FormContainer.Error>}
 
-                            <FormContainer.Base onSubmit={_handleSignIn} method="POST">
+                            <FormContainer.Base onSubmit={signIn} method="POST">
 
                                 <FormContainer.Input
                                     type="email"

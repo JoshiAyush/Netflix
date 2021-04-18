@@ -20,7 +20,6 @@ import { PASSWORD_SUGGESTED } from "../../constants.js";
 
 import { createPassword } from "../../password";
 import { useSignUpContext } from "../../context/StateProvider.js";
-import { useFirebaseContext } from "../../context/StateProvider.js";
 
 import Footer from "../../containers/Footer/index.js";
 
@@ -29,8 +28,6 @@ import { handleSignUp } from "../../lib/handle-signup.js";
 
 function SignUp() {
     const history = useHistory();
-
-    const { firebase } = useFirebaseContext();
 
     const [{ error }] = useSignUpContext();
     const [{ userName }] = useSignUpContext();
@@ -42,14 +39,21 @@ function SignUp() {
 
     const [{ }, dispatch] = useSignUpContext();
 
-    const _handleSignUp = (event) => {
+    async function signUp(event) {
         event.preventDefault();
 
-        let _status = handleSignUp(firebase, { userName, userEmail, userPassword });
+        let _status = undefined;
 
-        if (_status === "SIGNED_UP") {
+        try {
+            _status = await handleSignUp({ userName, userEmail, userPassword });
+        } catch (err) {
+            dispatch({ type: ERROR, error: err.message });
+            return;
+        }
+
+        if (_status === true) {
             history.push(BROWSE);
-        } else if (_status != null) {
+        } else if (_status === false) {
             dispatch({ type: SET_USER_NAME, userName: "" });
             dispatch({ type: SET_USER_EMAIL, userEmail: "" });
             dispatch({ type: SET_USER_PASSWORD, userPassword: "" });
@@ -90,7 +94,7 @@ function SignUp() {
 
                             {error && <FormContainer.Error>{error}</FormContainer.Error>}
 
-                            <FormContainer.Base onSubmit={_handleSignUp} method="POST">
+                            <FormContainer.Base onSubmit={signUp} method="POST">
 
                                 <FormContainer.Input
                                     type="text"
