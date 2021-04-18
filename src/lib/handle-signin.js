@@ -1,3 +1,5 @@
+import { firebase } from "./firebase.prod.js";
+
 const parseErrorMessage = (errormessage) => {
     /**
      * @function parseErrorMessage() parse the object given by firebase.
@@ -35,17 +37,15 @@ const parseErrorMessage = (errormessage) => {
     }
 };
 
-export function handleSignIn(firebase, { userEmail, userPassword }) {
-    if (typeof userEmail !== "string" || typeof userPassword !== "string")
-        return undefined;
+export function handleSignIn({ userEmail, userPassword }, setError = null) {
+    if (typeof userEmail != "string" || typeof userPassword != "string")
+        throw new Error("ARGUMENT_TYPE_MISMATCH");
 
-    try {
-        firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then(() => {
-            return "SIGNED_IN";
-        }).catch((error) => {
-            return parseErrorMessage(error.message) || error.message;
-        });
-    } catch (err) {
-        return undefined;
-    }
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then(() => {
+        return true;
+    }).catch((error) => {
+        if (setError != null)
+            setError(parseErrorMessage(error.message) || error.message);
+        return false;
+    });
 };
