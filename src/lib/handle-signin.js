@@ -44,7 +44,7 @@ export function handleSignIn({ userEmail, userPassword }, setError = null) {
     firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then(() => {
         return true;
     }).catch((error) => {
-        if (setError != null)
+        if (setError != null && typeof setError == "function")
             setError(parseErrorMessage(error.message) || error.message);
         return false;
     });

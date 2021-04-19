@@ -14,12 +14,12 @@ export function handleSignUp({ userName = null, userEmail, userPassword } = {}, 
         }).then(() => {
             return true;
         }).catch((err) => {
-            if (setError != null)
+            if (setError != null && typeof setError == "function")
                 setError(err.message);
             return false;
         });
     }).catch((err) => {
-        if (setError != null)
+        if (setError != null && typeof setError == "function")
             setError(err.message);
         return false;
     });
