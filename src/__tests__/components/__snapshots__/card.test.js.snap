@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> renders the <Card /> with populated data 1`] = `
+<p
+  class="style__Title-sc-1anb5i0-0 jislMw"
+>
+  Documentaries
+</p>
+`;
