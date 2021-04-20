@@ -14,6 +14,8 @@ import { FeatureText } from "./style.js";
 import { FeatureClose } from "./style.js";
 import { FeatureTitle } from "./style.js";
 
+import { useFeatureContext } from "../../../context/StateProvider.js";
+
 CardContainer.Image = ({ ...restProps }) => (
     <Image {...restProps} />
 );

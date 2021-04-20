@@ -26,6 +26,7 @@ function Browse() {
 
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
+    const [dropDownActive, setDropDownActive] = useState(false);
 
     const { firebase } = useFirebaseContext();
 
@@ -95,9 +96,9 @@ function Browse() {
 
                         <HeaderContainer.Profile>
 
-                            <HeaderContainer.Picture src={user?.photoURL} />
+                            <HeaderContainer.Picture onClick={() => setDropDownActive(!dropDownActive)} src={user?.photoURL} />
 
-                            <HeaderContainer.Dropdown>
+                            <HeaderContainer.Dropdown active={dropDownActive}>
 
                                 <HeaderContainer.Group>
 
