@@ -52,7 +52,7 @@ function Card({ slides }) {
                                 <CardContainer.Entities>
                                     {
                                         slideItem.data.map((item) => (
-                                            <CardContainer.Item key={item.docId} item={item}>
+                                            <CardContainer.Item key={item.docId} item={item} data-testid={`${item.slug}--feautre`}>
 
                                                 <CardContainer.Image
                                                     src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
@@ -89,4 +89,3 @@ function Card({ slides }) {
 }
 
 export default Card;
-
