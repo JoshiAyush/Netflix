@@ -159,6 +159,12 @@ export const Profile = styled.div`
     position: relative;
     outline: none;
 
+    &:hover {
+        ${Dropdown} {
+            display: flex;
+        }
+    }
+
     button {
         cursor: pointer;
     }
