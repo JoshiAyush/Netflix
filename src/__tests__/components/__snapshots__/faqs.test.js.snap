@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Accordion /> renders the <Accordion /> with populated data 1`] = `
+<div
+  class="style__Container-uywbgw-0"
+>
+  <div
+    class="style__Container-o549vb-0 dseBTj"
+  >
+    <div
+      class="style__Inner-o549vb-5 fCAWwI"
+    >
+      <div
+        class="style__Title-o549vb-6 bIaLso"
+      >
+        Frequently Asked Question
+      </div>
+      <div
+        class="style__Item-o549vb-1 jNuosP"
+      >
+        <div
+          class="style__Header-o549vb-2 dLNBwC"
+        >
+          What is Netflix?
+          <img
+            alt="Open"
+            class="style__Image-o549vb-7"
+            src="/images/icons/add.png"
+          />
+        </div>
+      </div>
+      <div
+        class="style__Item-o549vb-1 jNuosP"
+      >
+        <div
+          class="style__Header-o549vb-2 dLNBwC"
+        >
+          How much does Netflix cost?
+          <img
+            alt="Open"
+            class="style__Image-o549vb-7"
+            src="/images/icons/add.png"
+          />
+        </div>
+      </div>
+      <div
+        class="style__Item-o549vb-1 jNuosP"
+      >
+        <div
+          class="style__Header-o549vb-2 dLNBwC"
+        >
+          Where can I watch?
+          <img
+            alt="Open"
+            class="style__Image-o549vb-7"
+            src="/images/icons/add.png"
+          />
+        </div>
+      </div>
+      <div
+        class="style__Item-o549vb-1 jNuosP"
+      >
+        <div
+          class="style__Header-o549vb-2 dLNBwC"
+        >
+          How do I cancel?
+          <img
+            alt="Open"
+            class="style__Image-o549vb-7"
+            src="/images/icons/add.png"
+          />
+        </div>
+      </div>
+      <div
+        class="style__Item-o549vb-1 jNuosP"
+      >
+        <div
+          class="style__Header-o549vb-2 dLNBwC"
+        >
+          What can I watch on Netflix?
+          <img
+            alt="Open"
+            class="style__Image-o549vb-7"
+            src="/images/icons/add.png"
+          />
+        </div>
+      </div>
+      <div
+        class="style__Item-o549vb-1 jNuosP"
+      />
+      <div
+        class="style__Container-aw8769-0 emHGMr"
+      >
+        <input
+          class="style__Input-aw8769-1 jcPedt"
+          placeholder="Email address"
+        />
+        <button
+          class="style__Button-aw8769-2 kiOXdQ"
+        >
+          Try it now
+           
+          <img
+            alt="Try Now"
+            src="/images/icons/chevron-right.png"
+          />
+        </button>
+        <p
+          class="style__Text-aw8769-3 dicfXI"
+        >
+          Ready to watch? Enter your email to create or restart your membership
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
