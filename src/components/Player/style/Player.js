@@ -23,7 +23,7 @@ PlayerContainer.Video = function PlayerContainerVideo({ src, ...restProps }) {
     const { showPlayer, setShowPlayer } = usePlayerContext();
 
     return showPlayer ? ReactDOM.createPortal(
-        <Overlay onClick={() => setShowPlayer(false)}>
+        <Overlay onClick={() => setShowPlayer(false)} data-testid="player">
             <Inner>
                 <Video id="netflix-player" controls {...restProps}>
                     <Source src={src} type="video/mp4" />
