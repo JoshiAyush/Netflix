@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useHistory } from "react-router";
 
-import * as ROUTES from "../../constants.js";
+import { HOME } from "../../constants.js";
 import { SET_CATEGORY } from "../../constants.js";
 
 import { useContent } from "../../hooks/index.js";
 import selectionFilter from "../../utils/selection-filter.js";
+import { getProfileLink } from "../../utils/getProfileLink.js";
 
 import { useBrowseContext } from "../../context/StateProvider.js";
 import { useFirebaseContext } from "../../context/StateProvider.js";
@@ -20,7 +22,10 @@ import { BrowseContainer } from "./style/Browse.js";
 import { HeaderContainer } from "../../containers/index.js";
 import { LoadingContainer } from "../../components/index.js";
 
+
 function Browse() {
+    const history = useHistory();
+
     const { films } = useContent("films");
     const { series } = useContent("series");
 
@@ -68,7 +73,7 @@ function Browse() {
 
                     <HeaderContainer.Group>
 
-                        <HeaderContainer.Logo to={ROUTES.HOME} src="/images/logo.svg" alt="Netflix"></HeaderContainer.Logo>
+                        <HeaderContainer.Logo to={HOME} src="/images/logo.svg" alt="Netflix"></HeaderContainer.Logo>
 
                         <HeaderContainer.TextLink
                             active={category === "films" ? true : false}
@@ -100,7 +105,7 @@ function Browse() {
 
                             <HeaderContainer.Dropdown active={dropDownActive}>
 
-                                <HeaderContainer.Group>
+                                <HeaderContainer.Group onClick={() => history.push(getProfileLink(user))}>
 
                                     <HeaderContainer.Picture src={user?.photoURL} />
 

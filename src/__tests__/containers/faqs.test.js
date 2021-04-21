@@ -3,12 +3,31 @@ import { render, fireEvent } from "@testing-library/react";
 
 import faqsData from "../../fixtures/faqs.json";
 
-import { Faqs } from "../../containers/index.js";
+import { AccordionContainer } from "../../components/index.js";
 
 describe("<Accordion />", () => {
     it("renders the <Accordion /> with populated data", () => {
         const { container, getByText } = render(
-            <Faqs />
+            <AccordionContainer>
+
+                <AccordionContainer.Title>Frequently Asked Question</AccordionContainer.Title>
+
+                {
+                    faqsData.map(item => (
+
+                        <AccordionContainer.Item key={item.id}>
+
+                            <AccordionContainer.Header>{item.header}</AccordionContainer.Header>
+
+                            <AccordionContainer.Body>{item.body}</AccordionContainer.Body>
+
+                        </AccordionContainer.Item>
+                    ))
+                }
+
+                <AccordionContainer.Item />
+
+            </AccordionContainer>
         );
 
         expect(getByText("Frequently Asked Question")).toBeTruthy();
@@ -23,7 +42,26 @@ describe("<Accordion />", () => {
 
     it("opens and closes the <Accordion /> component", () => {
         const { container, queryByText } = render(
-            <Faqs />
+            <AccordionContainer>
+
+                <AccordionContainer.Title>Frequently Asked Question</AccordionContainer.Title>
+
+                {
+                    faqsData.map(item => (
+
+                        <AccordionContainer.Item key={item.id}>
+
+                            <AccordionContainer.Header>{item.header}</AccordionContainer.Header>
+
+                            <AccordionContainer.Body>{item.body}</AccordionContainer.Body>
+
+                        </AccordionContainer.Item>
+                    ))
+                }
+
+                <AccordionContainer.Item />
+
+            </AccordionContainer>
         );
 
         const whatIsNetflixBodyText = faqsData.filter(item => item.header == "What is Netflix?")[0].body;

@@ -5,6 +5,7 @@ import { Home } from "./pages/index.js";
 import { Browse } from "./pages/index.js";
 import { SignIn } from "./pages/index.js";
 import { SignUp } from "./pages/index.js";
+import { Profile } from "./pages/index.js";
 
 import { HOME } from "./constants.js";
 import { BROWSE } from "./constants.js";
@@ -20,6 +21,8 @@ import { BrowseStateProvider } from "./context/StateProvider.js";
 
 import { IsUserRedirect } from "./helpers/routes.js";
 import { ProtectedRoute } from "./helpers/routes.js";
+
+import { getProfileLink } from "./utils/getProfileLink.js";
 
 import { useAuthListener } from "./hooks/index.js";
 
@@ -78,6 +81,17 @@ function App() {
           <Browse />
 
         </BrowseStateProvider>
+
+      </ProtectedRoute>
+
+      <ProtectedRoute
+        exact
+        user={user}
+        path={getProfileLink()}
+        signedInPath={SIGN_IN}
+      >
+
+        <Profile />
 
       </ProtectedRoute>
 

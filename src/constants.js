@@ -2,6 +2,7 @@ export const HOME = '/';
 export const BROWSE = '/browse';
 export const SIGN_UP = '/signup';
 export const SIGN_IN = '/signin';
+export const PROFILE = '/profile/--user--';
 
 export const ERROR = "ERROR";
 export const SET_CATEGORY = "SET_CATEGORY";
