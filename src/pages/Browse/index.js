@@ -8,6 +8,7 @@ import { SET_CATEGORY } from "../../constants.js";
 
 import { useContent } from "../../hooks/index.js";
 import selectionFilter from "../../utils/selection-filter.js";
+import { handleSignOut } from "../../lib/handle-signout.js";
 import { getProfileLink } from "../../utils/getProfileLink.js";
 
 import { useBrowseContext } from "../../context/StateProvider.js";
@@ -115,7 +116,7 @@ function Browse() {
                                 <HeaderContainer.Group>
 
                                     <HeaderContainer.TextLink
-                                        onClick={() => firebase.auth().signOut()}
+                                        onClick={() => handleSignOut()}
                                     >
                                         Sign Out
                                     </HeaderContainer.TextLink>
