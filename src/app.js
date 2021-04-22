@@ -87,7 +87,7 @@ function App() {
       <ProtectedRoute
         exact
         user={user}
-        path={getProfileLink()}
+        path={getProfileLink(user)}
         signedInPath={SIGN_IN}
       >
 
