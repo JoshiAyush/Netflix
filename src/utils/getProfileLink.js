@@ -7,5 +7,12 @@ export function getProfileLink(user, _PROFILE = PROFILE) {
     if (typeof _PROFILE != "string")
         throw new Error("ARGUMENT_TYPE_MISMATCH");
 
-    return `${_PROFILE.slice(0, _PROFILE.indexOf("-"))}${user?.uid}`;
+    let userNameInURL = "";
+
+    user?.displayName.split(" ").forEach((item) => {
+        item = item[0].toLowerCase() + item.slice(1);
+        userNameInURL += `${item}-`;
+    });
+
+    return `${_PROFILE.slice(0, _PROFILE.indexOf("-"))}${userNameInURL}${user?.uid}`;
 };
