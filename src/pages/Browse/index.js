@@ -42,10 +42,9 @@ function Browse() {
     const [{ category }, dispatch] = useBrowseContext();
 
     useEffect(() => {
-        setTimeout(() => {
+        if (series.length > 0 || films.length > 0)
             setLoading(false);
-        }, 3000);
-    }, [profile?.displayName]);
+    }, [profile?.displayName, series, films]);
 
     useEffect(() => {
         document.getElementById("chrome-title-tab").innerText = "Browse 11+ million movies and series";
