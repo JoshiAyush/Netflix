@@ -57,64 +57,64 @@ export class ExtractDataFromClient {
 
         if (this._userAgent.indexOf("Trident") >= 0 || this._userAgent.indexOf("MSIE") >= 0) {
             if (this._userAgent.indexOf("Mobile") >= 0)
-                this._report["browser"]["name"] = "IE Mobile";
+                return "IE Mobile";
             else
-                this._report["browser"]["name"] = "Internet Explorer";
+                return "Internet Explorer";
         }
 
         if (this._userAgent.indexOf("Firefox") >= 0 && this._userAgent.indexOf("Seamonkey") === -1) {
             if (this._userAgent.indexOf("Android") >= 0)
-                this._report["browser"]["name"] = "Firefox for Android";
+                return "Firefox for Android";
             else
-                this._report["browser"]["name"] = "Firefox";
+                return "Firefox";
         }
 
         if (this._userAgent.indexOf("Safari") >= 0 && this._userAgent.indexOf("Chrome") === -1 && this._userAgent.indexOf("Chromium") === -1 && this._userAgent.indexOf("Android") === -1) {
             if (this._userAgent.indexOf("CriOS") >= 0)
-                this._report["browser"]["name"] = "Chrome for iOS";
+                return "Chrome for iOS";
             else if (this._userAgent.indexOf("FxiOS") >= 0)
-                this._report["browser"]["name"] = "Firefox for iOS";
+                return "Firefox for iOS";
             else
-                this._report["browser"]["name"] = "Safari";
+                return "Safari";
         }
 
         if (this._userAgent.indexOf("Chrome") >= 0) {
             if (this._userAgent.match(/\bChrome\/[.0-9]* Mobile\b/)) {
                 if (this._userAgent.match(/\bVersion\/\d+\.\d+\b/) || this._userAgent.match(/\bwv\b/))
-                    this._report["browser"]["name"] = "WebView on Android";
+                    return "WebView on Android";
                 else
-                    this._report["browser"]["name"] = "Chrome for Android";
-            } else {
-                this._report["browser"]["name"] = "Chrome";
+                    return "Chrome for Android";
             }
+
+            return "Chrome";
         }
 
         if (this._userAgent.indexOf("Android") >= 0 && this._userAgent.indexOf("Chrome") === -1 && this._userAgent.indexOf("Chromium") === -1 && this._userAgent.indexOf("Trident") === -1 && this._userAgent.indexOf("Firefox") === -1)
-            this._report["browser"]["name"] = "Android Browser";
+            return "Android Browser";
 
         if (this._userAgent.indexOf("Edge") >= 0)
-            this._report["browser"]["name"] = "Edge";
+            return "Edge";
 
         if (this._userAgent.indexOf("UCBrowser") >= 0)
-            this._report["browser"]["name"] = "UC Browser for Android";
+            return "UC Browser for Android";
 
         if (this._userAgent.indexOf("SamsungBrowser") >= 0)
-            this._report["browser"]["name"] = "Samsung Internet";
+            return "Samsung Internet";
 
         if (this._userAgent.indexOf("OPR") >= 0 || this._userAgent.indexOf("Opera") >= 0) {
             if (this._userAgent.indexOf("Opera Mini") >= 0)
-                this._report["browser"]["name"] = "Opera Mini";
+                return "Opera Mini";
             else if (this._userAgent.indexOf("Opera Mobi") >= 0 || this._userAgent.indexOf("Opera Tablet") >= 0 || this._userAgent.indexOf("Mobile") >= 0)
-                this._report["browser"]["name"] = "Opera Mobile";
+                return "Opera Mobile";
             else
-                this._report["browser"]["name"] = "Opera";
+                return "Opera";
         }
 
         if (this._userAgent.indexOf("BB10") >= 0 || this._userAgent.indexOf("PlayBook") >= 0 || this._userAgent.indexOf("BlackBerry") >= 0)
-            this._report["browser"]["name"] = "BlackBerry";
+            return "BlackBerry";
 
         if (this._userAgent.indexOf("MQQBrowser") >= 0)
-            this._report["browser"]["name"] = "QQ Browser";
+            return "QQ Browser";
     }
 
     extractBrowserVersionNumberFromUserAgent() {
@@ -203,7 +203,7 @@ export class ExtractDataFromClient {
         if (!(_match && _match[1]))
             return;
 
-        this._report["browser"]["version"] = _match[1];
+        return _match[1];
     }
 
     extractOperatingSystemNameFromUserAgent() {
@@ -212,37 +212,37 @@ export class ExtractDataFromClient {
 
         if (this._userAgent.indexOf("Windows") >= 0) {
             if (this._userAgent.indexOf("Windows Phone") >= 0)
-                this._report["os"]["name"] = "Windows Phone";
+                return "Windows Phone";
             else
-                this._report["os"]["name"] = "Windows";
+                return "Windows";
         }
 
         if (this._userAgent.indexOf("OS X") >= 0 && this._userAgent.indexOf("Android") === -1)
-            this._report["os"]["name"] = "OS X";
+            return "OS X";
 
         if (this._userAgent.indexOf("Linux") >= 0)
-            this._report["os"]["name"] = "Linux";
+            return "Linux";
 
         if (this._userAgent.indexOf("like Mac OS X") >= 0)
-            this._report["os"]["name"] = "iOS";
+            return "iOS";
 
         if ((this._userAgent.indexOf("Android") >= 0 || this._userAgent.indexOf("Adr") >= 0) && this._userAgent.indexOf("Windows Phone") === -1)
-            this._report["os"]["name"] = "Android";
+            return "Android";
 
         if (this._userAgent.indexOf("BB10") >= 0)
-            this._report["os"]["name"] = "BlackBerry";
+            return "BlackBerry";
 
         if (this._userAgent.indexOf("RIM Tablet OS") >= 0)
-            this._report["os"]["name"] = "BlackBerry Tablet OS";
+            return "BlackBerry Tablet OS";
 
         if (this._userAgent.indexOf("BlackBerry") >= 0)
-            this._report["os"]["name"] = "BlackBerryOS";
+            return "BlackBerryOS";
 
         if (this._userAgent.indexOf("CrOS") >= 0)
-            this._report["os"]["name"] = "Chrome OS";
+            return "Chrome OS";
 
         if (this._userAgent.indexOf("KAIOS") >= 0)
-            this._report["os"]["name"] = "KaiOS";
+            return "KaiOS";
     }
 
     reportForWindowsSystemVersion() {
@@ -302,17 +302,14 @@ export class ExtractDataFromClient {
 
         switch (this._report["os"]["name"]) {
             case "Windows":
-                this._report["os"]["version"] = this.reportForWindowsSystemVersion();
-                break;
+                return this.reportForWindowsSystemVersion();
             case "Windows Phone":
-                this._report["os"]["version"] = this.reportForWindowsSystemVersion();
-                break;
+                return this.reportForWindowsSystemVersion();
             case "OS X":
                 _match = this.ifUserAgentMatchWith(/OS X ((\d+[._])+\d+)\b/);
                 break;
             case "Linux":
-                this._report["os"]["version"] = null;
-                break;
+                return null;
             case "iOS":
                 _match = this.ifUserAgentMatchWith(/OS ((\d+[._])+\d+) like Mac OS X/);
                 break;
@@ -342,7 +339,7 @@ export class ExtractDataFromClient {
             return;
 
         /** Replace underscores in version number with periods. */
-        this._report["os"]["version"] = _match[1].replace(/_/g, ".");
+        return _match[1].replace(/_/g, ".");
     }
 
     getMacOSXNames() {
@@ -391,6 +388,7 @@ export class ExtractDataFromClient {
                 if (_match && _match[1])
                     this._report["flash"]["version"] = _match[1];
             }
+
             if (plugin.name.indexOf("Java") >= 0) {
                 _match = plugin.description.match(/\b((\d+\.)+\d+)\b/);
                 if (_match && _match[1])
@@ -450,11 +448,11 @@ export class ExtractDataFromClient {
     }
 
     startReporting() {
-        this.extractBrowserNameFromUserAgent();
-        this.extractBrowserVersionNumberFromUserAgent();
+        this._report["browser"]["name"] = this.extractBrowserNameFromUserAgent();
+        this._report["browser"]["version"] = this.extractBrowserVersionNumberFromUserAgent();
 
-        this.extractOperatingSystemNameFromUserAgent();
-        this.extractOperatingSystemVersionNumberFromUserAgent();
+        this._report["os"]["name"] = this.extractOperatingSystemNameFromUserAgent();
+        this._report["os"]["version"] = this.extractOperatingSystemVersionNumberFromUserAgent();
 
         if (this._report["os"]["name"] === "OS X" && this._report["os"]["version"])
             this._report["os"]["name"] = this.getMacOSXNames();
