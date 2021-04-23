@@ -2,6 +2,7 @@ import React from "react";
 import EditIcon from "@material-ui/icons/Edit";
 
 import { handleSignOut } from "../../lib/handle-signout.js";
+import { getUserProfileImageUrl } from "../../utils/get-user-profile-image.js";
 
 import { useFirebaseContext } from "../../context/StateProvider.js";
 
@@ -19,7 +20,7 @@ function Me() {
 
                 <MeContainer.Profile>
 
-                    <MeContainer.UserImage src={`/images/users/${user?.photoURL}.png`} alt={"user"} />
+                    <MeContainer.UserImage src={getUserProfileImageUrl()} alt={"user"} />
 
                     <MeContainer.Edit>
 
