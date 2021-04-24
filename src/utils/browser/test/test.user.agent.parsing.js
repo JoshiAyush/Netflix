@@ -8,7 +8,7 @@ export function enableTesting() {
             let message = "should correctly identify {device}".replace("{device}", item.device);
 
             window.it(message, function () {
-                let report = (new ExtractDataFromClient(item.userAgent))._report;
+                let report = (new ExtractDataFromClient(item.userAgent)).report;
 
                 if (report["browser"]["version"]) {
                     report["browser"]["majorVersion"] = report["browser"]["version"].split(".")[0];
