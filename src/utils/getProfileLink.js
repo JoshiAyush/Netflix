@@ -14,5 +14,5 @@ export function getProfileLink(user, _PROFILE = PROFILE) {
         userNameInURL += `${item}-`;
     });
 
-    return `${_PROFILE.slice(0, _PROFILE.indexOf("-"))}${userNameInURL}${user?.uid}`;
+    return `${_PROFILE}/${userNameInURL}${user?.uid}`;
 };
