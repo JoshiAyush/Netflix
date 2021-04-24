@@ -43,8 +43,6 @@ export class ExtractDataFromClient {
             "languages": null,
             "lastRequestedAt": null
         };
-
-        this.startReporting();
     }
 
     ifUserAgentMatchWith(regex) {
@@ -468,9 +466,19 @@ export class ExtractDataFromClient {
         /** Are websockets supported. */
         this._report["websockets"] = !!window.WebSocket;
         /** Preferred language(s) for displaying pages. */
-        this._report["lang"] = navigator.languages || navigator.language;
+        this._report["lang"] = window.navigator.languages || window.navigator.language;
         /** Report last requested at. */
         this._report["lastRequestedAt"] = (new Date()).toString();
+    }
+
+    get report() {
+        this.startReporting();
+
+        return this._report;
+    }
+
+    set userAgent(_userAgent) {
+        this._userAgent = _userAgent;
     }
 
     static testIfDefinePropertyMethodSupported() {
