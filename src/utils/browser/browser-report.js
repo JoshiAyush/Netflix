@@ -466,7 +466,7 @@ export class ExtractDataFromClient {
         this.pullInPluginsInfo();
 
         /** Are websockets supported. */
-        this._report["websockets"] = window.WebSocket;
+        this._report["websockets"] = !!window.WebSocket;
         /** Preferred language(s) for displaying pages. */
         this._report["lang"] = navigator.languages || navigator.language;
         /** Report last requested at. */

@@ -11,7 +11,7 @@ export function isUrl(string) {
         '(\\#[-a-z\\d_]*)?$', 'i'                                   /** Fragment locator. */
     );
 
-    return pattern.test(string);
+    return !!pattern.test(string);
 }
 
 export function windowsPathValidation(constwinpath) {
