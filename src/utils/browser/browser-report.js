@@ -263,33 +263,34 @@ export class ExtractDataFromClient {
 
         _match = this.ifUserAgentMatchWith(/Win(?:dows)?(?: Phone)?[ _]?(?:(?:NT|9x) )?((?:(\d+\.)*\d+)|XP|ME|CE)\b/)
 
-        if (!_match)
+        if (!(_match && _match[1]))
             return;
 
         switch (_match[1]) {
             case "6.4":
-                return "10.0";
+                _match[1] = "10.0";
             case "6.3":
-                return "8.1";
+                _match[1] = "8.1";
             case "6.2":
-                return "8";
+                _match[1] = "8";
             case "6.1":
-                return "7";
+                _match[1] = "7";
             case "6.0":
-                return "Vista";
+                _match[1] = "Vista";
             case "5.2":
-                return "Server 2003";
+                _match[1] = "Server 2003";
             case "5.1":
-                return "XP";
+                _match[1] = "XP";
             case "5.01":
-                return "2000 SP1";
+                _match[1] = "2000 SP1";
             case "5.0":
-                return "2000";
+                _match[1] = "2000";
             case "4.0":
-                return "4.0";
+                _match[1] = "4.0";
             default:
-                return;
         }
+
+        return _match[1];
     }
 
     extractOperatingSystemVersionNumberFromUserAgent() {

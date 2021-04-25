@@ -2,10 +2,10 @@
  * @file src/validate.js helps us to validate the user's email, first name, last name and mobile number during the time of Signing 
  * up as well as Signing in both the times this validating functionality is useful. 
  */
-import { validateEmail } from "./form-lib.js";
-import { validateMobile } from "./form-lib";
-import { validateLastName } from "./form-lib.js";
-import { validateFirstName } from "./form-lib.js";
+import { validateEmail } from "./lib/form-lib.js";
+import { validateMobile } from "./lib/form-lib";
+import { validateLastName } from "./lib/form-lib.js";
+import { validateFirstName } from "./lib/form-lib.js";
 
 export function validateForm(fname, lname, mobile, email) {
     /**

@@ -11,7 +11,7 @@ export function seedDatabase(firebase) {
 
 
     for (let target in data) {
-        for (let element of data[target]) {
+        data[target].forEach((element) => {
             /**
              * @instance firebase is our admin object that provides access to the firestore
              * 
@@ -30,6 +30,6 @@ export function seedDatabase(firebase) {
                 ...element,
                 id: getUid()
             });
-        }
+        });
     }
 }

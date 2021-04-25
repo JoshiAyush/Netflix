@@ -8,21 +8,6 @@ import { SUGGEST_PASSWORD } from "./constants.js";
 import { SET_USER_PASSWORD } from "./constants.js";
 import { PASSWORD_SUGGESTED } from "./constants.js";
 
-export const SignUpState = {
-    error: "",
-    userName: "",
-    userEmail: "",
-    usePassword: "",
-    userPassword: "",
-    suggestPassword: false,
-    passwordSuggested: false
-};
-
-export const BrowseState = {
-    searchTerm: "",
-    category: "series"
-};
-
 export const reducer = (state, action) => {
     switch (action.type) {
         case SET_USER_NAME:

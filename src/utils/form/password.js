@@ -1,4 +1,4 @@
-import { isNumeric } from "./form-lib.js";
+import { isNumeric } from "./lib/form-lib.js";
 
 export function createPassword(length = 10) {
     /**

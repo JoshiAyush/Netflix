@@ -1,4 +1,4 @@
-import { firebase } from "../lib/firebase.prod.js";
+import { getFirebaseUser } from "../lib/firebase-user.js";
 
 import { isUrl } from "./path.js";
 import { linuxPathValidation } from "./path.js";
@@ -23,7 +23,7 @@ function createUrlFromLocalImages(photoUrl) {
 }
 
 export function getUserProfileImageUrl() {
-    const user = firebase.auth().currentUser || {};
+    const user = getFirebaseUser();
 
     if (user == null)
         return "";

@@ -1,17 +1,17 @@
 import React from "react";
+import { useHistory } from "react-router";
 import EditIcon from "@material-ui/icons/Edit";
 
-import { handleSignOut } from "../../lib/handle-signout.js";
-import { getUserProfileImageUrl } from "../../utils/get-user-profile-image.js";
+import { SIGN_IN } from "../../constants.js";
 
-import { useFirebaseContext } from "../../context/StateProvider.js";
+import { handleSignOut } from "../../lib/handle-signout.js";
+import { getFirebaseUser } from "../../lib/firebase-user.js";
+import { getUserProfileImageUrl } from "../../utils/get-user-profile-image.js";
 
 import { MeContainer } from "./style/Me.js";
 
 function Me() {
-    const { firebase } = useFirebaseContext();
-
-    const user = firebase.auth().currentUser || {};
+    const history = useHistory();
 
     return (
         <MeContainer>
@@ -28,7 +28,7 @@ function Me() {
 
                     </MeContainer.Edit>
 
-                    <span>{user?.displayName}</span>
+                    <span>{getFirebaseUser()?.displayName}</span>
 
                 </MeContainer.Profile>
 
@@ -36,7 +36,10 @@ function Me() {
 
             <MeContainer.Button type={"edit"}>Edit Profile</MeContainer.Button>
 
-            <MeContainer.Button type={"signout"} onClick={() => handleSignOut()}>Sign Out</MeContainer.Button>
+            <MeContainer.Button type={"signout"} onClick={() => {
+                handleSignOut();
+                history.push(SIGN_IN);
+            }}>Sign Out</MeContainer.Button>
 
         </MeContainer>
     );

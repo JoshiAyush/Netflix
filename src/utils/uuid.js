@@ -18,7 +18,6 @@ export function getUid() {
          * 
          * @return a new string with replaced value.
          */
-
         const piece = (Math.random() * 16) | 0;
         const elem = c === 'x' ? piece : (piece & 0x3) | 0x8;
 

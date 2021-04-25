@@ -13,8 +13,8 @@ import { SIGN_IN } from "./constants.js";
 import { SIGN_UP } from "./constants.js";
 
 import { reducer } from "./reducer.js";
-import { BrowseState } from "./reducer.js";
-import { SignUpState } from "./reducer.js";
+import { BrowseState } from "./states.js";
+import { SignUpState } from "./states.js";
 
 import { SignUpStateProvider } from "./context/StateProvider.js";
 import { BrowseStateProvider } from "./context/StateProvider.js";
@@ -22,7 +22,7 @@ import { BrowseStateProvider } from "./context/StateProvider.js";
 import { IsUserRedirect } from "./helpers/routes.js";
 import { ProtectedRoute } from "./helpers/routes.js";
 
-import { getProfileLink } from "./utils/getProfileLink.js";
+import { getProfileLink } from "./utils/get-profile-link.js";
 
 import { useAuthListener } from "./hooks/index.js";
 

@@ -10,7 +10,6 @@ import { firebase } from './lib/firebase.prod';
 import { FirebaseStateProvider } from "./context/StateProvider.js";
 
 render(
-
     <React.Fragment>
 
         <FirebaseStateProvider value={{ firebase }}>

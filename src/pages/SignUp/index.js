@@ -18,7 +18,7 @@ import { SUGGEST_PASSWORD } from "../../constants.js";
 import { SET_USER_PASSWORD } from "../../constants.js";
 import { PASSWORD_SUGGESTED } from "../../constants.js";
 
-import { createPassword } from "../../password";
+import { createPassword } from "../../utils/form/password.js";
 import { useSignUpContext } from "../../context/StateProvider.js";
 
 import Footer from "../../containers/Footer/index.js";

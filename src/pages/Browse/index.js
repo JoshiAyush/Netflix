@@ -9,7 +9,7 @@ import { SET_CATEGORY } from "../../constants.js";
 import { useContent } from "../../hooks/index.js";
 import selectionFilter from "../../utils/selection-filter.js";
 import { handleSignOut } from "../../lib/handle-signout.js";
-import { getProfileLink } from "../../utils/getProfileLink.js";
+import { getProfileLink } from "../../utils/get-profile-link.js";
 
 import { useBrowseContext } from "../../context/StateProvider.js";
 import { useFirebaseContext } from "../../context/StateProvider.js";
