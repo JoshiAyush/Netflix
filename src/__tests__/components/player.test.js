@@ -4,18 +4,16 @@ import { render, fireEvent } from "@testing-library/react";
 import { Player } from "../../components/index.js";
 
 describe("<Player />", () => {
-    it("renders the <Player /> with a bunny video", () => {
-        const { container, getByText, queryByTestId } = render(
-            <Player />
-        );
+  it("renders the <Player /> with a bunny video", () => {
+    const { container, getByText, queryByTestId } = render(<Player />);
 
-        expect(queryByTestId("player")).toBeFalsy();
-        fireEvent.click(getByText("Play"));
+    expect(queryByTestId("player")).toBeFalsy();
+    fireEvent.click(getByText("Play"));
 
-        expect(queryByTestId("player")).toBeTruthy();
-        fireEvent.click(queryByTestId("player"));
+    expect(queryByTestId("player")).toBeTruthy();
+    fireEvent.click(queryByTestId("player"));
 
-        expect(queryByTestId("player")).toBeFalsy();
-        expect(container.firstChild).toMatchSnapshot();
-    });
+    expect(queryByTestId("player")).toBeFalsy();
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

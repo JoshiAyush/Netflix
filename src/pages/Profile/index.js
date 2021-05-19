@@ -7,27 +7,23 @@ import { HeaderContainer } from "../../containers/index.js";
 import { ProfileContainer } from "./style/Profile.js";
 
 function Profile() {
-    return (
-        <ProfileContainer>
+  return (
+    <ProfileContainer>
+      <ProfileContainer.Head>
+        <HeaderContainer bg={false}>
+          <HeaderContainer.Logo
+            to={HOME}
+            src="/images/logo.svg"
+            alt="Netflix"
+          />
+        </HeaderContainer>
+      </ProfileContainer.Head>
 
-            <ProfileContainer.Head>
-
-                <HeaderContainer bg={false}>
-
-                    <HeaderContainer.Logo to={HOME} src="/images/logo.svg" alt="Netflix" />
-
-                </HeaderContainer>
-
-            </ProfileContainer.Head>
-
-            <ProfileContainer.Body>
-
-                <Me />
-
-            </ProfileContainer.Body>
-
-        </ProfileContainer>
-    );
+      <ProfileContainer.Body>
+        <Me />
+      </ProfileContainer.Body>
+    </ProfileContainer>
+  );
 }
 
 export default Profile;

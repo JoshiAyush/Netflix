@@ -6,37 +6,25 @@ import { Profile } from "./style.js";
 import { Container } from "./style.js";
 
 MeContainer.Button = ({ children, ...restProps }) => (
-    <Button {...restProps}>
-        {children}
-    </Button>
+  <Button {...restProps}>{children}</Button>
 );
 
 MeContainer.Edit = ({ children, ...restProps }) => (
-    <Edit {...restProps} >
-        {children}
-    </Edit>
+  <Edit {...restProps}>{children}</Edit>
 );
 
 MeContainer.UserImage = ({ ...restProps }) => (
-    <Image src={restProps.src} {...restProps} />
+  <Image src={restProps.src} {...restProps} />
 );
 
 MeContainer.Profile = ({ children, ...restProps }) => (
-    <Profile {...restProps}>
-        {children}
-    </Profile>
+  <Profile {...restProps}>{children}</Profile>
 );
 
 MeContainer.Holder = ({ children, ...restProps }) => (
-    <Holder {...restProps}>
-        {children}
-    </Holder>
+  <Holder {...restProps}>{children}</Holder>
 );
 
 export function MeContainer({ children, ...restProps }) {
-    return (
-        <Container {...restProps}>
-            {children}
-        </Container>
-    );
+  return <Container {...restProps}>{children}</Container>;
 }

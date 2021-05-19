@@ -1,6 +1,6 @@
-import 'firebase/auth';
-import 'firebase/firestore';
-import Firebase from 'firebase/app';
+import "firebase/auth";
+import "firebase/firestore";
+import Firebase from "firebase/app";
 
 import { firebaseConfig } from "./credentials.js";
 

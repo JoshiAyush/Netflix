@@ -6,43 +6,40 @@ import { SIGN_IN } from "../../constants.js";
 
 import { handleSignOut } from "../../lib/handle-signout.js";
 import { getFirebaseUser } from "../../lib/firebase-user.js";
-import { getUserProfileImageUrl } from "../../utils/get-user-profile-image.js";
+import { getUserProfileImageUrl } from "../../netflix/utils/get-user-profile-image.js";
 
 import { MeContainer } from "./style/Me.js";
 
 function Me() {
-    const history = useHistory();
+  const history = useHistory();
+  const displayName = getFirebaseUser()?.displayName;
 
-    return (
-        <MeContainer>
+  async function signOut() {
+    await handleSignOut();
+    history.push(SIGN_IN);
+  }
 
-            <MeContainer.Holder>
+  return (
+    <MeContainer>
+      <MeContainer.Holder>
+        <MeContainer.Profile>
+          <MeContainer.UserImage src={getUserProfileImageUrl()} alt={"user"} />
 
-                <MeContainer.Profile>
+          <MeContainer.Edit>
+            <EditIcon />
+          </MeContainer.Edit>
 
-                    <MeContainer.UserImage src={getUserProfileImageUrl()} alt={"user"} />
+          <span>{displayName}</span>
+        </MeContainer.Profile>
+      </MeContainer.Holder>
 
-                    <MeContainer.Edit>
+      <MeContainer.Button type={"edit"}>Edit Profile</MeContainer.Button>
 
-                        <EditIcon />
-
-                    </MeContainer.Edit>
-
-                    <span>{getFirebaseUser()?.displayName}</span>
-
-                </MeContainer.Profile>
-
-            </MeContainer.Holder>
-
-            <MeContainer.Button type={"edit"}>Edit Profile</MeContainer.Button>
-
-            <MeContainer.Button type={"signout"} onClick={() => {
-                handleSignOut();
-                history.push(SIGN_IN);
-            }}>Sign Out</MeContainer.Button>
-
-        </MeContainer>
-    );
+      <MeContainer.Button type={"signout"} onClick={() => signOut()}>
+        Sign Out
+      </MeContainer.Button>
+    </MeContainer>
+  );
 }
 
 export default Me;

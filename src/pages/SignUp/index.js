@@ -18,166 +18,169 @@ import { SUGGEST_PASSWORD } from "../../constants.js";
 import { SET_USER_PASSWORD } from "../../constants.js";
 import { PASSWORD_SUGGESTED } from "../../constants.js";
 
-import { createPassword } from "../../utils/form/password.js";
+import { createPassword } from "../../netflix/form/password.js";
 import { useSignUpContext } from "../../context/StateProvider.js";
 
 import Footer from "../../containers/Footer/index.js";
 
 import { handleSignUp } from "../../lib/handle-signup.js";
 
-
 function SignUp() {
-    const history = useHistory();
+  const history = useHistory();
 
-    const [{ error }] = useSignUpContext();
-    const [{ userName }] = useSignUpContext();
-    const [{ userEmail }] = useSignUpContext();
-    const [{ usePassword }] = useSignUpContext();
-    const [{ userPassword }] = useSignUpContext();
-    const [{ suggestPassword }] = useSignUpContext();
-    const [{ passwordSuggested }] = useSignUpContext();
+  const [{ error }] = useSignUpContext();
+  const [{ userName }] = useSignUpContext();
+  const [{ userEmail }] = useSignUpContext();
+  const [{ usePassword }] = useSignUpContext();
+  const [{ userPassword }] = useSignUpContext();
+  const [{ suggestPassword }] = useSignUpContext();
+  const [{ passwordSuggested }] = useSignUpContext();
 
-    const [{ }, dispatch] = useSignUpContext();
+  const [{}, dispatch] = useSignUpContext();
 
-    async function signUp(event) {
-        event.preventDefault();
+  async function signUp(event) {
+    event.preventDefault();
 
-        let _status = undefined;
+    let _status = undefined;
 
-        try {
-            _status = await handleSignUp({ userName, userEmail, userPassword });
-        } catch (err) {
-            dispatch({ type: ERROR, error: err.message });
-            return;
-        }
-
-        if (_status === true) {
-            history.push(BROWSE);
-        } else if (_status === false) {
-            dispatch({ type: SET_USER_NAME, userName: "" });
-            dispatch({ type: SET_USER_EMAIL, userEmail: "" });
-            dispatch({ type: SET_USER_PASSWORD, userPassword: "" });
-            dispatch({ type: ERROR, error: _status });
-        }
+    try {
+      _status = await handleSignUp({ userName, userEmail, userPassword });
+    } catch (err) {
+      dispatch({ type: ERROR, error: err.message });
+      return;
     }
 
-    const IsInvalid = userName === "" || userEmail === "" || userPassword === "";
+    if (_status === true) {
+      history.push(BROWSE);
+    } else if (_status === false) {
+      dispatch({ type: SET_USER_NAME, userName: "" });
+      dispatch({ type: SET_USER_EMAIL, userEmail: "" });
+      dispatch({ type: SET_USER_PASSWORD, userPassword: "" });
+      dispatch({ type: ERROR, error: _status });
+    }
+  }
 
-    useEffect(() => {
-        document.getElementById("chrome-title-tab").innerText = "Sign Up to netflix to enjoy 11+ million films and series";
-    }, []);
+  const IsInvalid = userName === "" || userEmail === "" || userPassword === "";
 
-    return (
-        <HomeContainer>
+  useEffect(() => {
+    document.getElementById("chrome-title-tab").innerText =
+      "Sign Up to netflix to enjoy 11+ million films and series";
+  }, []);
 
-            <HeaderContainer>
+  return (
+    <HomeContainer>
+      <HeaderContainer>
+        <HeaderContainer.Frame>
+          <HeaderContainer.Logo
+            to={HOME}
+            src="/images/logo.svg"
+            alt="Netflix"
+          />
 
-                <HeaderContainer.Frame>
+          <HeaderContainer.Button to={SIGN_IN}>Sign In</HeaderContainer.Button>
+        </HeaderContainer.Frame>
 
-                    <HeaderContainer.Logo to={HOME} src="/images/logo.svg" alt="Netflix" />
+        <HeaderContainer.Container>
+          <FormContainer>
+            <FormContainer.Inner>
+              <FormContainer.Title>Sign Up</FormContainer.Title>
 
-                    <HeaderContainer.Button to={SIGN_IN}>Sign In</HeaderContainer.Button>
+              {error && <FormContainer.Error>{error}</FormContainer.Error>}
 
-                </HeaderContainer.Frame>
+              <FormContainer.Base onSubmit={signUp} method="POST">
+                <FormContainer.Input
+                  type="text"
+                  placeholder="Full Name"
+                  value={userName}
+                  onChange={({ target }) =>
+                    dispatch({ type: SET_USER_NAME, userName: target.value })
+                  }
+                  autoComplete="on"
+                />
 
-                <HeaderContainer.Container>
+                <FormContainer.Input
+                  type="email"
+                  placeholder="Email Address"
+                  value={userEmail}
+                  onChange={({ target }) =>
+                    dispatch({ type: SET_USER_EMAIL, userEmail: target.value })
+                  }
+                  autoComplete="on"
+                />
 
-                    <FormContainer>
+                <FormContainer.Input
+                  type="password"
+                  placeholder="Password"
+                  value={userPassword}
+                  onClick={() => {
+                    if (passwordSuggested === false) {
+                      dispatch({
+                        type: USE_PASSWORD,
+                        usePassword: createPassword()
+                      });
+                      dispatch({
+                        type: SUGGEST_PASSWORD,
+                        suggestPassword: true
+                      });
+                      dispatch({
+                        type: PASSWORD_SUGGESTED,
+                        passwordSuggested: true
+                      });
+                    }
+                  }}
+                  onChange={({ target }) =>
+                    dispatch({
+                      type: SET_USER_PASSWORD,
+                      userPassword: target.value
+                    })
+                  }
+                  autoComplete="on"
+                />
 
-                        <FormContainer.Inner>
+                {suggestPassword && (
+                  <FormContainer.SuggestPassword
+                    onClick={() => {
+                      dispatch({
+                        type: SET_USER_PASSWORD,
+                        userPassword: usePassword
+                      });
+                      dispatch({
+                        type: SUGGEST_PASSWORD,
+                        suggestPassword: false
+                      });
+                    }}
+                  >
+                    Use suggested password
+                    <FormContainer.Span>{usePassword}</FormContainer.Span>
+                    <FormContainer.P>
+                      Don't worry Google will save this password for you, you
+                      don't have to remember this.
+                    </FormContainer.P>
+                  </FormContainer.SuggestPassword>
+                )}
 
-                            <FormContainer.Title>
+                <FormContainer.Submit disabled={IsInvalid} type="submit">
+                  Sign Up
+                </FormContainer.Submit>
+              </FormContainer.Base>
 
-                                Sign Up
+              <FormContainer.Text>
+                Already have an account?{" "}
+                <FormContainer.Link to={SIGN_IN}>Sign In.</FormContainer.Link>
+              </FormContainer.Text>
 
-                            </FormContainer.Title>
+              <FormContainer.TextSmall>
+                This page is protected by Google reCAPTCHA to ensure you're not
+                a bot. Learn more.
+              </FormContainer.TextSmall>
+            </FormContainer.Inner>
+          </FormContainer>
+        </HeaderContainer.Container>
+      </HeaderContainer>
 
-                            {error && <FormContainer.Error>{error}</FormContainer.Error>}
-
-                            <FormContainer.Base onSubmit={signUp} method="POST">
-
-                                <FormContainer.Input
-                                    type="text"
-                                    placeholder="Full Name"
-                                    value={userName}
-                                    onChange={({ target }) => dispatch({ type: SET_USER_NAME, userName: target.value })}
-                                    autoComplete="on"
-                                />
-
-                                <FormContainer.Input
-                                    type="email"
-                                    placeholder="Email Address"
-                                    value={userEmail}
-                                    onChange={({ target }) => dispatch({ type: SET_USER_EMAIL, userEmail: target.value })}
-                                    autoComplete="on"
-                                />
-
-                                <FormContainer.Input
-                                    type="password"
-                                    placeholder="Password"
-                                    value={userPassword}
-                                    onClick={() => {
-                                        if (passwordSuggested === false) {
-                                            dispatch({ type: USE_PASSWORD, usePassword: createPassword() });
-                                            dispatch({ type: SUGGEST_PASSWORD, suggestPassword: true });
-                                            dispatch({ type: PASSWORD_SUGGESTED, passwordSuggested: true });
-                                        }
-                                    }}
-                                    onChange={({ target }) => dispatch({ type: SET_USER_PASSWORD, userPassword: target.value })}
-                                    autoComplete="on"
-                                />
-
-                                {
-                                    suggestPassword &&
-                                    <FormContainer.SuggestPassword
-                                        onClick={() => {
-                                            dispatch({ type: SET_USER_PASSWORD, userPassword: usePassword });
-                                            dispatch({ type: SUGGEST_PASSWORD, suggestPassword: false });
-                                        }}
-                                    >
-                                        Use suggested password
-
-                                        <FormContainer.Span>{usePassword}</FormContainer.Span>
-
-                                        <FormContainer.P>
-                                            Don't worry Google will save this password for you, you don't have to remember this.
-                                        </FormContainer.P>
-
-                                    </FormContainer.SuggestPassword>
-                                }
-
-                                <FormContainer.Submit disabled={IsInvalid} type="submit">
-
-                                    Sign Up
-
-                                </FormContainer.Submit>
-
-                            </FormContainer.Base>
-
-                            <FormContainer.Text>
-
-                                Already have an account? <FormContainer.Link to={SIGN_IN}>Sign In.</FormContainer.Link>
-
-                            </FormContainer.Text>
-
-                            <FormContainer.TextSmall>
-
-                                This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.
-
-                            </FormContainer.TextSmall>
-
-                        </FormContainer.Inner>
-
-                    </FormContainer>
-
-                </HeaderContainer.Container>
-
-            </HeaderContainer>
-
-            <Footer />
-
-        </HomeContainer>
-    );
+      <Footer />
+    </HomeContainer>
+  );
 }
 
 export default SignUp;

@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 import { Faqs } from "../../containers/index.js";
 import { Header } from "../../containers/index.js";
@@ -9,23 +9,21 @@ import { Jumbotron } from "../../containers/index.js";
 import { HomeContainer } from "./style/Home.js";
 
 function Home() {
-    useEffect(() => {
-        document.getElementById("chrome-title-tab").innerText = "Netflix";
-    }, []);
+  useEffect(() => {
+    document.getElementById("chrome-title-tab").innerText = "Netflix";
+  }, []);
 
-    return (
-        <HomeContainer>
+  return (
+    <HomeContainer>
+      <Header />
 
-            <Header />
+      <Jumbotron />
 
-            <Jumbotron />
+      <Faqs />
 
-            <Faqs />
-
-            <Footer />
-
-        </HomeContainer>
-    );
+      <Footer />
+    </HomeContainer>
+  );
 }
 
 export default Home;

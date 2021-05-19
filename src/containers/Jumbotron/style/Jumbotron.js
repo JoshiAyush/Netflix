@@ -7,39 +7,31 @@ import { SubTitle } from "./style.js";
 import { Container } from "./style.js";
 
 JumbotronContainer.Container = ({ children, ...restProps }) => (
-    <Container {...restProps}>
-        {children}
-    </Container>
+  <Container {...restProps}>{children}</Container>
 );
 
 JumbotronContainer.Pane = ({ children, ...restProps }) => (
-    <Pane {...restProps}>
-        {children}
-    </Pane>
+  <Pane {...restProps}>{children}</Pane>
 );
 
 JumbotronContainer.Title = ({ children, ...restProps }) => (
-    <Title {...restProps}>
-        {children}
-    </Title>
+  <Title {...restProps}>{children}</Title>
 );
 
 JumbotronContainer.SubTitle = ({ children, ...restProps }) => (
-    <SubTitle {...restProps}>
-        {children}
-    </SubTitle>
+  <SubTitle {...restProps}>{children}</SubTitle>
 );
 
-JumbotronContainer.Image = ({ ...restProps }) => (
-    <Image {...restProps} />
-);
+JumbotronContainer.Image = ({ ...restProps }) => <Image {...restProps} />;
 
-export function JumbotronContainer({ children, direction = "row", ...restProps }) {
-    return (
-        <Item {...restProps}>
-            <Inner direction={direction}>
-                {children}
-            </Inner>
-        </Item>
-    );
+export function JumbotronContainer({
+  children,
+  direction = "row",
+  ...restProps
+}) {
+  return (
+    <Item {...restProps}>
+      <Inner direction={direction}>{children}</Inner>
+    </Item>
+  );
 }

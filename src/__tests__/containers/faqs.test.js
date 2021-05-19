@@ -6,72 +6,64 @@ import faqsData from "../../fixtures/faqs.json";
 import { AccordionContainer } from "../../components/index.js";
 
 describe("<Accordion />", () => {
-    it("renders the <Accordion /> with populated data", () => {
-        const { container, getByText } = render(
-            <AccordionContainer>
+  it("renders the <Accordion /> with populated data", () => {
+    const { container, getByText } = render(
+      <AccordionContainer>
+        <AccordionContainer.Title>
+          Frequently Asked Question
+        </AccordionContainer.Title>
 
-                <AccordionContainer.Title>Frequently Asked Question</AccordionContainer.Title>
+        {faqsData.map((item) => (
+          <AccordionContainer.Item key={item.id}>
+            <AccordionContainer.Header>{item.header}</AccordionContainer.Header>
 
-                {
-                    faqsData.map(item => (
+            <AccordionContainer.Body>{item.body}</AccordionContainer.Body>
+          </AccordionContainer.Item>
+        ))}
 
-                        <AccordionContainer.Item key={item.id}>
+        <AccordionContainer.Item />
+      </AccordionContainer>
+    );
 
-                            <AccordionContainer.Header>{item.header}</AccordionContainer.Header>
+    expect(getByText("Frequently Asked Question")).toBeTruthy();
+    expect(getByText("What is Netflix?")).toBeTruthy();
+    expect(getByText("How much does Netflix cost?")).toBeTruthy();
+    expect(getByText("Where can I watch?")).toBeTruthy();
+    expect(getByText("How do I cancel?")).toBeTruthy();
+    expect(getByText("What can I watch on Netflix?")).toBeTruthy();
 
-                            <AccordionContainer.Body>{item.body}</AccordionContainer.Body>
+    expect(container.firstChild).toMatchSnapshot();
+  });
 
-                        </AccordionContainer.Item>
-                    ))
-                }
+  it("opens and closes the <Accordion /> component", () => {
+    const { container, queryByText } = render(
+      <AccordionContainer>
+        <AccordionContainer.Title>
+          Frequently Asked Question
+        </AccordionContainer.Title>
 
-                <AccordionContainer.Item />
+        {faqsData.map((item) => (
+          <AccordionContainer.Item key={item.id}>
+            <AccordionContainer.Header>{item.header}</AccordionContainer.Header>
 
-            </AccordionContainer>
-        );
+            <AccordionContainer.Body>{item.body}</AccordionContainer.Body>
+          </AccordionContainer.Item>
+        ))}
 
-        expect(getByText("Frequently Asked Question")).toBeTruthy();
-        expect(getByText("What is Netflix?")).toBeTruthy();
-        expect(getByText("How much does Netflix cost?")).toBeTruthy();
-        expect(getByText("Where can I watch?")).toBeTruthy();
-        expect(getByText("How do I cancel?")).toBeTruthy();
-        expect(getByText("What can I watch on Netflix?")).toBeTruthy();
+        <AccordionContainer.Item />
+      </AccordionContainer>
+    );
 
-        expect(container.firstChild).toMatchSnapshot();
-    });
+    const whatIsNetflixBodyText = faqsData.filter(
+      (item) => item.header == "What is Netflix?"
+    )[0].body;
 
-    it("opens and closes the <Accordion /> component", () => {
-        const { container, queryByText } = render(
-            <AccordionContainer>
+    expect(queryByText(whatIsNetflixBodyText)).toBeFalsy();
+    fireEvent.click(queryByText("What is Netflix?"));
+    expect(queryByText(whatIsNetflixBodyText)).toBeTruthy();
+    fireEvent.click(queryByText("What is Netflix?"));
+    expect(queryByText(whatIsNetflixBodyText)).toBeFalsy();
 
-                <AccordionContainer.Title>Frequently Asked Question</AccordionContainer.Title>
-
-                {
-                    faqsData.map(item => (
-
-                        <AccordionContainer.Item key={item.id}>
-
-                            <AccordionContainer.Header>{item.header}</AccordionContainer.Header>
-
-                            <AccordionContainer.Body>{item.body}</AccordionContainer.Body>
-
-                        </AccordionContainer.Item>
-                    ))
-                }
-
-                <AccordionContainer.Item />
-
-            </AccordionContainer>
-        );
-
-        const whatIsNetflixBodyText = faqsData.filter(item => item.header == "What is Netflix?")[0].body;
-
-        expect(queryByText(whatIsNetflixBodyText)).toBeFalsy();
-        fireEvent.click(queryByText("What is Netflix?"));
-        expect(queryByText(whatIsNetflixBodyText)).toBeTruthy();
-        fireEvent.click(queryByText("What is Netflix?"));
-        expect(queryByText(whatIsNetflixBodyText)).toBeFalsy();
-
-        expect(container.firstChild).toMatchSnapshot();
-    });
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

@@ -22,7 +22,7 @@ import { BrowseStateProvider } from "./context/StateProvider.js";
 import { IsUserRedirect } from "./helpers/routes.js";
 import { ProtectedRoute } from "./helpers/routes.js";
 
-import { getProfileLink } from "./utils/get-profile-link.js";
+import { getProfileLink } from "./netflix/utils/get-profile-link.js";
 
 import { useAuthListener } from "./hooks/index.js";
 
@@ -31,57 +31,24 @@ function App() {
 
   return (
     <Router>
-
-      <IsUserRedirect
-        exact
-        user={user}
-        path={HOME}
-        loggedInPath={BROWSE}
-      >
-
+      <IsUserRedirect exact user={user} path={HOME} loggedInPath={BROWSE}>
         <Home />
-
       </IsUserRedirect>
 
-      <IsUserRedirect
-        exact
-        user={user}
-        path={SIGN_UP}
-        loggedInPath={BROWSE}
-      >
-
+      <IsUserRedirect exact user={user} path={SIGN_UP} loggedInPath={BROWSE}>
         <SignUpStateProvider initialState={SignUpState} reducer={reducer}>
-
           <SignUp />
-
         </SignUpStateProvider>
-
       </IsUserRedirect>
 
-      <IsUserRedirect
-        exact
-        user={user}
-        path={SIGN_IN}
-        loggedInPath={BROWSE}
-      >
-
+      <IsUserRedirect exact user={user} path={SIGN_IN} loggedInPath={BROWSE}>
         <SignIn />
-
       </IsUserRedirect>
 
-      <ProtectedRoute
-        exact
-        user={user}
-        path={BROWSE}
-        signedInPath={SIGN_IN}
-      >
-
+      <ProtectedRoute exact user={user} path={BROWSE} signedInPath={SIGN_IN}>
         <BrowseStateProvider initialState={BrowseState} reducer={reducer}>
-
           <Browse />
-
         </BrowseStateProvider>
-
       </ProtectedRoute>
 
       <ProtectedRoute
@@ -90,11 +57,8 @@ function App() {
         path={getProfileLink(user)}
         signedInPath={SIGN_IN}
       >
-
         <Profile />
-
       </ProtectedRoute>
-
     </Router>
   );
 }
