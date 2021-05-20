@@ -34,10 +34,7 @@ function useContent(target) {
         setContent(allContent);
       })
       .catch((error) => {
-        console.log(
-          `Firebase response: ${error.message}`,
-          "color: yellow; font-weight: bold; font-size: medium;"
-        );
+        console.error(`Firebase response: ${error.message}`);
       });
   }, []);
 
