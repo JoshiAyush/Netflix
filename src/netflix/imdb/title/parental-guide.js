@@ -7,7 +7,7 @@ export function parentalGuide(tconst, callback) {
   );
 
   req.query({
-    tconst: tconst || "tt0120338"
+    tconst: tconst
   });
 
   req.headers({

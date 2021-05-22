@@ -7,7 +7,7 @@ export function overViewDetails(tconst, callback) {
   );
 
   req.query({
-    tconst: tconst || "tt0944947",
+    tconst: tconst,
     currentCountry: "US"
   });
 

@@ -7,7 +7,7 @@ export function awardsSummary(tconst, callback) {
   );
 
   req.query({
-    tconst: tconst || "tt0944947"
+    tconst: tconst
   });
 
   req.headers({

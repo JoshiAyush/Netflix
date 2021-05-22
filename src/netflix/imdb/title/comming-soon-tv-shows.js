@@ -7,7 +7,7 @@ export function commingSoonTvShows(currentCountry, callback) {
   );
 
   req.query({
-    currentCountry: currentCountry || "US"
+    currentCountry: currentCountry
   });
 
   req.headers({

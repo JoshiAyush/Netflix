@@ -4,7 +4,7 @@ export function movie(query, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/auto-complete");
 
   req.query({
-    q: `${query}`
+    q: query
   });
 
   req.headers({
@@ -16,6 +16,6 @@ export function movie(query, callback) {
   req.end(function (res) {
     if (res.error) throw new Error(res.error);
 
-    callback([...res.body["d"]]);
+    callback(res.body["d"]);
   });
 }

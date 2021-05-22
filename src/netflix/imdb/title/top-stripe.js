@@ -8,9 +8,9 @@ export function titleTopStripe(
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/title/get-top-stripe");
 
   req.query({
-    tconst: tconst || "tt0944947",
-    currentCountry: currentCountry || "US",
-    purchaseCountry: purchaseCountry || "US"
+    tconst: tconst,
+    currentCountry: currentCountry,
+    purchaseCountry: purchaseCountry
   });
 
   req.headers({

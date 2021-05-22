@@ -4,7 +4,7 @@ export function awards(tconst, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/title/get-awards");
 
   req.query({
-    tconst: tconst || "tt0944947"
+    tconst: tconst
   });
 
   req.headers({

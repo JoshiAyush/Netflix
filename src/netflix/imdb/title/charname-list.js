@@ -1,17 +1,25 @@
 var unirest = require("unirest");
 
-export function listMostPopularCelebs(
-  { homeCountry, currentCountry, purchaseCountry },
+export function charNameList(
+  tconst,
+  id,
+  {
+    currentCountry = "US",
+    marketplace = "ATVPDKIKX0DER",
+    purchaseCountry = "US"
+  },
   callback
 ) {
   var req = unirest(
     "GET",
-    "https://imdb8.p.rapidapi.com/actors/list-most-popular-celebs"
+    "https://imdb8.p.rapidapi.com/title/get-charname-list"
   );
 
   req.query({
-    homeCountry: homeCountry,
+    id: id,
+    tconst: tconst,
     currentCountry: currentCountry,
+    marketplace: marketplace,
     purchaseCountry: purchaseCountry
   });
 

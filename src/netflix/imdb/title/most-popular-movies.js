@@ -10,9 +10,9 @@ export function mostPopularMovies(
   );
 
   req.query({
-    homeCountry: homeCountry || "US",
-    purchaseCountry: purchaseCountry || "US",
-    currentCountry: currentCountry || "US"
+    homeCountry: homeCountry,
+    purchaseCountry: purchaseCountry,
+    currentCountry: currentCountry
   });
 
   req.headers({

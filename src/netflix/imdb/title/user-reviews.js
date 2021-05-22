@@ -7,7 +7,7 @@ export function userReviews(tconst, callback) {
   );
 
   req.query({
-    tconst: tconst || "tt0944947"
+    tconst: tconst
   });
 
   req.headers({

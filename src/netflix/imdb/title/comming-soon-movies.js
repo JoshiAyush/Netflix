@@ -1,13 +1,18 @@
 var unirest = require("unirest");
 
-export function actorAwardsSummary(callback) {
+export function commingSoonMovies(
+  { homeCountry = "US", purchaseCountry = "US", currentCountry = "US" },
+  callback
+) {
   var req = unirest(
     "GET",
-    "https://imdb8.p.rapidapi.com/actors/get-awards-summary"
+    "https://imdb8.p.rapidapi.com/title/get-coming-soon-movies"
   );
 
   req.query({
-    nconst: "nm0001667"
+    homeCountry: homeCountry,
+    purchaseCountry: purchaseCountry,
+    currentCountry: currentCountry
   });
 
   req.headers({

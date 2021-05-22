@@ -4,7 +4,7 @@ export function ratings(tconst, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/title/get-ratings");
 
   req.query({
-    tconst: tconst || "tt0944947"
+    tconst: tconst
   });
 
   req.headers({

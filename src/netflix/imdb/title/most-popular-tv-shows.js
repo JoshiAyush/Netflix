@@ -1,10 +1,18 @@
 var unirest = require("unirest");
 
-export function actorBio(nconst, callback) {
-  var req = unirest("GET", "https://imdb8.p.rapidapi.com/actors/get-bio");
+export function mostPopularTvShows(
+  { homeCountry = "US", purchaseCountry = "US", currentCountry = "US" },
+  callback
+) {
+  var req = unirest(
+    "GET",
+    "https://imdb8.p.rapidapi.com/title/get-most-popular-tv-shows"
+  );
 
   req.query({
-    nconst: nconst
+    homeCountry: homeCountry,
+    purchaseCountry: purchaseCountry,
+    currentCountry: currentCountry
   });
 
   req.headers({

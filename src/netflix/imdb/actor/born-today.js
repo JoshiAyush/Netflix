@@ -1,14 +1,14 @@
 var unirest = require("unirest");
 
-export function listBornToday(callback) {
+export function listBornToday({ month, day }, callback) {
   var req = unirest(
     "GET",
     "https://imdb8.p.rapidapi.com/actors/list-born-today"
   );
 
   req.query({
-    month: "7",
-    day: "27"
+    month: month,
+    day: day
   });
 
   req.headers({

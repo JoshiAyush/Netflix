@@ -1,10 +1,10 @@
 var unirest = require("unirest");
 
-export function actorKnownFor(callback) {
+export function actorKnownFor(nconst, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/actors/get-known-for");
 
   req.query({
-    nconst: "nm0001667"
+    nconst: nconst
   });
 
   req.headers({

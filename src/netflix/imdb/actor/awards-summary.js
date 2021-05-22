@@ -1,7 +1,10 @@
 var unirest = require("unirest");
 
-export function actorBio(nconst, callback) {
-  var req = unirest("GET", "https://imdb8.p.rapidapi.com/actors/get-bio");
+export function actorAwardsSummary(nconst, callback) {
+  var req = unirest(
+    "GET",
+    "https://imdb8.p.rapidapi.com/actors/get-awards-summary"
+  );
 
   req.query({
     nconst: nconst

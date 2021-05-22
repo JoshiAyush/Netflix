@@ -7,7 +7,7 @@ export function fullCredits(tconst, callback) {
   );
 
   req.query({
-    tconst: tconst || "tt0786945"
+    tconst: tconst
   });
 
   req.headers({

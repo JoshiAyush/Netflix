@@ -7,7 +7,7 @@ function titlePopularMoviesByGenre(genre, callback) {
   );
 
   req.query({
-    genre: `/chart/popular/genre/${genre || "adventure"}`
+    genre: `/chart/popular/genre/${genre}`
   });
 
   req.headers({

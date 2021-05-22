@@ -4,7 +4,7 @@ export function topCast(tconst, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/title/get-top-cast");
 
   req.query({
-    tconst: tconst || "tt0944947"
+    tconst: tconst
   });
 
   req.headers({
