@@ -1,18 +1,10 @@
 var unirest = require("unirest");
 
-export function commingSoonMovies(
-  { homeCountry = "US", purchaseCountry = "US", currentCountry = "US" },
-  callback
-) {
-  var req = unirest(
-    "GET",
-    "https://imdb8.p.rapidapi.com/title/get-coming-soon-movies"
-  );
+export function movie(query, callback) {
+  var req = unirest("GET", "https://imdb8.p.rapidapi.com/auto-complete");
 
   req.query({
-    homeCountry: homeCountry,
-    purchaseCountry: purchaseCountry,
-    currentCountry: currentCountry
+    q: query
   });
 
   req.headers({
