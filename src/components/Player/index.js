@@ -6,21 +6,17 @@ import { PlayerStateProvider } from "../../context/StateProvider.js";
 import { PlayerContainer } from "./style/Player.js";
 
 function Player({ src }) {
-    const [showPlayer, setShowPlayer] = useState(false);
+  const [showPlayer, setShowPlayer] = useState(false);
 
-    return (
-        <PlayerStateProvider value={{ showPlayer, setShowPlayer }}>
+  return (
+    <PlayerStateProvider value={{ showPlayer, setShowPlayer }}>
+      <PlayerContainer>
+        <PlayerContainer.Button />
 
-            <PlayerContainer>
-
-                <PlayerContainer.Button />
-
-                <PlayerContainer.Video src={src} />
-
-            </PlayerContainer>
-
-        </PlayerStateProvider>
-    );
+        <PlayerContainer.Video src={src} />
+      </PlayerContainer>
+    </PlayerStateProvider>
+  );
 }
 
 export default Player;

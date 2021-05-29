@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-import { movie } from "../netflix/imdb/movie/movie.js";
+import { movie } from "../netflix/imdb/movie/index.js";
 
 function useMovie(query) {
   const [results, setResults] = useState([]);

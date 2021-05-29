@@ -13,79 +13,51 @@ import { Container } from "./style.js";
 import { SuggestPassword } from "./style.js";
 
 FormContainer.P = ({ children, ...restProps }) => (
-    <P {...restProps}>
-        {children}
-    </P>
+  <P {...restProps}>{children}</P>
 );
 
 FormContainer.Span = ({ children, ...restProps }) => (
-    <Span {...restProps}>
-        {children}
-    </Span>
+  <Span {...restProps}>{children}</Span>
 );
 
 FormContainer.Error = ({ children, ...restProps }) => (
-    <Error {...restProps}>
-        {children}
-    </Error>
+  <Error {...restProps}>{children}</Error>
 );
 
 FormContainer.Base = ({ children, ...restProps }) => (
-    <Base {...restProps}>
-        {children}
-    </Base>
+  <Base {...restProps}>{children}</Base>
 );
 
 FormContainer.Title = ({ children, ...restProps }) => (
-    <Title {...restProps}>
-        {children}
-    </Title>
+  <Title {...restProps}>{children}</Title>
 );
 
 FormContainer.Text = ({ children, ...restProps }) => (
-    <Text {...restProps}>
-        {children}
-    </Text>
+  <Text {...restProps}>{children}</Text>
 );
 
 FormContainer.TextSmall = ({ children, ...restProps }) => (
-    <TextSmall {...restProps}>
-        {children}
-    </TextSmall>
+  <TextSmall {...restProps}>{children}</TextSmall>
 );
 
 FormContainer.Link = ({ children, ...restProps }) => (
-    <Link {...restProps}>
-        {children}
-    </Link>
+  <Link {...restProps}>{children}</Link>
 );
 
-FormContainer.Input = ({ ...restProps }) => (
-    <Input {...restProps} />
-);
+FormContainer.Input = ({ ...restProps }) => <Input {...restProps} />;
 
 FormContainer.SuggestPassword = ({ children, ...restProps }) => (
-    <SuggestPassword {...restProps}>
-        {children}
-    </SuggestPassword>
+  <SuggestPassword {...restProps}>{children}</SuggestPassword>
 );
 
 FormContainer.Submit = ({ children, ...restProps }) => (
-    <Submit {...restProps}>
-        {children}
-    </Submit>
+  <Submit {...restProps}>{children}</Submit>
 );
 
 FormContainer.Inner = ({ children, ...restProps }) => (
-    <Inner {...restProps}>
-        {children}
-    </Inner>
+  <Inner {...restProps}>{children}</Inner>
 );
 
 export function FormContainer({ children, ...restProps }) {
-    return (
-        <Container {...restProps}>
-            {children}
-        </Container>
-    );
+  return <Container {...restProps}>{children}</Container>;
 }

@@ -1,9 +1,17 @@
 "use strict";
 
-import { getUid } from "../../utils/uuid.js";
+import { getUid } from "../utils/uuid.js";
+import { consoleLog } from "../console/messages.js";
+import { consoleWarn } from "../console/messages.js";
+import { consoleMessagesEnabled } from "../console/messages.js";
 
 export class ExtractDataFromClient {
-  constructor(userAgent = null) {
+  constructor(userAgent = "") {
+    /**
+     * @constructor ExtractDataFromClient to initialise data variables that are to be reported.
+     * @argument {String} userAgent.
+     * @returns {ExtractDataFromClient} object.
+     */
     this._userAgent = userAgent || window.navigator.userAgent;
     this._report = {
       browser: {
@@ -46,6 +54,11 @@ export class ExtractDataFromClient {
   }
 
   matchUserAgent(regex) {
+    /**
+     * @method matchUserAgent is to match the string user agent with some regular expression.
+     * @argument {RegExp} regex to match the string with.
+     * @returns {Array} match.
+     */
     return this._userAgent.match(regex);
   }
 
@@ -57,7 +70,8 @@ export class ExtractDataFromClient {
       this._userAgent.indexOf("MSIE") >= 0
     ) {
       if (this._userAgent.indexOf("Mobile") >= 0) return "IE Mobile";
-      else return "Internet Explorer";
+
+      return "Internet Explorer";
     }
 
     if (
@@ -65,7 +79,8 @@ export class ExtractDataFromClient {
       this._userAgent.indexOf("Seamonkey") === -1
     ) {
       if (this._userAgent.indexOf("Android") >= 0) return "Firefox for Android";
-      else return "Firefox";
+
+      return "Firefox";
     }
 
     if (
@@ -75,8 +90,10 @@ export class ExtractDataFromClient {
       this._userAgent.indexOf("Android") === -1
     ) {
       if (this._userAgent.indexOf("CriOS") >= 0) return "Chrome for iOS";
-      else if (this._userAgent.indexOf("FxiOS") >= 0) return "Firefox for iOS";
-      else return "Safari";
+
+      if (this._userAgent.indexOf("FxiOS") >= 0) return "Firefox for iOS";
+
+      return "Safari";
     }
 
     if (this._userAgent.indexOf("Chrome") >= 0) {
@@ -86,7 +103,8 @@ export class ExtractDataFromClient {
           this._userAgent.match(/\bwv\b/)
         )
           return "WebView on Android";
-        else return "Chrome for Android";
+
+        return "Chrome for Android";
       }
 
       return "Chrome";
@@ -114,13 +132,15 @@ export class ExtractDataFromClient {
       this._userAgent.indexOf("Opera") >= 0
     ) {
       if (this._userAgent.indexOf("Opera Mini") >= 0) return "Opera Mini";
-      else if (
+
+      if (
         this._userAgent.indexOf("Opera Mobi") >= 0 ||
         this._userAgent.indexOf("Opera Tablet") >= 0 ||
         this._userAgent.indexOf("Mobile") >= 0
       )
         return "Opera Mobile";
-      else return "Opera";
+
+      return "Opera";
     }
 
     if (
@@ -224,7 +244,8 @@ export class ExtractDataFromClient {
 
     if (this._userAgent.indexOf("Windows") >= 0) {
       if (this._userAgent.indexOf("Windows Phone") >= 0) return "Windows Phone";
-      else return "Windows";
+
+      return "Windows";
     }
 
     if (
@@ -533,8 +554,10 @@ export class ExtractDataFromClient {
   }
 
   static warning(message) {
-    if (!window.console) console.log(message);
+    consoleMessagesEnabled = true;
 
-    if (console.warn) console.warn(message);
+    if (!window.console) consoleLog(message);
+
+    if (console.warn) consoleWarn(message);
   }
 }

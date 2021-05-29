@@ -16,97 +16,93 @@ import { FeatureTitle } from "./style.js";
 
 import { useFeatureContext } from "../../../context/StateProvider.js";
 
-CardContainer.Image = ({ ...restProps }) => (
-    <Image {...restProps} />
-);
+CardContainer.Image = ({ ...restProps }) => <Image {...restProps} />;
 
 CardContainer.Text = ({ children, ...restProps }) => (
-    <Text {...restProps}>{children}</Text>
+  <Text {...restProps}>{children}</Text>
 );
 
 CardContainer.Group = ({ children, ...restProps }) => (
-    <Group {...restProps}>{children}</Group>
+  <Group {...restProps}>{children}</Group>
 );
 
 CardContainer.Title = ({ children, ...restProps }) => (
-    <Title {...restProps}>{children}</Title>
+  <Title {...restProps}>{children}</Title>
 );
 
 CardContainer.Meta = ({ children, ...restProps }) => (
-    <Meta {...restProps}>{children}</Meta>
+  <Meta {...restProps}>{children}</Meta>
 );
 
 CardContainer.Entities = ({ children, ...restProps }) => (
-    <Entities {...restProps}>{children}</Entities>
+  <Entities {...restProps}>{children}</Entities>
 );
 
 CardContainer.Subtitle = ({ children, ...restProps }) => (
-    <Subtitle {...restProps}>{children}</Subtitle>
+  <Subtitle {...restProps}>{children}</Subtitle>
 );
 
-CardContainer.Feature = function CardContainerFeature({ children, category, ...restProps }) {
-    const { showFeature, itemFeature, setShowFeature } = useFeatureContext();
+CardContainer.Feature = function CardContainerFeature({
+  children,
+  category,
+  ...restProps
+}) {
+  const { showFeature, itemFeature, setShowFeature } = useFeatureContext();
 
-    return showFeature ? (
-        <Feature
-            src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
-            {...restProps}
-        >
+  return showFeature ? (
+    <Feature
+      src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
+      {...restProps}
+    >
+      <Content>
+        <FeatureTitle>{itemFeature.title}</FeatureTitle>
 
-            <Content>
+        <FeatureText>{itemFeature.description}</FeatureText>
 
-                <FeatureTitle>{itemFeature.title}</FeatureTitle>
+        <FeatureClose
+          src={"/images/icons/close.png"}
+          onClick={() => setShowFeature(false)}
+        />
 
-                <FeatureText>{itemFeature.description}</FeatureText>
+        <Group margin="30px 0" flexDirection="row" alignItems="center">
+          <Maturity rating={itemFeature.maturity}>
+            {itemFeature.maturity < 12 ? "PG" : itemFeature.maturity}
+          </Maturity>
 
-                <FeatureClose src={"/images/icons/close.png"} onClick={() => setShowFeature(false)} />
+          <FeatureText fontWeight="bold">
+            {itemFeature.genre.charAt(0).toUpperCase() +
+              itemFeature.genre.slice(1)}
+          </FeatureText>
+        </Group>
 
-                <Group margin="30px 0" flexDirection="row" alignItems="center">
+        {children}
+      </Content>
+    </Feature>
+  ) : (
+    <></>
+  );
+};
 
-                    <Maturity rating={itemFeature.maturity}>
-                        {
-                            itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity
-                        }
-                    </Maturity>
+CardContainer.Item = function CardContainerItem({
+  children,
+  item,
+  ...restProps
+}) {
+  const { setShowFeature, setItemFeature } = useFeatureContext();
 
-                    <FeatureText fontWeight="bold">
-                        {
-                            itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)
-                        }
-                    </FeatureText>
-
-                </Group>
-
-                {children}
-
-            </Content>
-
-        </Feature >
-    ) : <></>;
-}
-
-CardContainer.Item = function CardContainerItem({ children, item, ...restProps }) {
-    const { setShowFeature, setItemFeature } = useFeatureContext();
-
-    return (
-        <Item
-            onClick={
-                () => {
-                    setItemFeature(item);
-                    setShowFeature(true);
-                }
-            }
-            {...restProps}
-        >
-            {children}
-        </Item>
-    );
-}
+  return (
+    <Item
+      onClick={() => {
+        setItemFeature(item);
+        setShowFeature(true);
+      }}
+      {...restProps}
+    >
+      {children}
+    </Item>
+  );
+};
 
 export function CardContainer({ children, ...restProps }) {
-    return (
-        <Container {...restProps}>
-            {children}
-        </Container>
-    );
+  return <Container {...restProps}>{children}</Container>;
 }

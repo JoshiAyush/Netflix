@@ -1,5 +1,7 @@
-engineering_project: true
 english_name: Netflix
-technologies: Javascript, React JS, Firebase
 featured: false
+node_version: v14.16.1
+npm_version: 6.14.11
+technologies: Javascript, React JS, Firebase API, IMDB API
 slack: ""
+engineering_project: true
