@@ -1,15 +1,36 @@
 import { firebase } from "./firebase.prod.js";
 
+import { UndefinedVariableException } from "../netflix/errors/errors.js";
+import { ArgumentTypeMisMatchException } from "../netflix/errors/errors.js";
+import { PropertyDoesNotExistException } from "../netflix/errors/errors.js";
+
 export function handleSignUp(
-  { userName = null, userEmail, userPassword } = {},
+  { userName = "", userEmail, userPassword } = {},
   setError = null
 ) {
+  if (typeof firebase === "undefined")
+    throw new UndefinedVariableException(
+      "UndefinedVariableException",
+      "firebase"
+    );
+
+  if ("auth" in firebase)
+    throw new PropertyDoesNotExistException(
+      "PropertyDoesNotExistException",
+      "auth"
+    );
+
   if (
     typeof userEmail != "string" ||
     typeof userPassword != "string" ||
     (userName && typeof userName != "string")
   )
-    throw new Error("ARGUMENT_TYPE_MISMATCH");
+    throw new ArgumentTypeMisMatchException(
+      "ArgumentTypeMisMatchException",
+      "userEmail",
+      "userPassword",
+      "userName"
+    );
 
   firebase
     .auth()
