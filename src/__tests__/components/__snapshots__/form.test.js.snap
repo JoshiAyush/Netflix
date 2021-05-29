@@ -28,7 +28,7 @@ exports[`<Form /> renders the <Form /> with populated data 1`] = `
         type="password"
       />
       <button
-        class="style__Submit-sc-51a5pf-12 jcSwhF"
+        class="style__Submit-sc-51a5pf-12 ejtinN"
         disabled=""
         type="submit"
       >
