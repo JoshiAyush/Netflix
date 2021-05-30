@@ -29,9 +29,9 @@ Add screenshots (if possible) to show the problem; or delete the section entirel
 
 Please complete this, unless you are certain the problem is not environment specific.
 
- - Device: (_eg._ laptop; PC)
- - OS: (_eg._ iOS 13.5; Fedora 32; Windows; Ubuntu; Kali Linux)
- - Other info: (_eg._ npm version)
+- Device: (_eg._ laptop; PC)
+- OS: (_eg._ iOS 13.5; Fedora 32; Windows; Ubuntu; Kali Linux)
+- Other info: (_eg._ npm version)
 
 ## Additional context
 
@@ -39,6 +39,6 @@ Add any other context about the problem here; or delete the section entirely.
 
 ## Resolution
 
-Replace the [ ] with [x] to check the box.
+<!-- Replace the [ ] with [x] to check the box. -->
 
 - [ ] I would be interested in resolving this bug.
