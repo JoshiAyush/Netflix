@@ -42,5 +42,6 @@ See [`contributing.md`][contributing] on how to contribute.
 
 <!-- Definitions -->
 
+[coc]: https://github.com/JoshiAyush/netflix/blob/master/CODE_OF_CONDUCT.md
 [license]: https://github.com/JoshiAyush/netflix/blob/master/LICENSE
 [contributing]: https://github.com/JoshiAyush/netflix/blob/master/CONTRIBUTING.md
