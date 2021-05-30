@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+
+title: Netflix
+description: This is a clone of the most popular movie streaming application Netflix. 
+
+tags: [
+  "react", "javascript", "hooks", "firebase", "clone", "style-components", "reactjs", "material-ui", "netflix", "webapplication",
+  "firestore", "firestore-database", "netflix-clone", "material-ui-react", "clone-app", "netflix-clone-react", "netflix-clone-built-with-react-js"
+]
