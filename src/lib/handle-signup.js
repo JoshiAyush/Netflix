@@ -14,7 +14,7 @@ export function handleSignUp(
       "firebase"
     );
 
-  if ("auth" in firebase)
+  if (firebase.hasOwnProperty("auth"))
     throw new PropertyDoesNotExistException(
       "PropertyDoesNotExistException",
       "auth"

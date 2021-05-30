@@ -10,7 +10,7 @@ export function getFirebaseUser() {
       "firebase"
     );
 
-  if ("auth" in firebase)
+  if (firebase.hasOwnProperty("auth"))
     throw new PropertyDoesNotExistException(
       "PropertyDoesNotExistException",
       "auth"
