@@ -10,20 +10,19 @@ Netflix clone was built using:
 ## I have built the following pages within this application:
 
 - ### Homepage
-    ![Design preview](./public/images/snapshots/netflixHome.png)
+
+  ![Design preview](./public/images/snapshots/netflixHome.png)
 
 - ### Sign in
-    ![Design preview](./public/images/snapshots/netflixSignIn.png)
+
+  ![Design preview](./public/images/snapshots/netflixSignIn.png)
 
 - ### Sign up
-    ![Design preview](./public/images/snapshots/netflixSignUp.png)
+
+  ![Design preview](./public/images/snapshots/netflixSignUp.png)
 
 - ### Browse
   ![Design preview](./public/images/snapshots/netflixBrowse.png)
-
-- ### Profile (In progress)
-    ![Design preview](./public/images/snapshots/netflixProfile.png)
-
 
 There are five different pages, `Browse`, `Profile` using **protected routes** with **auth listeners**.
 
@@ -41,4 +40,4 @@ Runs the app in the development mode. Open [http://localhost:3000](http://localh
 
 ### `npm test`
 
-Tuns the testing scripts to test the app.
+Runs the testing scripts to test the app.
