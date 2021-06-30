@@ -1,67 +1,19 @@
 "use strict";
 
-const parser = require("ua-parser-js");
+const UserAgent = require("./UserAgent.js");
 const { networkInterfaces } = require("os");
 
-class UserAgent {
+class UserAgentNetworkInterfaces extends UserAgent {
   /**
-   * @class UserAgent detects browser, engine, os, cpu and device of the client.
+   * @class UserAgent detects browser, engine, os, cpu and device of the client with its private ip address and mac address.
    */
   constructor(userAgent) {
     /**
      * @constructor constructs a user agent object with full details.
      * @argument {String} userAgent
      */
-    this.userAgent = parser(userAgent);
+    super(userAgent);
     this.userAgent.networkInterfaces = networkInterfaces();
-  }
-
-  getuserAgent() {
-    /**
-     * @method userAgent() returns the user agent with complete details.
-     * @returns {Object} user agent.
-     */
-    return this.userAgent;
-  }
-
-  get browser() {
-    /**
-     * @method browser() returns the browser info.
-     * @returns {Object} browser info.
-     */
-    return this.userAgent.browser;
-  }
-
-  get engine() {
-    /**
-     * @method engine() returns the engine info.
-     * @returns {Object} engine info.
-     */
-    return this.userAgent.engine;
-  }
-
-  get OS() {
-    /**
-     * @method OS() returns the OS info.
-     * @returns {Object} OS info.
-     */
-    return this.userAgent.os;
-  }
-
-  get device() {
-    /**
-     * @method device() returns the device info.
-     * @returns {Object} device info.
-     */
-    return this.userAgent.device;
-  }
-
-  get CPU() {
-    /**
-     * @method CPU() returns the CPU info.
-     * @returns {Object} CPU info.
-     */
-    return this.userAgent.cpu;
   }
 
   get loopbackPseudoInterface() {
@@ -85,7 +37,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv4Address() returns the loopback Pseudo-Interface IPv4 address.
      * @returns {String} loopback Pseudo-Interface IPv4 address.
      */
-    return this.loopbackPseudoInterfaceIPv4.address;
+    return this.loopbackPseudoInterfaceIPv4[0].address;
   }
 
   get loopbackPseudoInterfaceIPv4Netmask() {
@@ -93,7 +45,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv4Netmask() returns the loopback Pseudo-Interfcae IPv4 network mask.
      * @returns {String} loopback Pseudo-Interface IPv4 netmask.
      */
-    return this.loopbackPseudoInterfaceIPv4.netmask;
+    return this.loopbackPseudoInterfaceIPv4[0].netmask;
   }
 
   get loopbackPseudoInterfaceIPv4Family() {
@@ -101,7 +53,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv4Family() returns the loopback Pseudo-Interface IPv4 family which is IPv4 of course.
      * @returns {String} loopback Pseudo-Interface IPv4 family.
      */
-    return this.loopbackPseudoInterfaceIPv4.family;
+    return this.loopbackPseudoInterfaceIPv4[0].family;
   }
 
   get loopbackPseudoInterfaceIPv4Mac() {
@@ -109,7 +61,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv4Mac() returns the loopback Pseudo-Interface IPv4 mac address.
      * @returns {String} loopback Pseudo-Interface mac address.
      */
-    return this.loopbackPseudoInterfaceIPv4.mac;
+    return this.loopbackPseudoInterfaceIPv4[0].mac;
   }
 
   get loopbackPseudoInterfaceIPv4Internal() {
@@ -117,7 +69,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv4Internal() returns a boolean true if the interface is loopback otherwise false.
      * @returns {Boolean} loopback Pseudo-Interface internal.
      */
-    return this.loopbackPseudoInterfaceIPv4.internal;
+    return this.loopbackPseudoInterfaceIPv4[0].internal;
   }
 
   get loopbackPseudoInterfaceIPv4CIDR() {
@@ -126,7 +78,7 @@ class UserAgent {
      * prefix in CIDR notation. It is set to null if netmask is invalid.
      * @returns {String} loopback Pseudo-Interface cidr.
      */
-    return this.loopbackPseudoInterfaceIPv4.cidr;
+    return this.loopbackPseudoInterfaceIPv4[0].cidr;
   }
 
   get loopbackPseudoInterfaceIPv6() {
@@ -142,7 +94,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv6Address() returns the loopback Pseudo-Interface IPv6 address.
      * @returns {String} loopback Pseudo-Interface IPv6 address.
      */
-    return this.loopbackPseudoInterfaceIPv6.address;
+    return this.loopbackPseudoInterfaceIPv6[0].address;
   }
 
   get loopbackPseudoInterfaceIPv6Netmask() {
@@ -150,7 +102,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv6Netmask() returns the loopback Pseudo-Interface IPv6 network mask.
      * @returns {String} loopback Pseudo-Interface IPv6 network mask.
      */
-    return this.loopbackPseudoInterfaceIPv6.netmask;
+    return this.loopbackPseudoInterfaceIPv6[0].netmask;
   }
 
   get loopbackPseudoInterfaceIPv6Family() {
@@ -158,7 +110,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv6Family() returns the loopback Pseudo-Interface IPv6 family which is IPv6 of course.
      * @returns {String} loopback Pseudo-Interface family.
      */
-    return this.loopbackPseudoInterfaceIPv6.family;
+    return this.loopbackPseudoInterfaceIPv6[0].family;
   }
 
   get loopbackPseudoInterfaceIPv6Mac() {
@@ -166,7 +118,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv6Mac() returns the loopback Pseudo-Interface IPv6 mac address.
      * @returns {String} loopback Pseudo-Interface mac address.
      */
-    return this.loopbackPseudoInterfaceIPv6.mac;
+    return this.loopbackPseudoInterfaceIPv6[0].mac;
   }
 
   get loopbackPseudoInterfaceIPv6Internal() {
@@ -174,7 +126,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv6Internal() returns a boolean true if the interface is loopback otherwise false.
      * @returns {Boolean} loopback Pseudo-Interface internal.
      */
-    return this.loopbackPseudoInterfaceIPv6.internal;
+    return this.loopbackPseudoInterfaceIPv6[0].internal;
   }
 
   get loopbackPseudoInterfaceIPv6CIDR() {
@@ -183,7 +135,7 @@ class UserAgent {
      * prefix in CIDR notation. It is set to null if netmask is invalid.
      * @returns {String} loopback Pseudo-Interface cidr.
      */
-    return this.loopbackPseudoInterfaceIPv6.cidr;
+    return this.loopbackPseudoInterfaceIPv6[0].cidr;
   }
 
   get loopbackPseudoInterfaceIPv6ScopeID() {
@@ -191,7 +143,7 @@ class UserAgent {
      * @method loopbackPseudoInterfaceIPv6ScopeID() returns loopback Pseudo-Interface IPv6 scopeid.
      * @returns {Number} loopback Pseudo-Interface scopeid.
      */
-    return this.loopbackPseudoInterfaceIPv6.scopeid;
+    return this.loopbackPseudoInterfaceIPv6[0].scopeid;
   }
 
   get wirelessLoopbackPseudoInterface1() {
@@ -217,7 +169,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv4Address() returns the wireless loopback Pseudo-Interface 1 IPv4 address.
      * @returns {String} wireless loopback Pseudo-Interface IPv4 address.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv4.address;
+    return this.wirelessLoopbackPseudoInterface1IPv4[0].address;
   }
 
   get wirelessLoopbackPseudoInterface1IPv4Netmask() {
@@ -225,7 +177,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv4Netmask() returns the wireless loopback Pseudo-Interface 1 IPv4 network mask.
      * @returns {String} wireless loopback Pseudo-Interface 1 IPv4 network mask.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv4.netmask;
+    return this.wirelessLoopbackPseudoInterface1IPv4[0].netmask;
   }
 
   get wirelessLoopbackPseudoInterface1IPv4Family() {
@@ -233,7 +185,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv4Family() returns the wireless loopback Pseudo-Interface 1 IPv4 family which is IPv4 of course.
      * @returns {String} wireless loopback Pseudo-Interface 1 IPv4 family.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv4.family;
+    return this.wirelessLoopbackPseudoInterface1IPv4[0].family;
   }
 
   get wirelessLoopbackPseudoInterface1IPv4Mac() {
@@ -241,7 +193,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv4Mac() returns the wireless loopback Pseudo-Interface 1 IPv4 mac address.
      * @returns {String} wireless loopback Pseudo-Interface 1 IPv4 mac address.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv4.mac;
+    return this.wirelessLoopbackPseudoInterface1IPv4[0].mac;
   }
 
   get wirelessLoopbackPseudoInterface1IPv4Internal() {
@@ -249,7 +201,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv4Internal() returns a boolean true if the interface is loopback otherwise false.
      * @returns {Boolean} wireless loopback Pseudo-Interface 1 IPv4 internal.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv4.internal;
+    return this.wirelessLoopbackPseudoInterface1IPv4[0].internal;
   }
 
   get wirelessLoopbackPseudoInterface1IPv4CIDR() {
@@ -258,7 +210,7 @@ class UserAgent {
      * prefix in CIDR notation. It is set to null if netmask is invalid.
      * @returns {String} wirless loopback Pseudo-Interface 1 IPv4 cidr.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv4.cidr;
+    return this.wirelessLoopbackPseudoInterface1IPv4[0].cidr;
   }
 
   get wirelessLoopbackPseudoInterface1IPv6() {
@@ -276,7 +228,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv6Address() returns the wireless loopback Pseudo-Interface 1 IPv6 address.
      * @returns {String} wireless loopback Pseudo-Interface 1 IPv6 address.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv6.address;
+    return this.wirelessLoopbackPseudoInterface1IPv6[0].address;
   }
 
   get wirelessLoopbackPseudoInterface1IPv6Netmask() {
@@ -284,7 +236,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv6Netmask() returns the wireless loopback Pseudo-Interface 1 IPv6 network mask.
      * @returns {String} wireless loopback Pseudo-Interface 1 IPv6 network mask.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv6.netmask;
+    return this.wirelessLoopbackPseudoInterface1IPv6[0].netmask;
   }
 
   get wirelessLoopbackPseudoInterface1IPv6Family() {
@@ -292,7 +244,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv6Family() returns the wireless loopback Pseudo-Interface 1 IPv6 family which is IPv6 of course.
      * @returns {String} wireless loopback Pseudo-Interface 1 IPv6 family.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv6.family;
+    return this.wirelessLoopbackPseudoInterface1IPv6[0].family;
   }
 
   get wirelessLoopbackPseudoInterface1IPv6Mac() {
@@ -300,7 +252,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv6Mac() returns the wireless loopback Pseudo-Interface 1 IPv6 mac address.
      * @returns {String} wireless loopback Pseudo-Interface 1 IPv6 mac address.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv6.mac;
+    return this.wirelessLoopbackPseudoInterface1IPv6[0].mac;
   }
 
   get wirelessLoopbackPseudoInterface1IPv6Internal() {
@@ -308,7 +260,7 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv6Internal() returns a boolean true if the interface is loopback otherwise false.
      * @returns {Boolean} wireless loopback Pseudo-Interface 1 internal.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv6.internal;
+    return this.wirelessLoopbackPseudoInterface1IPv6[0].internal;
   }
 
   get wirelessLoopbackPseudoInterface1IPv6CIDR() {
@@ -317,7 +269,7 @@ class UserAgent {
      * prefix in CIDR notation. It is set to null if netmask is invalid.
      * @returns {String} wirless loopback Pseudo-Interface 1 IPv6 cidr.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv6.cidr;
+    return this.wirelessLoopbackPseudoInterface1IPv6[0].cidr;
   }
 
   get wirelessLoopbackPseudoInterface1IPv6ScopeID() {
@@ -325,8 +277,8 @@ class UserAgent {
      * @method wirelessLoopbackPseudoInterface1IPv6ScopeID() returns the wireless loopback Pseudo-Interface 1 IPv6 scopeid.
      * @returns {Number} wireless loopback Pseudo-Interface 1 scopeid.
      */
-    return this.wirelessLoopbackPseudoInterface1IPv6.scopeid;
+    return this.wirelessLoopbackPseudoInterface1IPv6[0].scopeid;
   }
 }
 
-export default UserAgent;
+module.exports = UserAgentNetworkInterfaces;
