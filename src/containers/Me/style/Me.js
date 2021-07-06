@@ -3,6 +3,8 @@ import { Image } from "./style.js";
 import { Holder } from "./style.js";
 import { Button } from "./style.js";
 import { Profile } from "./style.js";
+import { Divider } from "./style.js";
+import { UserInfo } from "./style.js";
 import { Container } from "./style.js";
 
 MeContainer.Button = ({ children, ...restProps }) => (
@@ -23,6 +25,12 @@ MeContainer.Profile = ({ children, ...restProps }) => (
 
 MeContainer.Holder = ({ children, ...restProps }) => (
   <Holder {...restProps}>{children}</Holder>
+);
+
+MeContainer.Divider = ({ ...restProps }) => <Divider {...restProps} />;
+
+MeContainer.UserInfo = ({ children, ...restProps }) => (
+  <UserInfo {...restProps}>{children}</UserInfo>
 );
 
 export function MeContainer({ children, ...restProps }) {

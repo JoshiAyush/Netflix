@@ -86,3 +86,34 @@ export const Button = styled.button`
     background-color: #ff140d;
   }
 `;
+
+export const Divider = styled.div`
+  border: none;
+  border-top: 5px solid #222;
+  width: 320px;
+  min-width: 200px;
+  margin-top: 10px;
+  margin: auto;
+`;
+
+export const UserInfo = styled.div`
+  color: white;
+  width: 275px;
+  min-width: 250px;
+  height: fit-content;
+  padding: 10px 0;
+  margin: auto;
+
+  & > span {
+    display: block;
+    margin: 8px 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+    & > span {
+      margin-left: 10px;
+      font-weight: 600;
+    }
+  }
+`;
