@@ -26,3 +26,6 @@ yarn-error.log*
 
 # Firebase authentication token
 /src/lib/credentials.js
+
+# Rapidapi
+/src/netflix/imdb/rapidapi.js

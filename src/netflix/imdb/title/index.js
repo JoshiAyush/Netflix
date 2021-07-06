@@ -1,4 +1,5 @@
 var unirest = require("unirest");
+const { key } = require("../rapidapi.js");
 
 export function getAllImages(tconst, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/title/get-all-images");
@@ -8,7 +9,7 @@ export function getAllImages(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -31,7 +32,7 @@ export function getAwardsSummary(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -51,7 +52,7 @@ export function getAwards(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -71,7 +72,7 @@ export function getBase(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -90,7 +91,7 @@ export function getBestPictureWinners(callback) {
   );
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -110,7 +111,7 @@ export function getBusiness(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -146,7 +147,7 @@ export function getCharNameList(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -174,7 +175,7 @@ export function getCommingSoonMovies(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -197,7 +198,7 @@ export function getCommingSoonTvShows(currentCountry, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -217,7 +218,7 @@ export function getDetails(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -240,7 +241,7 @@ export function getFilmingLocations(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -260,7 +261,7 @@ export function find(query, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -283,7 +284,7 @@ export function getFullCredits(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -303,7 +304,7 @@ export function getGenres(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -332,7 +333,7 @@ export function getHeroWithPromotedVedio(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -353,7 +354,7 @@ export function getImages(tconst, { limit = "25" }, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -374,7 +375,7 @@ export function getMetaData(ids, { region = "US" }, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -394,7 +395,7 @@ export function getMetacritic(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -423,7 +424,7 @@ export function getMoreLikeThis(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -451,7 +452,7 @@ export function getMostPopularMovies(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -479,7 +480,7 @@ export function getMostPopularTvShows(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -500,7 +501,7 @@ export function getNews(tconst, { limit = "25" }, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -524,7 +525,7 @@ export function getOverViewDetails(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -547,7 +548,7 @@ export function getParentalGuide(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -567,7 +568,7 @@ export function getPlots(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -586,7 +587,7 @@ export function getPopularGenres(callback) {
   );
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -609,7 +610,7 @@ export function getPopularMoviesByGenre(genre, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -632,7 +633,7 @@ export function getProductionStatus(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -652,7 +653,7 @@ export function getRatings(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -681,7 +682,7 @@ export function getReleaseExpectationBundle(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -701,7 +702,7 @@ export function getReleases(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -727,7 +728,7 @@ export function getReviews(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -747,7 +748,7 @@ export function getSeasons(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -767,7 +768,7 @@ export function getSynopses(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -787,7 +788,7 @@ export function getTagLines(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -807,7 +808,7 @@ export function getTechnical(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -827,7 +828,7 @@ export function getTopCast(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -847,7 +848,7 @@ export function getTopCrew(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -866,7 +867,7 @@ export function getTopRatedMovies(callback) {
   );
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -885,7 +886,7 @@ export function getTopRatedTvShows(callback) {
   );
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -911,7 +912,7 @@ export function getTopStripe(
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -934,7 +935,7 @@ export function getUserReviews(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -958,7 +959,7 @@ export function getVedioPlayback(viconst, { region }, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -980,7 +981,7 @@ export function getVedios(tconst, { limit = "25", region = "US" }, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
@@ -1000,7 +1001,7 @@ export function getVersions(tconst, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });

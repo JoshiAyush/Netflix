@@ -1,4 +1,5 @@
 var unirest = require("unirest");
+const { key } = require("../rapidapi.js");
 
 export function movie(query, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/auto-complete");
@@ -8,7 +9,7 @@ export function movie(query, callback) {
   });
 
   req.headers({
-    "x-rapidapi-key": "ddbc2bde9amsh919c2809f99f305p12a2bbjsn0a83f15c4097",
+    "x-rapidapi-key": key,
     "x-rapidapi-host": "imdb8.p.rapidapi.com",
     useQueryString: true
   });
