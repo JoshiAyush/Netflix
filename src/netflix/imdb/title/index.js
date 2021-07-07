@@ -1,5 +1,7 @@
 var unirest = require("unirest");
+
 const { key } = require("../rapidapi.js");
+const { ImdbHttpResponseException } = require("../../errors/index.js");
 
 export function getAllImages(tconst, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/title/get-all-images");
@@ -15,7 +17,7 @@ export function getAllImages(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -38,7 +40,7 @@ export function getAwardsSummary(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -58,7 +60,7 @@ export function getAwards(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -78,7 +80,7 @@ export function getBase(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -97,7 +99,7 @@ export function getBestPictureWinners(callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -117,7 +119,7 @@ export function getBusiness(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -153,7 +155,7 @@ export function getCharNameList(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -181,7 +183,7 @@ export function getCommingSoonMovies(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -204,7 +206,7 @@ export function getCommingSoonTvShows(currentCountry, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -224,7 +226,7 @@ export function getDetails(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -247,7 +249,7 @@ export function getFilmingLocations(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -267,7 +269,7 @@ export function find(query, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -290,7 +292,7 @@ export function getFullCredits(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -310,7 +312,7 @@ export function getGenres(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -339,7 +341,7 @@ export function getHeroWithPromotedVedio(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -360,7 +362,7 @@ export function getImages(tconst, { limit = "25" }, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -381,7 +383,7 @@ export function getMetaData(ids, { region = "US" }, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -401,7 +403,7 @@ export function getMetacritic(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -430,7 +432,7 @@ export function getMoreLikeThis(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -458,7 +460,7 @@ export function getMostPopularMovies(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -486,7 +488,7 @@ export function getMostPopularTvShows(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -507,7 +509,7 @@ export function getNews(tconst, { limit = "25" }, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -531,7 +533,7 @@ export function getOverViewDetails(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -554,7 +556,7 @@ export function getParentalGuide(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -574,7 +576,7 @@ export function getPlots(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -593,7 +595,7 @@ export function getPopularGenres(callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -616,7 +618,7 @@ export function getPopularMoviesByGenre(genre, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -639,7 +641,7 @@ export function getProductionStatus(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -659,7 +661,7 @@ export function getRatings(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -688,7 +690,7 @@ export function getReleaseExpectationBundle(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -708,7 +710,7 @@ export function getReleases(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -734,7 +736,7 @@ export function getReviews(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -754,7 +756,7 @@ export function getSeasons(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -774,7 +776,7 @@ export function getSynopses(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -794,7 +796,7 @@ export function getTagLines(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -814,7 +816,7 @@ export function getTechnical(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -834,7 +836,7 @@ export function getTopCast(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -854,7 +856,7 @@ export function getTopCrew(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -873,7 +875,7 @@ export function getTopRatedMovies(callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -892,7 +894,7 @@ export function getTopRatedTvShows(callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -918,7 +920,7 @@ export function getTopStripe(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -941,7 +943,7 @@ export function getUserReviews(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -965,7 +967,7 @@ export function getVedioPlayback(viconst, { region }, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -987,7 +989,7 @@ export function getVedios(tconst, { limit = "25", region = "US" }, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -1007,7 +1009,7 @@ export function getVersions(tconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });

@@ -1,5 +1,7 @@
 var unirest = require("unirest");
+
 const { key } = require("../rapidapi.js");
+const { ImdbHttpResponseException } = require("../../errors/index.js");
 
 export function getAllFilmography(nconst, callback) {
   var req = unirest(
@@ -18,7 +20,7 @@ export function getAllFilmography(nconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -41,7 +43,7 @@ export function getAllImages(nconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -61,7 +63,7 @@ export function getAllNews(nconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -85,7 +87,7 @@ export function getAllVideos(nconst, { region }, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -108,7 +110,7 @@ export function getAwardsSummary(nconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -128,7 +130,7 @@ export function getAwards(nconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -148,7 +150,7 @@ export function getBio(nconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -172,7 +174,7 @@ export function getBornTodayList({ month, day }, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -195,7 +197,7 @@ export function getInterestingJobs(nconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -215,7 +217,7 @@ export function getKnownFor(nconst, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
@@ -243,7 +245,7 @@ export function getMostPopularCelebsList(
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });

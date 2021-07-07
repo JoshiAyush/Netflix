@@ -1,5 +1,7 @@
 var unirest = require("unirest");
+
 const { key } = require("../rapidapi.js");
+const { ImdbHttpResponseException } = require("../../errors/index.js");
 
 export function movie(query, callback) {
   var req = unirest("GET", "https://imdb8.p.rapidapi.com/auto-complete");
@@ -15,7 +17,7 @@ export function movie(query, callback) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
+    if (res.error) throw new ImdbHttpResponseException(res.error);
 
     callback(res.body);
   });
