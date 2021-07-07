@@ -7,7 +7,7 @@ export class ValidationErrorException extends Error {
 
     this.name = "ValidationErrorException";
     this.data = new Date();
-    this.message = "ValidationErrorException";
+    this.message = `${this.name}: ${message}`;
   }
 }
 
@@ -20,7 +20,7 @@ export class ArgumentTypeMisMatchException extends Error {
 
     this.name = "ArgumentTypeMisMatchException";
     this.date = new Date();
-    this.message = `ArgumentTypeMisMatchException: ${args.join(", ")}`;
+    this.message = `${this.name}: ${args.join(", ")}`;
   }
 }
 
@@ -33,7 +33,7 @@ export class PropertyDoesNotExistException extends Error {
 
     this.name = "PropertyDoesNotExistException";
     this.date = new Date();
-    this.message = `PropertyDoesNotExistException: ${name}`;
+    this.message = `${this.name}: ${name}`;
   }
 }
 
@@ -46,6 +46,19 @@ export class UndefinedVariableException extends Error {
 
     this.name = "UndefinedVariableException";
     this.date = new Date();
-    this.message = `UndefinedVariableException: ${name}`;
+    this.message = `${this.name}: ${name}`;
+  }
+}
+
+export class ImdbHttpResponseException extends Error {
+  constructor(message = "IMDBHTTPResponseException") {
+    super(message);
+
+    if (Error.captureStackTrace)
+      Error.captureStackTrace(this, ImdbHttpResponseException);
+
+    this.name = "ImdbHttpResponseException";
+    this.date = new Date();
+    this.message = `${this.name}: ${this.message}`;
   }
 }
