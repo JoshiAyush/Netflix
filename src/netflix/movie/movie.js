@@ -1,188 +1,193 @@
+import validator from "validator";
+
+import { is } from "../type/index.js";
+
 import { getTopCrew as _getTopCrew } from "../imdb/title/index.js";
 import { getTopCast as _getTopCast } from "../imdb/title/index.js";
 import { getDetails as _getDetails } from "../imdb/title/index.js";
 import { getFullCredits as _getFullCredits } from "../imdb/title/index.js";
 
+import { ImdbHttpResponseException } from "../errors/index.js";
+
 class Movie {
   constructor(movie) {
     this.movie = movie;
-    this.details = null;
-    this.topCrew = null;
-    this.topCasts = null;
-    this.fullCredits = null;
+    this.$delayTimeInMilliSeconds = 0;
+    this.$maximunNumberOfTryToMakeAfterEachFailure = 3;
   }
 
-  get movieImageAttributes() {
-    return this.movie.i;
+  feedDelayTimeAndMaximumNumberOfRetryAfterEachFailure(
+    $delayTimeInMilliSeconds,
+    $maximunNumberOfTryToMakeAfterEachFailure
+  ) {
+    if (is($delayTimeInMilliSeconds).a(Number)) {
+      this.$delayTimeInMilliSeconds = $delayTimeInMilliSeconds;
+    } else if (
+      is($delayTimeInMilliSeconds).a(String) &&
+      validator.isNumeric($delayTimeInMilliSeconds)
+    ) {
+      this.$delayTimeInMilliSeconds = Number($delayTimeInMilliSeconds);
+    } else {
+      this.$delayTimeInMilliSeconds = 0;
+    }
+
+    if (is($maximunNumberOfTryToMakeAfterEachFailure).a(Number)) {
+      this.$maximunNumberOfTryToMakeAfterEachFailure =
+        $maximunNumberOfTryToMakeAfterEachFailure;
+    } else if (
+      is($maximunNumberOfTryToMakeAfterEachFailure).a(String) &&
+      validator.isNumeric($maximunNumberOfTryToMakeAfterEachFailure)
+    ) {
+      this.$maximunNumberOfTryToMakeAfterEachFailure = Number(
+        $maximunNumberOfTryToMakeAfterEachFailure
+      );
+    } else {
+      this.$maximunNumberOfTryToMakeAfterEachFailure = 3;
+    }
   }
 
-  get movieId() {
-    return this.movie.id;
+  getMovieImageAttributes() {
+    return "i" in this.movie ? this.movie.i : null;
   }
 
-  get movieTitle() {
-    return this.movie.l;
+  getMovieId() {
+    return "id" in this.movie ? this.movie.id : null;
   }
 
-  get movieReleaseDate() {
-    return this.movie.y;
+  getMovieTitle() {
+    return "l" in this.movie ? this.movie.l : null;
   }
 
-  get movieType() {
-    return this.movie.q;
+  getMovieReleaseDate() {
+    return "y" in this.movie ? this.movie.y : null;
   }
 
-  get movieRank() {
-    return this.movie.rank;
+  getMovieType() {
+    return "q" in this.movie ? this.movie.q : null;
   }
 
-  get movieProtagonists() {
-    return this.movie.s;
+  getMovieRank() {
+    return "rank" in this.movie ? this.movie.rank : null;
   }
 
-  setTopCast(casts) {
-    this.topCasts = casts;
+  getMovieProtagonists() {
+    return "s" in this.movie ? this.movie.s : null;
   }
 
-  getTopCast() {
-    if (!this.topCasts)
-      _getTopCast(this.movieId, (casts) => this.setTopCast(casts));
+  getTopCast({
+    $delayTimeInMilliSeconds = 0,
+    $maximunNumberOfTryToMakeAfterEachFailure = 3
+  } = {}) {
+    this.feedDelayTimeAndMaximumNumberOfRetryAfterEachFailure(
+      $delayTimeInMilliSeconds,
+      $maximunNumberOfTryToMakeAfterEachFailure
+    );
+
+    for (let i = 0; i < this.$maximunNumberOfTryToMakeAfterEachFailure; ++i) {
+      try {
+        setTimeout(() => {
+          _getTopCast(this.movieId(), (casts) => {
+            this.topCasts = casts;
+          });
+        }, this.$delayTimeInMilliSeconds);
+      } catch (error) {
+        if (i + 1 !== this.$maximunNumberOfTryToMakeAfterEachFailure)
+          if (error instanceof ImdbHttpResponseException) continue;
+
+        throw new Error(`Uncaught Exception: ${error.message}`);
+      }
+
+      this.$delayTimeInMilliSeconds = 3000;
+    }
 
     return this.topCasts;
   }
 
-  setTopCrew(crew) {
-    this.topCrew = crew;
+  getTopCrew({
+    $delayTimeInMilliSeconds = 0,
+    $maximunNumberOfTryToMakeAfterEachFailure = 3
+  } = {}) {
+    this.feedDelayTimeAndMaximumNumberOfRetryAfterEachFailure(
+      $delayTimeInMilliSeconds,
+      $maximunNumberOfTryToMakeAfterEachFailure
+    );
+
+    for (let i = 0; i < this.$maximunNumberOfTryToMakeAfterEachFailure; ++i) {
+      try {
+        setTimeout(() => {
+          _getTopCrew(this.movieId(), (crew) => {
+            this.topCrew = crew;
+          });
+        }, this.$delayTimeInMilliSeconds);
+      } catch (error) {
+        if (i + 1 !== this.$maximunNumberOfTryToMakeAfterEachFailure)
+          if (error instanceof ImdbHttpResponseException) continue;
+
+        throw error;
+      }
+
+      this.$delayTimeInMilliSeconds = 3000;
+    }
+
+    return this.topCrew;
   }
 
-  getTopCrew() {
-    if (!this.topCrew)
-      _getTopCrew(this.movieId, (crew) => this.setTopCrew(crew));
+  getFullCredits({
+    $delayTimeInMilliSeconds = 0,
+    $maximunNumberOfTryToMakeAfterEachFailure = 3
+  } = {}) {
+    this.feedDelayTimeAndMaximumNumberOfRetryAfterEachFailure(
+      $delayTimeInMilliSeconds,
+      $maximunNumberOfTryToMakeAfterEachFailure
+    );
 
-    return {
-      ...("directors" in this.topCrew && {
-        directors: () => {
-          return this.topCrew.directors;
-        }
-      }),
-      ...("writers" in this.topCrew && {
-        writers: () => {
-          return this.topCrew.writers;
-        }
-      })
-    };
+    for (let i = 0; i < this.$maximunNumberOfTryToMakeAfterEachFailure; ++i) {
+      try {
+        setTimeout(() => {
+          _getFullCredits(this.movieId(), (fullCredits) => {
+            this.fullCredits = fullCredits;
+          });
+        }, $delayTimeInMilliSeconds);
+      } catch (error) {
+        if (i + 1 !== this.$maximunNumberOfTryToMakeAfterEachFailure)
+          if (error instanceof ImdbHttpResponseException) continue;
+
+        throw error;
+      }
+
+      this.$delayTimeInMilliSeconds = 3000;
+    }
+
+    return this.fullCredits;
   }
 
-  setFullCredits(fullCredits) {
-    this.fullCredits = fullCredits;
-  }
+  getDetails({
+    $delayTimeInMilliSeconds = 0,
+    $maximunNumberOfTryToMakeAfterEachFailure = 3
+  } = {}) {
+    this.feedDelayTimeAndMaximumNumberOfRetryAfterEachFailure(
+      $delayTimeInMilliSeconds,
+      $maximunNumberOfTryToMakeAfterEachFailure
+    );
 
-  getFullCredits() {
-    if (!this.fullCredits)
-      _getFullCredits(this.movieId, (fullCredits) =>
-        this.setFullCredits(fullCredits)
-      );
+    for (let i = 0; i < this.$maximunNumberOfTryToMakeAfterEachFailure; ++i) {
+      try {
+        setTimeout(() => {
+          _getDetails(this.movieId(), (details) => {
+            this.details = details;
+          });
+        }, this.$delayTimeInMilliSeconds);
+      } catch (error) {
+        if (i + 1 !== this.$maximunNumberOfTryToMakeAfterEachFailure)
+          if (error instanceof ImdbHttpResponseException) continue;
 
-    return {
-      ...("id" in this.fullCredits && {
-        id: () => {
-          return this.fullCredits.id;
-        }
-      }),
-      ...("base" in this.fullCredits && {
-        base: () => {
-          return this.fullCredits.base;
-        }
-      }),
-      ...("cast" in this.fullCredits && {
-        cast: () => {
-          return this.fullCredits.cast;
-        }
-      }),
-      ...("crew" in this.fullCredits && {
-        crew: () => {
-          return {
-            ...("directory" in this.fullCredits && {
-              director: () => {
-                return this.fullCredits.crew.director;
-              }
-            }),
-            ...("producer" in this.fullCredits.crew && {
-              producer: () => {
-                return this.fullCredits.crew.producer;
-              }
-            })
-          };
-        }
-      })
-    };
-  }
+        throw error;
+      }
 
-  setDetails(details) {
-    this.details = details;
-  }
+      this.$delayTimeInMilliSeconds = 3000;
+    }
 
-  getDetails() {
-    if (!this.details)
-      _getDetails(this.movieId, (details) => this.setDetails(details));
-
-    return {
-      ...("@type" in this.details && {
-        type: () => {
-          return this.details["@type"];
-        }
-      }),
-      ...("id" in this.details && {
-        id: () => {
-          return this.details.id;
-        }
-      }),
-      ...("image" in this.details && {
-        image: () => {
-          return this.details.image;
-        }
-      }),
-      ...("runningTimeInMinutes" in this.details && {
-        runningTimeInMinutes: () => {
-          return this.details.runningTimeInMinutes;
-        }
-      }),
-      ...("nextEpisode" in this.details && {
-        nextEpisode: () => {
-          return this.details.nextEpisode;
-        }
-      }),
-      ...("numberOfEpisodes" in this.details && {
-        numberOfEpisodes: () => {
-          return this.details.numberOfEpisodes;
-        }
-      }),
-      ...("seriesEndYear" in this.details && {
-        seriesEndYear: () => {
-          return this.details.seriesEndYear;
-        }
-      }),
-      ...("seriesStartYear" in this.details && {
-        seriesStartYear: () => {
-          return this.details.seriesStartYear;
-        }
-      }),
-      ...("title" in this.details && {
-        title: () => {
-          return this.details.title;
-        }
-      }),
-      ...("titleType" in this.details && {
-        titleType: () => {
-          return this.details.titleType;
-        }
-      }),
-      ...("year" in this.details && {
-        year: () => {
-          return this.details.year;
-        }
-      })
-    };
+    return this.details;
   }
 }
 
