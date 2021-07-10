@@ -1,6 +1,7 @@
 import validator from "validator";
 
-import { is } from "../type/index.js";
+import { is } from "../com/type.js";
+import { sleepSync } from "../com/time.js";
 
 import { getTopCrew as _getTopCrew } from "../imdb/title/index.js";
 import { getTopCast as _getTopCast } from "../imdb/title/index.js";
@@ -20,30 +21,21 @@ class Movie {
     $delayTimeInMilliSeconds,
     $maximunNumberOfTryToMakeAfterEachFailure
   ) {
-    if (is($delayTimeInMilliSeconds).a(Number)) {
-      this.$delayTimeInMilliSeconds = $delayTimeInMilliSeconds;
-    } else if (
-      is($delayTimeInMilliSeconds).a(String) &&
-      validator.isNumeric($delayTimeInMilliSeconds)
-    ) {
-      this.$delayTimeInMilliSeconds = Number($delayTimeInMilliSeconds);
-    } else {
-      this.$delayTimeInMilliSeconds = 0;
-    }
+    this.$delayTimeInMilliSeconds = is($delayTimeInMilliSeconds).a(Number)
+      ? $delayTimeInMilliSeconds
+      : is($delayTimeInMilliSeconds).a(String) &&
+        validator.isNumeric($delayTimeInMilliSeconds)
+      ? Number($delayTimeInMilliSeconds)
+      : 0;
 
-    if (is($maximunNumberOfTryToMakeAfterEachFailure).a(Number)) {
-      this.$maximunNumberOfTryToMakeAfterEachFailure =
-        $maximunNumberOfTryToMakeAfterEachFailure;
-    } else if (
-      is($maximunNumberOfTryToMakeAfterEachFailure).a(String) &&
-      validator.isNumeric($maximunNumberOfTryToMakeAfterEachFailure)
-    ) {
-      this.$maximunNumberOfTryToMakeAfterEachFailure = Number(
-        $maximunNumberOfTryToMakeAfterEachFailure
-      );
-    } else {
-      this.$maximunNumberOfTryToMakeAfterEachFailure = 3;
-    }
+    this.$maximunNumberOfTryToMakeAfterEachFailure = is(
+      $maximunNumberOfTryToMakeAfterEachFailure
+    ).a(Number)
+      ? $maximunNumberOfTryToMakeAfterEachFailure
+      : is($maximunNumberOfTryToMakeAfterEachFailure).a(String) &&
+        validator.isNumeric($maximunNumberOfTryToMakeAfterEachFailure)
+      ? Number($maximunNumberOfTryToMakeAfterEachFailure)
+      : 3;
   }
 
   getMovieImageAttributes() {
@@ -85,11 +77,11 @@ class Movie {
 
     for (let i = 0; i < this.$maximunNumberOfTryToMakeAfterEachFailure; ++i) {
       try {
-        setTimeout(() => {
-          _getTopCast(this.movieId(), (casts) => {
-            this.topCasts = casts;
-          });
-        }, this.$delayTimeInMilliSeconds);
+        sleepSync(this.$delayTimeInMilliSeconds);
+
+        _getTopCast(this.movieId(), (casts) => {
+          this.topCasts = casts;
+        });
       } catch (error) {
         if (i + 1 !== this.$maximunNumberOfTryToMakeAfterEachFailure)
           if (error instanceof ImdbHttpResponseException) continue;
@@ -114,11 +106,11 @@ class Movie {
 
     for (let i = 0; i < this.$maximunNumberOfTryToMakeAfterEachFailure; ++i) {
       try {
-        setTimeout(() => {
-          _getTopCrew(this.movieId(), (crew) => {
-            this.topCrew = crew;
-          });
-        }, this.$delayTimeInMilliSeconds);
+        sleepSync(this.$delayTimeInMilliSeconds);
+
+        _getTopCrew(this.movieId(), (crew) => {
+          this.topCrew = crew;
+        });
       } catch (error) {
         if (i + 1 !== this.$maximunNumberOfTryToMakeAfterEachFailure)
           if (error instanceof ImdbHttpResponseException) continue;
@@ -143,11 +135,11 @@ class Movie {
 
     for (let i = 0; i < this.$maximunNumberOfTryToMakeAfterEachFailure; ++i) {
       try {
-        setTimeout(() => {
-          _getFullCredits(this.movieId(), (fullCredits) => {
-            this.fullCredits = fullCredits;
-          });
-        }, $delayTimeInMilliSeconds);
+        sleepSync(this.$delayTimeInMilliSeconds);
+
+        _getFullCredits(this.movieId(), (fullCredits) => {
+          this.fullCredits = fullCredits;
+        });
       } catch (error) {
         if (i + 1 !== this.$maximunNumberOfTryToMakeAfterEachFailure)
           if (error instanceof ImdbHttpResponseException) continue;
@@ -172,11 +164,11 @@ class Movie {
 
     for (let i = 0; i < this.$maximunNumberOfTryToMakeAfterEachFailure; ++i) {
       try {
-        setTimeout(() => {
-          _getDetails(this.movieId(), (details) => {
-            this.details = details;
-          });
-        }, this.$delayTimeInMilliSeconds);
+        sleepSync(this.$delayTimeInMilliSeconds);
+
+        _getDetails(this.movieId(), (details) => {
+          this.details = details;
+        });
       } catch (error) {
         if (i + 1 !== this.$maximunNumberOfTryToMakeAfterEachFailure)
           if (error instanceof ImdbHttpResponseException) continue;
